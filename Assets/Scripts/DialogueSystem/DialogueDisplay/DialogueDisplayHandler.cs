@@ -11,12 +11,6 @@ public class DialogueDisplayHandler : MonoBehaviour
 {
     [SerializeField]
     private GameObject border;
-    private Fade borderFade;
-    private Slide borderSlide;
-
-    // kill me
-    [SerializeField]
-    private Slide shadowSlide;
 
     /// <summary>
     /// Key used to pass from a line of dialogue to the next
@@ -92,10 +86,6 @@ public class DialogueDisplayHandler : MonoBehaviour
 
     private void Start()
     {
-        borderFade = border.GetComponent<Fade>();
-        borderSlide = border.GetComponent<Slide>();
-        shadowSlide = border.GetComponentInChildren<Slide>(true);
-
         if (playOnLoad)
             StartDialolgue(currentScript);
     }
@@ -138,8 +128,6 @@ public class DialogueDisplayHandler : MonoBehaviour
     public void StartDialolgue(IDialogueScript script)
     {
         border.SetActive(true);
-        borderSlide.OnSlide(true);
-        shadowSlide.OnSlide(true);
 
         currentScript = script;
         onStartDialogue?.Invoke(currentScript);
@@ -225,10 +213,6 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// </summary>
     private void EndDialogue()
     {
-        borderFade.DisableByFade();
-        borderSlide.OnSlide();
-        shadowSlide.OnSlide();
-
         StartCoroutine("EndDialogueDelay");
 
         inDialogue = false;
