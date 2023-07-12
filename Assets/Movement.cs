@@ -17,15 +17,22 @@ public class Movement : MonoBehaviour
     private Rigidbody _rigid;
     //Value that manages the input information
     private Vector2 _inputValue;
+    private Transform _cameraTransform;
 
     void Awake()
     {
-        _rigid = GetComponent<Rigidbody>();
+        _rigid = GetComponent<Rigidbody>();      
+    }
+
+    private void Start()
+    {
+        _cameraTransform = Camera.main.transform;
     }
 
     private void FixedUpdate()
     {
-        Vector3 movement = new Vector3(_inputValue.x, 0f, _inputValue.y);
+        Vector3 cameraForward = Vector3.Scale(_cameraTransform.forward, new Vector3(1, 0, 1)).normalized;
+        Vector3 movement = cameraForward * _inputValue.y + _cameraTransform.right * _inputValue.x;
         _rigid.velocity = movement * _movSpeed;
     }
 
