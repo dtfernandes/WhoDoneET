@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: NPCC
+  m_EditorClassIdentifier: 
+  DialogueName: NPCC
+  dialogueNodes:
+  - presetName: Default
+    guid: fa8396fa-de14-47f6-bd0d-b43ce248b2f7
+    dialogue: 'Those sewers... Those damned sewers...
+
+      If only I knew that
+      the left wing was the right
+
+      path... If only I didn''t enter that rat-infested
+
+      maze...
+      Ehmed...'
+    position:
+      serializedVersion: 2
+      x: 204.8
+      y: 63.2
+      width: 275.2
+      height: 158.4
+    isStart: 1
+    events: []
+    outPorts: []
