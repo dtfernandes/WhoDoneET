@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
+    [SerializeField] private CameraController _controller;
     [SerializeField] private Transform _inspectPosition;
     [SerializeField] private Transform playerCameraTransform;
     [SerializeField] private LayerMask pichUpLayerMask;
@@ -20,11 +21,13 @@ public class Interactor : MonoBehaviour
                 {
                     _grabbedObject = grab;
                     _grabbedObject.Grab(_inspectPosition);
+                    _controller.Inspect(grab);
                 }
         }
         else
         {
             _grabbedObject.Drop();
+            _controller.Inspect(null);
             _grabbedObject = null;
         }
     }

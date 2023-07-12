@@ -88,9 +88,9 @@ GameObject:
   - component: {fileID: 3570078749100920996}
   - component: {fileID: 3570078749100920997}
   - component: {fileID: 3570078749100921002}
+  - component: {fileID: 3570078749100920993}
   - component: {fileID: 3570078749100920992}
   - component: {fileID: 3570078749100920998}
-  - component: {fileID: 3570078749100920993}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -179,6 +179,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3570078749100920993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570078749100921003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc11fc59cf151234495dfdb58a208e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movSpeed: 5
 --- !u!114 &3570078749100920992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,19 +242,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &3570078749100920993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3570078749100921003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc11fc59cf151234495dfdb58a208e84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movSpeed: 5
 --- !u!1 &3570078750667454602
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 0.3
+  _rotationSpeed: 0
 --- !u!114 &7838866678862174696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21152cf17192a9d4aa1217f724cf7f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _controller: {fileID: 4530820981972139825}
   _inspectPosition: {fileID: 4498873062582995776}
   playerCameraTransform: {fileID: 3570078750667454599}
   pichUpLayerMask:

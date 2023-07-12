@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PickupableObject : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PickupableObject : MonoBehaviour
     private bool _isGrabbed;
     private float _lerpTime = 10f;
     private Rigidbody _rigid;
+
+
 
     private void Awake()
     {
@@ -36,7 +39,7 @@ public class PickupableObject : MonoBehaviour
         _isGrabbed = false;
         _inspectPosition = null;
         _rigid.velocity = Vector3.zero;
-        
+        GameSettings.Instance.isWorldStopped = false;
     }
 
     public void Grab(Transform inspectPosition)
@@ -44,6 +47,7 @@ public class PickupableObject : MonoBehaviour
         _isGrabbed = true;
         _inspectPosition = inspectPosition;
         _rigid.useGravity = false;
+        GameSettings.Instance.isWorldStopped = true;
     }
 
 }
