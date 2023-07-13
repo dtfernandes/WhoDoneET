@@ -18,16 +18,22 @@ public class Movement : MonoBehaviour
     //Value that manages the input information
     private Vector2 _inputValue;
     private Transform _cameraTransform;
+    private PlayerInput _playerInput;
 
     void Awake()
     {
-        _rigid = GetComponent<Rigidbody>();      
+        _rigid = GetComponent<Rigidbody>();
+        _playerInput = GetComponent<PlayerInput>();
+        _playerInput.ActivateInput();
     }
 
     private void Start()
     {
         _cameraTransform = Camera.main.transform;
     }
+
+    private void OnEnable() => _playerInput.enabled = true;
+    private void OnDisable() => _playerInput.enabled = false;
 
     private void FixedUpdate()
     {
