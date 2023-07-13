@@ -12,14 +12,16 @@ public class CameraController : MonoBehaviour
 
     private PickupableObject _inspectingObject;
     [SerializeField] private float _rotationSpeed;
-    Vector3 _mouseStartPosition;
+    Vector2 _mouseStartPosition;
     private bool _startInspect;
+    private PlayerInput _playerInput;
 
     // Start is called before the first frame update
     void Awake()
     {
         _playerTransform = transform.parent;
         Cursor.lockState = CursorLockMode.Locked;
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     public void Inspect(PickupableObject grab)
@@ -31,22 +33,17 @@ public class CameraController : MonoBehaviour
 
     private void OnLook(InputValue value)
     {
-        if (_startInspect)
-        {
-            _mouseStartPosition = value.Get<Vector2>(); 
-        }
 
         if (_inspectingObject)
         {
-            Vector3 currentMousePosition = value.Get<Vector2>();
-            Vector3 mouseInspectDelta = currentMousePosition - _mouseStartPosition;
+            Vector2 currentMousePosition = value.Get<Vector2>();
 
-            // Rotate the object based on mouse movement
-            _inspectingObject.transform.Rotate(Vector3.up, -mouseInspectDelta.x * _rotationSpeed * Time.deltaTime, Space.World);
+            float rotationX = currentMousePosition.y * _rotationSpeed ;
+            float rotationY = currentMousePosition.x * _rotationSpeed ;
 
-            _mouseStartPosition = currentMousePosition;
+            _inspectingObject.transform.Rotate(_inspectingObject.transform.up, rotationY, Space.World);
+            _inspectingObject.transform.Rotate(_inspectingObject.transform.right, rotationX, Space.World);       ;
         }
-
 
         if (GameSettings.Instance.isWorldStopped) return;
 
