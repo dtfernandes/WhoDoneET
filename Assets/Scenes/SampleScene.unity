@@ -424,22 +424,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 842356931006448608, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 842356931006448608, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 842356931006448608, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 842356931006448608, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3570078749100920992, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_Actions
       value: 
@@ -552,10 +536,6 @@ PrefabInstance:
       propertyPath: _controller
       value: 
       objectReference: {fileID: 830933252}
-    - target: {fileID: 8671462723215605966, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -2413806693520163455, guid: 1c9e9967463d7b64a9a1ce8528626cf8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
 --- !u!1001 &8433520425748085538
