@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 1548048865897295676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1562656378523489147}
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: 1c9e9967463d7b64a9a1ce8528626cf8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fabf8700fb1d09f429f68a5da33b946b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -358,10 +358,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controller: {fileID: 4530820981972139825}
   _inspectPosition: {fileID: 4498873062582995776}
-  playerCameraTransform: {fileID: 3570078750667454599}
-  pichUpLayerMask:
+  _interactLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  _interactorIcon: {fileID: 8671462723215605966}
+  _dialogueIcon: {fileID: 21300000, guid: fabf8700fb1d09f429f68a5da33b946b, type: 3}
+  _propIcon: {fileID: 21300000, guid: d0978491bd45f9d49b974aa5abda78cd, type: 3}
+  _generalIcon: {fileID: 0}
 --- !u!114 &1487217676295219493
 MonoBehaviour:
   m_ObjectHideFlags: 0

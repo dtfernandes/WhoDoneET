@@ -5,6 +5,13 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
+
+    [SerializeField]
+    private float lerpSpeed = 5f;
+
+    private DialogueInteractable dialogueObj;
+    private float desiredDistance;
+
     [SerializeField] private float _sensitivity = 2f;
     private float _xRotation = 0f;
     private Transform _playerTransform;
@@ -33,7 +40,6 @@ public class CameraController : MonoBehaviour
 
     private void OnLook(InputValue value)
     {
-
         if (_inspectingObject)
         {
             Vector2 currentMousePosition = value.Get<Vector2>();
@@ -42,7 +48,8 @@ public class CameraController : MonoBehaviour
             float rotationY = currentMousePosition.x * _rotationSpeed ;
 
             _inspectingObject.transform.Rotate(_inspectingObject.transform.up, rotationY, Space.World);
-            _inspectingObject.transform.Rotate(_inspectingObject.transform.right, rotationX, Space.World);       ;
+            _inspectingObject.transform.Rotate(_inspectingObject.transform.right, rotationX, Space.World);
+          
         }
 
         if (GameSettings.Instance.isWorldStopped) return;
@@ -57,5 +64,35 @@ public class CameraController : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
         _playerTransform.Rotate(Vector3.up * mouseX);
+    }
+
+
+    public void ZoomForDialogue(DialogueInteractable dialogueObj)
+    {
+        this.dialogueObj = dialogueObj;
+
+        // Get the bounds of the dialogue object
+        Renderer dialogueRenderer = dialogueObj.GetComponent<Renderer>();
+        Bounds dialogueBounds = dialogueRenderer.bounds;
+
+        // Calculate the size of the dialogue object
+        float dialogueSize = Mathf.Max(dialogueBounds.size.x, dialogueBounds.size.y, dialogueBounds.size.z);
+
+        // Calculate the desired distance based on the dialogue object size and camera field of view
+        desiredDistance = dialogueSize / (2f * Mathf.Tan(Mathf.Deg2Rad * Camera.main.fieldOfView / 2f));
+    }
+
+    private void Update()
+    {
+        if (dialogueObj != null)
+        {
+            // Set the camera's position to be in front of the dialogue object along its normal
+            Vector3 targetPosition = dialogueObj.transform.position + (dialogueObj.transform.forward * desiredDistance);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSpeed * Time.deltaTime);
+
+            // Rotate the camera to face the dialogue object while following its normal
+            Quaternion targetRotation = Quaternion.LookRotation(dialogueObj.transform.position - transform.position, dialogueObj.transform.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, lerpSpeed * Time.deltaTime);
+        }
     }
 }

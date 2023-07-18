@@ -51,7 +51,6 @@ public class PickupableObject : Interactable
         _isGrabbed = false;
         _inspectPosition = null;
         _rigid.velocity = Vector3.zero;
-        GameSettings.Instance.isWorldStopped = false;
         _moving = true;
     }
 
@@ -60,7 +59,6 @@ public class PickupableObject : Interactable
         _isGrabbed = true;
         _inspectPosition = inspectPosition;
         _rigid.useGravity = false;
-        GameSettings.Instance.isWorldStopped = true;
         _moving = true;
     }
 
