@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PickupableObject : MonoBehaviour
+public class PickupableObject : Interactable
 {
     private Vector3 _originalPos;
     private Vector3 _originalRot;
