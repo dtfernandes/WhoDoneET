@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70fcac7c77139c5449e920c912a78918, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
+  <isWorldStopped>k__BackingField: 0

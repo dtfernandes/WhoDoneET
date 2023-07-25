@@ -10,21 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
-  m_Name: NPCA
+  m_Name: InitialName
   m_EditorClassIdentifier: 
-  DialogueName: NPCA
+  DialogueName: InitialName
   dialogueNodes:
   - presetName: Default
-    guid: fa8396fa-de14-47f6-bd0d-b43ce248b2f7
-    dialogue: 'May the gods will unto us...
-
-      May the gods will unto us...'
+    guid: 7c2eb724-fc00-4570-8830-b2b449f08a3d
+    dialogue: I'm literaly a lil guy
     position:
       serializedVersion: 2
-      x: 204.8
-      y: 63.2
-      width: 214.40001
-      height: 129.6
+      x: 279
+      y: 149
+      width: 213
+      height: 118
     isStart: 1
     events: []
     outPorts: []

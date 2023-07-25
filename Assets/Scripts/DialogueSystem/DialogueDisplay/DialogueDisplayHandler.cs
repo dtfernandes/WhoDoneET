@@ -67,13 +67,13 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// <summary>
     /// Variable that defines if tha Dialogue has ended
     /// </summary>
-    private bool ended;
+    public bool Ended { get; private set; }
 
     /// <summary>
     /// Variable that defines if the current line of dialogue is 
     /// currenly beeing displayed
     /// </summary>
-    private bool inDialogue;
+    public bool InDialogue { get; private set; }
 
     [SerializeField]
     private bool playOnLoad = default;
@@ -98,9 +98,9 @@ public class DialogueDisplayHandler : MonoBehaviour
         if (Input.GetKeyDown(passDialogueKey))
         {
 
-            if (!inDialogue) return;
+            if (!InDialogue) return;
 
-            if (ended)
+            if (Ended)
             {
                 if ((dialogueLine.OutPorts?.Count ?? 0) > 0 )
                 {
@@ -110,11 +110,11 @@ public class DialogueDisplayHandler : MonoBehaviour
                 NextLine(0);
             }
             else
-            {              
+            {
                 dialogueDisplayTarget.text += dialogueText;
                 dialogueText = "";
                 buttonLayout.SetActive(true);
-                ended = true;
+                Ended = true;
                 StopCoroutine("TypeWriterEffect");
             }          
         }
@@ -214,8 +214,8 @@ public class DialogueDisplayHandler : MonoBehaviour
     private void EndDialogue()
     {
         StartCoroutine("EndDialogueDelay");
-
-        inDialogue = false;
+        border.SetActive(false);
+        InDialogue = false;
         dialogueDisplayTarget.text = "";
         StopCoroutine("TypeWriterEffect");
     }
@@ -238,8 +238,12 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// <returns></returns>
     IEnumerator TypeWriterEffect()
     {
-        inDialogue = true;
-        ended = false;
+        //Wait a bit so inputs don't overlap
+        yield return endDelay;
+
+        InDialogue = true;
+        Ended = false;
+        
         dialogueDisplayTarget.text = "";
         int index = 0;
         while (dialogueText.Length > 0)
@@ -284,7 +288,7 @@ public class DialogueDisplayHandler : MonoBehaviour
             dialogueDisplayTarget.text += nextChar;
             dialogueText = dialogueText.Substring(1);
         }
-        ended = true;
+        Ended = true;
         buttonLayout.SetActive(true);
     }
 
@@ -294,4 +298,5 @@ public class DialogueDisplayHandler : MonoBehaviour
         onEndDialogue?.Invoke();
 
     }
+
 }

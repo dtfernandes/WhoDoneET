@@ -38,7 +38,7 @@ public class Interactor : MonoBehaviour
     //Method that is triggered when the user uses the Interact key
     //Uses the new input system
     void OnInteract()
-    {          
+    {
         //Check if the player is looking at an object
         if (_focusItem != null)
         {
@@ -77,9 +77,13 @@ public class Interactor : MonoBehaviour
             //Check if the object is an object that can be talked to
             else if (_focusItem is DialogueInteractable)
             {
-                _gameSettings.isWorldStopped = true;
+              
                 DialogueInteractable _dialogueObj = _focusItem as DialogueInteractable;
-                _controller.ZoomForDialogue(_dialogueObj);
+                if(!_gameSettings.isWorldStopped)
+                     _controller.ZoomForDialogue(_dialogueObj);
+                _gameSettings.isWorldStopped = true;
+                _dialogueObj.onEndDialogue += _controller.ZoomOutDialogue;
+                _dialogueObj.StartDialogue();                
             }
         }    
     }
@@ -121,7 +125,6 @@ public class Interactor : MonoBehaviour
             _focusItem = null;
         }
     }
-
 
     //Gizmos
     private void OnDrawGizmos()

@@ -7,4 +7,7 @@ public class GameSettings : ScriptableSingletonObject<GameSettings>
 {
     [field:SerializeField]
     public bool isWorldStopped { get; set; }
+    public DialogueDisplayHandler DialogueHandler { get; internal set; }
+    [field: SerializeField]
+    public bool FirstLoad { get; internal set; }
 }
