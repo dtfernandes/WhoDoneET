@@ -109,6 +109,9 @@ namespace DialogueSystem.Editor
 
             #endregion
 
+            #region Entity Emotion Pop-Up
+
+            #endregion
 
             RegisterCallback<PointerDownEvent>((PointerDownEvent evt) =>
             {

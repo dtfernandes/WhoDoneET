@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
+using static Codice.CM.WorkspaceServer.WorkspaceTreeDataStore;
 
 namespace DialogueSystem.Editor
 {
@@ -14,7 +15,9 @@ namespace DialogueSystem.Editor
         // The variable to control where the scrollview 
         //'looks' into its child elements.
         Vector2 scrollPosition;
-        
+        private string searchKeyword = ""; // Variable to store the search keyword
+
+
         /// <summary>
         /// Method responsible for opening the EntityDataSystem Window 
         /// </summary>
@@ -32,11 +35,22 @@ namespace DialogueSystem.Editor
         private void OnGUI()
         {
 
-            
+            GUILayout.Space(10);
+
             if (GUILayout.Button("Add New Preset"))
             {
                 data.AddNewPreset();
             }
+
+            GUILayout.Space(10);
+
+            // Region: Search Bar
+            #region Search Bar
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Search: ");
+            searchKeyword = GUILayout.TextField(searchKeyword);
+            GUILayout.EndHorizontal();
+            #endregion
 
             GUILayout.Space(20);
 
@@ -44,38 +58,112 @@ namespace DialogueSystem.Editor
 
             for (int i = 0; i < data.data.Count; i++)
             {
+
+                if (searchKeyword != "")
+                {
+                    if (data.data[i].EntityName == "")
+                    {
+                        continue;
+                    }
+                    // Skip presets that do not match the search keyword
+                    if (!(data?.data[i]?.EntityName?.ToLower()?.Contains(searchKeyword.ToLower()) ?? true))
+                    {
+                        continue;
+                    }
+                }
+                
+
                 EntityInfo info = data.data[i];
 
-                DrawUILine(new Color(0.1f, 0.1f, 0.1f, 1), 2);
+                DrawUILine(new Color(0.1f, 0.1f, 0.1f, 1), 1, 0);
 
-                
-                if(GUILayout.Button($"Preset {i}", 
-                   new GUIStyle(GUI.skin.label)))
+                // Create a custom GUIStyle with the desired background color
+                GUIStyle customButtonStyle = new GUIStyle(GUI.skin.label);
+                customButtonStyle.normal.background = MakeTexture(1, 1, new Color(0.4f, 0.4f, 0.4f)); // Set the background color here
+                customButtonStyle.margin = new RectOffset(0,0,0,0);
+
+                string presetName = (info?.EntityName?.Trim() ?? "") == "" ? $"Preset {i}" : info.EntityName;
+
+                if (GUILayout.Button(presetName, customButtonStyle))
                 {
                     data.data[i].Hidden = !data.data[i].Hidden;
                 }
-                //GUILayout.Box(EditorGUIUtility.IconContent("PlayButton"));
 
+
+
+                // Hidable Content
                 if (data.data[i].Hidden)
                 {
-                    GUILayout.BeginHorizontal();
+                    GUIStyle contentStyle = new GUIStyle(GUI.skin.label);
+                    contentStyle.normal.background = MakeTexture(1, 1, new Color(0.3f, 0.3f, 0.3f)); // Set the background color here
+                    contentStyle.margin = new RectOffset(0, 0, 0, 0);
 
+                    GUILayout.BeginVertical(contentStyle);
+
+                    #region Entity Content
+                    GUILayout.Space(10);
+                    GUILayout.BeginHorizontal(GUILayout.Height(100));
+                    GUILayout.Space(10);
+                    GUILayout.BeginVertical();
+
+                    // Region: Entity Name
+                    #region Entity Name
                     info.EntityName = EditorGUILayout.TextField(info.EntityName,
                         GUILayout.Width(Math.Min(300, position.width - 120)));
-                    GUILayout.Space(10);
+                    #endregion
 
                     GUILayout.FlexibleSpace();
 
-                    info.EntitySprite =
-                    (Sprite)EditorGUILayout.ObjectField(obj: info.EntitySprite,
-                    objType: typeof(Sprite), false,
-                    GUILayout.Height(100), GUILayout.Width(100));
+                    // Region: Buttons
+                    #region Buttons
+                    GUILayout.BeginHorizontal();
+
+                    if (GUILayout.Button($"Open Settings"))
+                    {
+                       
+                    }
+
+                    GUIStyle redButtonStyle = new GUIStyle(GUI.skin.button);
+                    
+                    redButtonStyle.normal.textColor = Color.white; // Set text color to white
+                    redButtonStyle.fixedWidth = position.width * 0.1f;
+                    redButtonStyle.alignment = TextAnchor.MiddleCenter; // Center the text in the button
+
+                    if (GUILayout.Button($"X", redButtonStyle))
+                    {
+                        bool confirmed = EditorUtility.DisplayDialog("Confirm Removal", "Are you sure you want to remove the preset?", "Yes", "No");
+                        if (confirmed)
+                        {
+                            // Remove the preset when "Yes" is clicked
+                            data.RemovePresetAt(i);
+                        }
+                    }
 
                     GUILayout.EndHorizontal();
+                    #endregion
+
+                    GUILayout.EndVertical();
+                    GUILayout.FlexibleSpace();
+
+                    // Region: Entity Sprite
+                    #region Entity Sprite
+                    info.EntitySprite =
+                        (Sprite)EditorGUILayout.ObjectField(obj: info.EntitySprite,
+                        objType: typeof(Sprite), false,
+                        GUILayout.Height(100), GUILayout.Width(100));
+                    #endregion
+
+                    GUILayout.Space(10);
+
+                    GUILayout.EndHorizontal();
+                    #endregion
+
+                    GUILayout.Space(5);
+                    GUILayout.EndVertical();
                 }
             }
 
-            GUILayout.Space(5);
+
             GUILayout.EndScrollView();
         }
 
@@ -115,6 +203,21 @@ namespace DialogueSystem.Editor
             EditorGUI.DrawRect(r, color);
         }
 
-    }
 
+        private Texture2D MakeTexture(int width, int height, Color color)
+        {
+            Color[] pixels = new Color[width * height];
+            for (int i = 0; i < pixels.Length; i++)
+            {
+                pixels[i] = color;
+            }
+
+            Texture2D texture = new Texture2D(width, height);
+            texture.SetPixels(pixels);
+            texture.Apply();
+
+            return texture;
+        }
+    }
+  
 }

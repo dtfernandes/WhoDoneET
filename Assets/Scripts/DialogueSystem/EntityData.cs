@@ -50,6 +50,11 @@ namespace DialogueSystem
             data.Add(new EntityInfo());
         }
 
+        public void RemovePresetAt(int index)
+        {
+            data.RemoveAt(index);
+        }
+
         public EntityInfo this[string key]
         {
             get
