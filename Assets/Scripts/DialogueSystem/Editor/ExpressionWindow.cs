@@ -1,22 +1,27 @@
 using DialogueSystem;
+using System;
 using UnityEditor;
 using UnityEditor.PackageManager.UI;
+using UnityEditor.Presets;
 using UnityEngine;
 
 public class ExpressionWindow : EditorWindow
 {
-    private static EntityData _entityData;
+    private static EntityInfo _entityInfo;
     private static ExpressionPreset _expressionPreset;
 
     [MenuItem("Window/Expression Window")] // This will create a new menu item under "Window"
-    public static void ShowWindow(ExpressionPreset preset)
+    public static void ShowWindow(ExpressionPreset preset, EntityInfo entityInfo)
     {
         _expressionPreset = preset;
+        _entityInfo = entityInfo;
+
         // Get existing open window or if none, make a new one:
         ExpressionWindow window = (ExpressionWindow)EditorWindow.GetWindow(typeof(ExpressionWindow));
         window.titleContent = new GUIContent("Expression Preset");
-        EditorUtility.SetDirty(preset);
-
+        
+        if(preset != null)
+            EditorUtility.SetDirty(preset);
 
         window.Show();
     }
@@ -29,7 +34,20 @@ public class ExpressionWindow : EditorWindow
           
             if (GUILayout.Button("Create new Empty Preset"))
             {
-               
+                _expressionPreset = ScriptableObject.CreateInstance<ExpressionPreset>();
+
+                // Optionally, you can assign some initial values to the preset if needed.
+                // _expressionPreset.presetName = "New Preset";
+                // _expressionPreset.expressionValue = 0;
+
+                string expressionUD = Guid.NewGuid().ToString();
+
+                AssetDatabase.CreateAsset(_expressionPreset, $"Assets/Scripts/DialogueSystem/ExpressionPreset/NewExpression_{expressionUD}.asset");
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+                EditorUtility.FocusProjectWindow();
+
+                _entityInfo.Expressions = _expressionPreset;
             }
 
             return;
@@ -39,7 +57,6 @@ public class ExpressionWindow : EditorWindow
         {
             _expressionPreset.AddNewExpression();
         }
-
 
         if (_expressionPreset.Emotions == null)
         {

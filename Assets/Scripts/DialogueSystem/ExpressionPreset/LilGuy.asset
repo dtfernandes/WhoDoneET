@@ -15,3 +15,13 @@ MonoBehaviour:
   <Emotions>k__BackingField:
   - <EmotionName>k__BackingField: Lil Guy
     <Image>k__BackingField: {fileID: 21300000, guid: a1bbbb0ffd279a84aa4df227ef59808e, type: 3}
+  - <EmotionName>k__BackingField: Happy
+    <Image>k__BackingField: {fileID: 21300000, guid: a1bbbb0ffd279a84aa4df227ef59808e, type: 3}
+  - <EmotionName>k__BackingField: Angry
+    <Image>k__BackingField: {fileID: 21300000, guid: a1bbbb0ffd279a84aa4df227ef59808e, type: 3}
+  - <EmotionName>k__BackingField: Wack
+    <Image>k__BackingField: {fileID: 21300000, guid: a1bbbb0ffd279a84aa4df227ef59808e, type: 3}
+  - <EmotionName>k__BackingField: 
+    <Image>k__BackingField: {fileID: 21300000, guid: a1bbbb0ffd279a84aa4df227ef59808e, type: 3}
+  - <EmotionName>k__BackingField: 
+    <Image>k__BackingField: {fileID: 0}

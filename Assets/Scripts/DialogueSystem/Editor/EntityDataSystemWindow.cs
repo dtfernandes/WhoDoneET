@@ -1,22 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 using System;
-using static Codice.CM.WorkspaceServer.WorkspaceTreeDataStore;
 
 namespace DialogueSystem.Editor
 {
+    /// <summary>
+    /// Wnidow that display the dialogue entity data used in this project
+    /// </summary>
     public class EntityDataSystemWindow : EditorWindow 
     {
-
-        EntityData data;
-        SerializedObject serObj;
+        //List of entities
+        private EntityData _entityData;
         // The variable to control where the scrollview 
         //'looks' into its child elements.
-        Vector2 scrollPosition;
-        private string searchKeyword = ""; // Variable to store the search keyword
-
+        private Vector2 _scrollPosition;
+        // Variable to store the search keyword
+        private string _searchKeyword = "";
 
         /// <summary>
         /// Method responsible for opening the EntityDataSystem Window 
@@ -25,21 +24,33 @@ namespace DialogueSystem.Editor
         public static void OpenEntityDataWindow()
         {
             EntityDataSystemWindow window = GetWindow<EntityDataSystemWindow>();
+           
             window.titleContent = new GUIContent(text: "Entity Data");
-            window.data = GetEntityData();
-            EditorUtility.SetDirty(window.data);
-            DisplayData(window.data);
-        }
+           
+            //Get entity 
+            window._entityData = GetEntityData();
 
+            window.minSize = new Vector2(750, window.maxSize.y);
+           
+
+            EditorUtility.SetDirty(window._entityData);
+        }
 
         private void OnGUI()
         {
+
+            //Make sure there's no missing data error
+            if(_entityData == null)
+            {
+                EditorGUILayout.HelpBox("Missing Data. This shouldn't happen. Rah Rhow", MessageType.Error);
+                return;
+            }
 
             GUILayout.Space(10);
 
             if (GUILayout.Button("Add New Preset"))
             {
-                data.AddNewPreset();
+                _entityData.AddNewPreset();
             }
 
             GUILayout.Space(10);
@@ -48,154 +59,64 @@ namespace DialogueSystem.Editor
             #region Search Bar
             GUILayout.BeginHorizontal();
             GUILayout.Label("Search: ");
-            searchKeyword = GUILayout.TextField(searchKeyword);
+            _searchKeyword = GUILayout.TextField(_searchKeyword);
             GUILayout.EndHorizontal();
             #endregion
 
             GUILayout.Space(20);
 
-            scrollPosition = GUILayout.BeginScrollView(scrollPosition);
+            _scrollPosition = GUILayout.BeginScrollView(_scrollPosition);        
 
-            for (int i = 0; i < data.data.Count; i++)
+            for (int i = 0; i < _entityData.data.Count; i++)
             {
-
-                if (searchKeyword != "")
+                //Update list to the searched entities
+                if (_searchKeyword != "")
                 {
-                    if (data.data[i].EntityName == "")
+                    if (_entityData.data[i].EntityName == "")
                     {
                         continue;
                     }
                     // Skip presets that do not match the search keyword
-                    if (!(data?.data[i]?.EntityName?.ToLower()?.Contains(searchKeyword.ToLower()) ?? true))
+                    if (!(_entityData?.data[i]?.EntityName?.ToLower()?.Contains(_searchKeyword.ToLower()) ?? true))
                     {
                         continue;
                     }
                 }
                 
-
-                EntityInfo info = data.data[i];
-
-                DrawUILine(new Color(0.1f, 0.1f, 0.1f, 1), 1, 0);
+                EntityInfo info = _entityData.data[i];
+           
+                EditorAddOns.DrawUILine(new Color(0.1f, 0.1f, 0.1f, 1), 1, 0);
 
                 // Create a custom GUIStyle with the desired background color
                 GUIStyle customButtonStyle = new GUIStyle(GUI.skin.label);
-                customButtonStyle.normal.background = MakeTexture(1, 1, new Color(0.4f, 0.4f, 0.4f)); // Set the background color here
+                customButtonStyle.normal.background = EditorAddOns.MakeTexture(1, 1, new Color(0.4f, 0.4f, 0.4f)); // Set the background color here
                 customButtonStyle.margin = new RectOffset(0,0,0,0);
 
                 string presetName = (info?.EntityName?.Trim() ?? "") == "" ? $"Preset {i}" : info.EntityName;
 
                 if (GUILayout.Button(presetName, customButtonStyle))
                 {
-                    data.data[i].Hidden = !data.data[i].Hidden;
+                    _entityData.data[i].Hidden = !_entityData.data[i].Hidden;
                 }
 
-
-
                 // Hidable Content
-                if (data.data[i].Hidden)
+                if (_entityData.data[i].Hidden)
                 {
-                    GUIStyle contentStyle = new GUIStyle(GUI.skin.label);
-                    contentStyle.normal.background = MakeTexture(1, 1, new Color(0.3f, 0.3f, 0.3f)); // Set the background color here
-                    contentStyle.margin = new RectOffset(0, 0, 0, 0);
-
-                    GUILayout.BeginVertical(contentStyle);
-
-                    #region Entity Content
-                    GUILayout.Space(10);
-                    GUILayout.BeginHorizontal(GUILayout.Height(100));
-                    GUILayout.Space(10);
-                    GUILayout.BeginVertical();
-
-                    // Region: Entity Name
-                    #region Entity Name
-                    info.EntityName = EditorGUILayout.TextField(info.EntityName,
-                        GUILayout.Width(Math.Min(300, position.width - 120)));
-                    #endregion
-
-                    GUILayout.FlexibleSpace();
-
-                    // Region: Buttons
-                    #region Buttons
-                    GUILayout.BeginHorizontal();
-
-                    if (GUILayout.Button($"Open Settings"))
-                    {
-                        ExpressionWindow.ShowWindow(info.Expressions);
-                    }
-
-                    GUIStyle redButtonStyle = new GUIStyle(GUI.skin.button);
-                    
-                    redButtonStyle.normal.textColor = Color.white; // Set text color to white
-                    redButtonStyle.fixedWidth = position.width * 0.1f;
-                    redButtonStyle.alignment = TextAnchor.MiddleCenter; // Center the text in the button
-
-                    if (GUILayout.Button($"X", redButtonStyle))
-                    {
-                        bool confirmed = EditorUtility.DisplayDialog("Confirm Removal", "Are you sure you want to remove the preset?", "Yes", "No");
-                        if (confirmed)
-                        {
-                            // Remove the preset when "Yes" is clicked
-                            data.RemovePresetAt(i);
-                        }
-                    }
-
-                    GUILayout.EndHorizontal();
-                    #endregion
-
-                    GUILayout.EndVertical();
-                    GUILayout.FlexibleSpace();
-
-                    // Region: Entity Sprite
-                    #region Entity Sprite
-                    GUILayout.BeginVertical();
-                    info.Expressions =
-                       (ExpressionPreset)EditorGUILayout.ObjectField(obj: info.Expressions,
-                       objType: typeof(ExpressionPreset), false,
-                       GUILayout.Height(20), GUILayout.Width(100));
-
-                    Expression defaultExpression = info.Expressions?.Emotions?[0] ?? null;
-                    Sprite defaultSprite = null;
-                    if (defaultExpression != default)
-                    {
-                        defaultSprite = defaultExpression.Image;
-                    }
-                  
-                    EditorGUILayout.ObjectField(obj: defaultSprite,
-                        objType: typeof(Sprite), false,
-                        GUILayout.Height(100), GUILayout.Width(100));
-                    GUILayout.EndVertical();
-                    #endregion
-
-                    GUILayout.Space(10);
-
-                    GUILayout.EndHorizontal();
-                    #endregion
-
-                    GUILayout.Space(5);
-                    GUILayout.EndVertical();
+                    DrawEntityDataSlot(info, i);
                 }
             }
 
-
             GUILayout.EndScrollView();
         }
-
-        private static void DisplayData(EntityData data)
-        {
-            
-        }
-
+   
         private static EntityData GetEntityData()
-        {
-           
-            //AssetDatabase.DeleteAsset("Assets/DialogueSystem/Editor/Resources/EntityData.asset");           
+        {               
             EntityData[] foundObjects = Resources.LoadAll<EntityData>("");
 
             bool dataExists = foundObjects.Length > 0;
             
             if (!dataExists)
             {
-                Debug.Log("Curious");
                 EntityData asset = ScriptableObject.CreateInstance<EntityData>();
                 AssetDatabase.CreateAsset(asset,
                     "Assets/DialogueSystem/Editor/Resources/EntityData.asset");
@@ -204,33 +125,96 @@ namespace DialogueSystem.Editor
             return Resources.Load<EntityData>("EntityData");
         }
 
-        //alexanderamey
-        //https://forum.unity.com/threads/horizontal-line-in-editor-window.520812/
-        public static void DrawUILine(Color color, int thickness = 2, int padding = 10)
-        {
-            Rect r = EditorGUILayout.GetControlRect(GUILayout.Height(padding + thickness));
-            r.height = thickness;
-            r.y += padding / 2;
-            r.x -= 2;
-            r.width += 6;
-            EditorGUI.DrawRect(r, color);
-        }
 
-
-        private Texture2D MakeTexture(int width, int height, Color color)
+        /// <summary>
+        /// Draw a slot for a entity
+        /// </summary>
+        /// <param name="info">Info</param>
+        /// <param name="index">Index of the list</param>
+        private void DrawEntityDataSlot(EntityInfo info, int index)
         {
-            Color[] pixels = new Color[width * height];
-            for (int i = 0; i < pixels.Length; i++)
+            GUIStyle contentStyle = new GUIStyle(GUI.skin.label);
+            contentStyle.normal.background = EditorAddOns.MakeTexture(1, 1, new Color(0.3f, 0.3f, 0.3f)); // Set the background color here
+            contentStyle.margin = new RectOffset(0, 0, 0, 0);
+
+            GUILayout.BeginVertical(contentStyle);
+
+            #region Entity Content
+            GUILayout.Space(10);
+            GUILayout.BeginHorizontal(GUILayout.Height(100));
+            GUILayout.Space(10);
+            GUILayout.BeginVertical();
+
+            // Region: Entity Name
+            #region Entity Name
+            info.EntityName = EditorGUILayout.TextField(info.EntityName,
+                GUILayout.Width(Math.Min(300, position.width - 120)));
+            #endregion
+
+            GUILayout.FlexibleSpace();
+
+            // Region: Buttons
+            #region Buttons
+            GUILayout.BeginHorizontal();
+
+            if (GUILayout.Button("Open Settings"))
             {
-                pixels[i] = color;
+                ExpressionWindow.ShowWindow(info.Expressions, info);
             }
 
-            Texture2D texture = new Texture2D(width, height);
-            texture.SetPixels(pixels);
-            texture.Apply();
+            GUIStyle redButtonStyle = new GUIStyle(GUI.skin.button);
 
-            return texture;
+            redButtonStyle.normal.textColor = Color.white; // Set text color to white
+            redButtonStyle.fixedWidth = position.width * 0.1f;
+            redButtonStyle.alignment = TextAnchor.MiddleCenter; // Center the text in the button
+
+            if (GUILayout.Button($"X", redButtonStyle))
+            {
+                bool confirmed = EditorUtility.DisplayDialog("Confirm Removal", "Are you sure you want to remove the preset?", "Yes", "No");
+                if (confirmed)
+                {
+                    // Remove the preset when "Yes" is clicked
+                    _entityData.RemovePresetAt(index);
+                }
+            }
+
+            GUILayout.EndHorizontal();
+            #endregion
+
+            GUILayout.EndVertical();
+            GUILayout.FlexibleSpace();
+
+            // Region: Entity Sprite
+            #region Entity Sprite
+            GUILayout.BeginVertical();
+            info.Expressions =
+               (ExpressionPreset)EditorGUILayout.ObjectField(obj: info.Expressions,
+               objType: typeof(ExpressionPreset), false,
+               GUILayout.Height(20), GUILayout.Width(100));
+
+            Expression defaultExpression = info.Expressions?.Emotions?[0] ?? null;
+
+            Sprite defaultSprite = null;
+            if (defaultExpression != default)
+            {
+                defaultSprite = defaultExpression.Image;
+            }
+
+            EditorGUILayout.ObjectField(obj: defaultSprite,
+                objType: typeof(Sprite), false,
+                GUILayout.Height(100), GUILayout.Width(100));
+            GUILayout.EndVertical();
+            #endregion
+
+            GUILayout.Space(10);
+
+            GUILayout.EndHorizontal();
+            #endregion
+
+            GUILayout.Space(5);
+            GUILayout.EndVertical();
         }
+
     }
   
 }
