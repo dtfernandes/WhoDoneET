@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomUnusedString: I dont understand
   data:
-  - entityName: SpearGuy
-    entitySprite: {fileID: 0}
-  - entityName: BeatupGuy
-    entitySprite: {fileID: 0}
-  - entityName: Refugee1
-    entitySprite: {fileID: 0}
-  - entityName: Refugee2
-    entitySprite: {fileID: 0}
+  - <EntityName>k__BackingField: 
+    <Expressions>k__BackingField: {fileID: 0}
+    <Hidden>k__BackingField: 1
+  - <EntityName>k__BackingField: 
+    <Expressions>k__BackingField: {fileID: 0}
+    <Hidden>k__BackingField: 1
+  - <EntityName>k__BackingField: 
+    <Expressions>k__BackingField: {fileID: 0}
+    <Hidden>k__BackingField: 1

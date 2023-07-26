@@ -120,7 +120,7 @@ namespace DialogueSystem.Editor
 
                     if (GUILayout.Button($"Open Settings"))
                     {
-                       
+                        ExpressionWindow.ShowWindow(info.Expressions);
                     }
 
                     GUIStyle redButtonStyle = new GUIStyle(GUI.skin.button);
@@ -147,10 +147,23 @@ namespace DialogueSystem.Editor
 
                     // Region: Entity Sprite
                     #region Entity Sprite
-                    info.EntitySprite =
-                        (Sprite)EditorGUILayout.ObjectField(obj: info.EntitySprite,
+                    GUILayout.BeginVertical();
+                    info.Expressions =
+                       (ExpressionPreset)EditorGUILayout.ObjectField(obj: info.Expressions,
+                       objType: typeof(ExpressionPreset), false,
+                       GUILayout.Height(20), GUILayout.Width(100));
+
+                    Expression defaultExpression = info.Expressions?.Emotions?[0] ?? null;
+                    Sprite defaultSprite = null;
+                    if (defaultExpression != default)
+                    {
+                        defaultSprite = defaultExpression.Image;
+                    }
+                  
+                    EditorGUILayout.ObjectField(obj: defaultSprite,
                         objType: typeof(Sprite), false,
                         GUILayout.Height(100), GUILayout.Width(100));
+                    GUILayout.EndVertical();
                     #endregion
 
                     GUILayout.Space(10);

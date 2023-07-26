@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
@@ -100,21 +101,37 @@ namespace DialogueSystem.Editor
 
             PresetName = nd == null ? presetPopUp.value : nd.PresetName;
 
+            EntityInfo selectedInfo = data.data[firstSelected];
+
+            List<string> expressionNames = selectedInfo.Expressions.Emotions.Select(x => x.EmotionName).ToList();
+
+            PopupField<string> expressionPopUp = new PopupField<string>(expressionNames, firstSelected);
+
             presetPopUp.RegisterCallback<ChangeEvent<string>>((ChangeEvent<string> evt) =>
             {
                 PresetName = presetPopUp.value;
+
+           
+                if (PresetName != "Default")
+                {
+                    expressionPopUp.visible = true;
+                }
+                else
+                {
+                    expressionPopUp.visible = false;
+                }
+
+
                 EnableInspectorDisplay();
             });
             extensionContainer.Add(presetPopUp);
-
+            extensionContainer.Add(expressionPopUp);
+            expressionPopUp.visible = false;
             #endregion
 
-            #region Entity Emotion Pop-Up
-
-            #endregion
 
             RegisterCallback<PointerDownEvent>((PointerDownEvent evt) =>
-            {
+            {             
                 EnableInspectorDisplay();
             });
 
@@ -124,8 +141,9 @@ namespace DialogueSystem.Editor
 
         private DialogueNodeInspector inspector;
 
-        private void EnableInspectorDisplay()
-        {
+
+        private void EnableInspectorDisplay(){
+
             inspector =
                   ScriptableObject.CreateInstance("DialogueNodeInspector")
                        as DialogueNodeInspector;
@@ -140,7 +158,6 @@ namespace DialogueSystem.Editor
         {
             inspector.ChangeDialogue(evt.newValue, true);
         }
-
 
         private void InstatiateChoicePort(string choice = "", string id = "")
         {
