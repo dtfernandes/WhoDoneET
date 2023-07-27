@@ -15,9 +15,13 @@ namespace DialogueSystem.Editor
     public class DialogueNode : DefaultNode
     {
 
-        public string PresetName { get; set; }
+        /// <summary>
+        /// Name of the entity connected to this dialogue
+        /// </summary>
+        public int PresetName { get; private set; }
+        public int ExpresionID { get; private set; }
 
-        public TextField textfield;
+        public TextField TextField { get; set; }
        
         public List<EventTriggerData> Events { get; set; }
 
@@ -30,13 +34,16 @@ namespace DialogueSystem.Editor
         /// Property that defines if this node is connected to the Node "Start"
         /// </summary>
         public bool EntryPoint { get; set; }
-       
+
+        private DialogueNodeInspector inspector;
+
+
         private SavingWaitingList saveWatingList;
         public SavingWaitingList SaveWatingList { get => saveWatingList; set => saveWatingList = value; }
+      
 
         public DialogueNode(SavingWaitingList savingWaitingList, NodeData nd = null)
         {
-
             SaveWatingList = savingWaitingList;
 
             GUID = nd == null ? Guid.NewGuid().ToString() : nd.GUID;
@@ -62,7 +69,7 @@ namespace DialogueSystem.Editor
                                  
             //Create and Add a textField to input the dialogue
             TextField text = new TextField();
-            textfield = text;
+            TextField = text;
 
             text.RegisterCallback<ChangeEvent<string>>((ChangeEvent<string> evt) =>
             {
@@ -78,14 +85,25 @@ namespace DialogueSystem.Editor
             mainContainer.Insert(1, text);
        
             #region Entity Preset PopUp
+            
             //Load Entities and their presets 
             EntityData data = Resources.Load<EntityData>("EntityData");
             List<string> names = data.presetNames;
-            
+
             //Get the selected preset
             int firstSelected = 0;
-            if(nd != null) 
-                firstSelected = names.IndexOf(nd.PresetName);
+            int firstExpressionSelected = 0;
+            bool expressionVisibility = false;
+            if (nd != null)
+            {
+                firstSelected = nd.PresetName;
+                firstExpressionSelected = nd.ExpressionId;          
+            }
+
+            if (firstSelected != 0)
+            {
+                expressionVisibility = true;
+            }
 
             try
             {
@@ -99,20 +117,45 @@ namespace DialogueSystem.Editor
 
             PopupField<string> presetPopUp = new PopupField<string>(names, firstSelected);
 
-            PresetName = nd == null ? presetPopUp.value : nd.PresetName;
-
             EntityInfo selectedInfo = data.data[firstSelected];
+            List<string> expressionNames = new List<string> { };
 
-            List<string> expressionNames = selectedInfo.Expressions.Emotions.Select(x => x.EmotionName).ToList();
+            if (firstSelected != 0)
+            {
+                selectedInfo = data.data[firstSelected - 1];
+                expressionNames = selectedInfo.Expressions.Emotions.Select(x => x.EmotionName).ToList();              
+            }
 
-            PopupField<string> expressionPopUp = new PopupField<string>(expressionNames, firstSelected);
+            PopupField<string> expressionPopUp = new PopupField<string>(expressionNames, firstExpressionSelected);
+
+
+            PresetName = nd == null ? presetPopUp.index : nd.PresetName;
+            ExpresionID = nd == null ? expressionPopUp.index : nd.ExpressionId;
 
             presetPopUp.RegisterCallback<ChangeEvent<string>>((ChangeEvent<string> evt) =>
             {
-                PresetName = presetPopUp.value;
+                int selectedPresetIndex = presetPopUp.index;
 
-           
-                if (PresetName != "Default")
+
+                if (selectedPresetIndex != 0)
+                {
+                    EntityInfo selectedInfo = data.data[selectedPresetIndex - 1];
+
+                    List<string> expressionNames = selectedInfo.Expressions.Emotions.Select(x => x.EmotionName).ToList();
+
+                    expressionPopUp.choices = expressionNames;
+
+                    int selectedClampedIndex = Math.Clamp(expressionPopUp.index, 0, expressionNames.Count - 1);
+
+                    expressionPopUp.value = expressionNames[selectedClampedIndex];
+                
+                    ExpresionID = selectedClampedIndex;
+                }
+
+               
+                PresetName = selectedPresetIndex;
+
+                if (selectedPresetIndex != 0)
                 {
                     expressionPopUp.visible = true;
                 }
@@ -124,11 +167,20 @@ namespace DialogueSystem.Editor
 
                 EnableInspectorDisplay();
             });
+
+            expressionPopUp.RegisterCallback<ChangeEvent<string>>((ChangeEvent<string> evt) =>
+            {
+
+                ExpresionID = expressionPopUp.index;
+                EnableInspectorDisplay();
+            });
+
+
             extensionContainer.Add(presetPopUp);
             extensionContainer.Add(expressionPopUp);
-            expressionPopUp.visible = false;
+            expressionPopUp.visible = expressionVisibility;
+            
             #endregion
-
 
             RegisterCallback<PointerDownEvent>((PointerDownEvent evt) =>
             {             
@@ -136,11 +188,7 @@ namespace DialogueSystem.Editor
             });
 
             RefreshExpandedState();
-            //expanded = true;
         }
-
-        private DialogueNodeInspector inspector;
-
 
         private void EnableInspectorDisplay(){
 
@@ -150,8 +198,8 @@ namespace DialogueSystem.Editor
             inspector.init(this);
             Selection.activeObject = inspector;
 
-            textfield.UnregisterCallback<ChangeEvent<string>>(ChangeText);          
-            textfield.RegisterCallback<ChangeEvent<string>>(ChangeText);
+            TextField.UnregisterCallback<ChangeEvent<string>>(ChangeText);          
+            TextField.RegisterCallback<ChangeEvent<string>>(ChangeText);
         }
 
         private void ChangeText(ChangeEvent<string> evt)

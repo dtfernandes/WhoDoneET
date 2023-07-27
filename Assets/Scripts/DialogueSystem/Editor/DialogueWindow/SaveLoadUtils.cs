@@ -75,7 +75,8 @@ namespace DialogueSystem.Editor
                     dialogue: nd.DialogText,
                     outPorts: nd.OutPorts.Select(item => item.Clone()).ToList(),
                     events: nd.Events,
-                    presetNames: nd.PresetName
+                    presetNames: nd.PresetName,
+                    expressionId: nd.ExpresionID
                     );
 
                 temp.FillDialogueDic(data);

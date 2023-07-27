@@ -61,7 +61,7 @@ namespace DialogueSystem.Editor
             window.titleContent = new GUIContent(text: "Dialogue Graph");
 
         }
-
+    
         /// <summary>
         /// Method responsible for opening the Dialogue Window 
         /// where the node system is placed.
@@ -70,7 +70,7 @@ namespace DialogueSystem.Editor
         /// </summary>
         /// <param name="ds">Dialogue to be loaded</param>
         public static void OpenDialogueGraphWindow(DialogueScript ds)
-        {          
+        {
             DialogueGraph window = GetWindow<DialogueGraph>();
             window.Close();
             window = GetWindow<DialogueGraph>();

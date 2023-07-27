@@ -21,7 +21,7 @@ namespace DialogueSystem.Editor
         //[SerializeField]
         private EntityInfo entityInfo;
         
-        private string presetEntityName;
+        private int presetEntityName;
 
         private SavingWaitingList saveWaitingList;
         public SavingWaitingList SaveWaitingList { get => saveWaitingList; set => saveWaitingList = value; }
@@ -36,7 +36,7 @@ namespace DialogueSystem.Editor
             SaveWaitingList = dn.SaveWatingList;
 
             EntityData data = Resources.Load<EntityData>("EntityData");
-            entityInfo = data[presetEntityName];
+            entityInfo = data.data[presetEntityName];
 
         }
 
@@ -45,7 +45,7 @@ namespace DialogueSystem.Editor
 
             if (!fromTxt)
             {
-                node.textfield.value = newDialogue;
+                node.TextField.value = newDialogue;
                 node.DialogText = newDialogue;
                 //node.entityInfo = 
             }

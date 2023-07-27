@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace DialogueSystem.Editor
 {
+    /// <summary>
+    /// Class responsible for handling the default specifications 
+    /// of a node 
+    /// </summary>
     public abstract class DefaultNode : Node
     {
         /// <summary>
@@ -51,7 +55,6 @@ namespace DialogueSystem.Editor
             port.SetEnabled(false);
             return port;
         }
-
 
         /// <summary>
         /// Method responsible for changing the visibility mode of the node

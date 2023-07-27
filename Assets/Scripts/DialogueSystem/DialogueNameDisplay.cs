@@ -15,10 +15,12 @@ public class DialogueNameDisplay : MonoBehaviour
     {
         textComponent = GetComponent<TextMeshProUGUI>();
 
+        EntityData presetdata = Resources.Load<EntityData>("EntityData");
+
         ddHandler.onStartLine += (NodeData data) =>
         {
-            if (data.PresetName != "Default")
-                textComponent.text = data.PresetName;
+            if (data.PresetName != 0)
+                textComponent.text = presetdata.presetNames[data.PresetName];
             else
                 textComponent.text = "";
         };

@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: CopTest
+  m_EditorClassIdentifier: 
+  DialogueName: CopTest
+  dialogueNodes:
+  - presetName: 
+    guid: 536765b9-4ce3-4911-ace8-1cd6649b8aca
+    dialogue: I'm a Cop
+    position:
+      serializedVersion: 2
+      x: 232
+      y: 109
+      width: 246
+      height: 138
+    isStart: 1
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 993e55a1-3396-40fc-86f5-0f628117069e
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: 993e55a1-3396-40fc-86f5-0f628117069e
+    dialogue: But I'm also a guy
+    position:
+      serializedVersion: 2
+      x: 478
+      y: 109
+      width: 246
+      height: 138
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 54bf770f-0363-448e-9226-02cec9600ab9
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: 54bf770f-0363-448e-9226-02cec9600ab9
+    dialogue: A guy cop
+    position:
+      serializedVersion: 2
+      x: 739
+      y: 109
+      width: 246
+      height: 138
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: c8eead39-be79-4bf0-9c19-65079b996e46
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 1
+  - presetName: 
+    guid: c8eead39-be79-4bf0-9c19-65079b996e46
+    dialogue: Don't do crime
+    position:
+      serializedVersion: 2
+      x: 1003
+      y: 109
+      width: 213
+      height: 138
+    isStart: 0
+    events: []
+    outPorts: []
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 2

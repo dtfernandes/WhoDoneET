@@ -22,8 +22,7 @@ namespace DialogueSystem.Editor
       
         private SavingWaitingList saveWatingList;
         public SavingWaitingList SaveWatingList { get => saveWatingList; set => saveWatingList = value; }
-
-       
+              
         /// <summary>
         /// Constructor of this class
         /// </summary>
@@ -126,7 +125,6 @@ namespace DialogueSystem.Editor
         }
 
         //LOAD DIALOGUE SCRIPT
-
 
         /// <summary>
         /// Method responsible for adding the ports connections to the window

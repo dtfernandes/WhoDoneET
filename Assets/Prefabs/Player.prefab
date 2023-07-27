@@ -224,9 +224,7 @@ GameObject:
   - component: {fileID: 3570078749100920997}
   - component: {fileID: 3570078749100921002}
   - component: {fileID: 3570078749100920998}
-  - component: {fileID: 6592390614578647458}
   - component: {fileID: 3570078749100920993}
-  - component: {fileID: 7032516025133707717}
   - component: {fileID: 3570078749100920992}
   m_Layer: 0
   m_Name: Player
@@ -332,22 +330,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &6592390614578647458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3570078749100921003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 539beebefc021cd42b7a27ee6a04e002, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 3570078750667454596}
-  lerpSpeed: 5
-  _sensitivity: 0.3
-  _rotationSpeed: 0
 --- !u!114 &3570078749100920993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,27 +343,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movSpeed: 5
---- !u!114 &7032516025133707717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3570078749100921003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21152cf17192a9d4aa1217f724cf7f1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _controller: {fileID: 6592390614578647458}
-  _inspectPosition: {fileID: 4498873062582995776}
-  _interactLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  _interactorIcon: {fileID: 8671462723215605966}
-  _dialogueIcon: {fileID: 21300000, guid: fabf8700fb1d09f429f68a5da33b946b, type: 3}
-  _propIcon: {fileID: 21300000, guid: d0978491bd45f9d49b974aa5abda78cd, type: 3}
-  _generalIcon: {fileID: 0}
 --- !u!114 &3570078749100920992
 MonoBehaviour:
   m_ObjectHideFlags: 0

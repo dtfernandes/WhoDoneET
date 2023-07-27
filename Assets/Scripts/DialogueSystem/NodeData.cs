@@ -85,8 +85,11 @@ namespace DialogueSystem
         /// </summary>
         public List<ChoiceData> OutPorts => outPorts;
 
-        public string PresetName { get => presetName; private set => presetName = value; }
+         [field:SerializeField] [HideInInspector]
+        public int PresetName { get; private set; }
 
+        [field:SerializeField] [HideInInspector]
+        public int ExpressionId { get; private set; }
 
         /// <summary>
         /// Constructor for this class
@@ -98,7 +101,7 @@ namespace DialogueSystem
         /// to the "Start"</param>
         /// <param name="outPorts">List of Choice data connected to the node</param>
         public NodeData(string guID, string dialogue, Rect pos, bool start, ICollection<ChoiceData> outPorts, 
-            List<EventTriggerData> events, string presetNames = "default")
+            List<EventTriggerData> events, int presetNames = -1, int expressionId = -1)
         {
             isStart = start;
             position = pos;
@@ -107,6 +110,7 @@ namespace DialogueSystem
             this.outPorts = outPorts as List<ChoiceData>;
             this.events = events;
             PresetName = presetNames;
+            ExpressionId = expressionId;    
         }
     }
 }
