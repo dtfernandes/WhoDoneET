@@ -37,8 +37,11 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameSettings.Instance.isWorldStopped) return;
-
+        if (GameSettings.Instance.isWorldStopped)
+        {
+            _rigid.velocity = Vector3.zero;
+            return;
+        }
         Vector3 cameraForward = Vector3.Scale(_cameraTransform.forward, new Vector3(1, 0, 1)).normalized;
         Vector3 movement = cameraForward * _inputValue.y + _cameraTransform.right * _inputValue.x;
         _rigid.velocity = movement * _movSpeed;

@@ -388,6 +388,9 @@ GameObject:
   - component: {fileID: 3570078750667454599}
   - component: {fileID: 3570078750667454596}
   - component: {fileID: 3570078750667454597}
+  - component: {fileID: 4804717210815993444}
+  - component: {fileID: 6740570978139627474}
+  - component: {fileID: 154055628791534553}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -462,6 +465,76 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3570078750667454602}
   m_Enabled: 1
+--- !u!114 &4804717210815993444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570078750667454602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539beebefc021cd42b7a27ee6a04e002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lerpSpeed: 5
+  _sensitivity: 0.3
+  _rotationSpeed: 0
+--- !u!114 &6740570978139627474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570078750667454602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21152cf17192a9d4aa1217f724cf7f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 4804717210815993444}
+  _inspectPosition: {fileID: 4498873062582995776}
+  _interactLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  _interactorIcon: {fileID: 8671462723215605966}
+  _dialogueIcon: {fileID: 21300000, guid: fabf8700fb1d09f429f68a5da33b946b, type: 3}
+  _propIcon: {fileID: 21300000, guid: d0978491bd45f9d49b974aa5abda78cd, type: 3}
+  _generalIcon: {fileID: 0}
+--- !u!114 &154055628791534553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570078750667454602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: e0bb467e0bbe6b24e8e2463827b0d970, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 346261cf-cfe5-4d62-aafe-b8a765c91425
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 3570078750667454596}
 --- !u!1 &4732782447253533269
 GameObject:
   m_ObjectHideFlags: 0

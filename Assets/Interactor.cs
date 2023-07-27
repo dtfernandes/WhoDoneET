@@ -82,7 +82,7 @@ public class Interactor : MonoBehaviour
                 if(!_gameSettings.isWorldStopped)
                      _controller.ZoomForDialogue(_dialogueObj);
                 _gameSettings.isWorldStopped = true;
-                _dialogueObj.onEndDialogue += _controller.ZoomOutDialogue;
+                _dialogueObj.OnEndDialogue += _controller.ZoomOutDialogue;
                 _dialogueObj.StartDialogue();                
             }
         }    

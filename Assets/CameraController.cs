@@ -43,7 +43,10 @@ public class CameraController : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, _desiredPosition, _lerpSpeed * Time.deltaTime);
 
             // Rotate the camera to face the dialogue object while following its normal
-            Quaternion targetRotation = Quaternion.LookRotation(_dialogueObj.transform.position - transform.position, _dialogueObj.transform.up);
+
+            Vector3 position = _dialogueObj.transform.position + _dialogueObj.Config.Center;
+
+            Quaternion targetRotation = Quaternion.LookRotation(position - transform.position, _dialogueObj.transform.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _lerpSpeed * Time.deltaTime);
         }
 
@@ -96,17 +99,26 @@ public class CameraController : MonoBehaviour
         _originalPosition = transform.position;
         this._dialogueObj = dialogueObj;
 
+        float top = dialogueObj.Config.Top;
+        float down = dialogueObj.Config.Down;
+
         // Get the bounds of the dialogue object
         Renderer dialogueRenderer = dialogueObj.GetComponent<Renderer>();
         Bounds dialogueBounds = dialogueRenderer.bounds;
 
+
         // Calculate the size of the dialogue object
         float dialogueSize = Mathf.Max(dialogueBounds.size.x, dialogueBounds.size.y, dialogueBounds.size.z);
+
+        if (top != 0 || down != 0)
+        {
+            dialogueSize = top - down;
+        }
 
         // Calculate the desired distance based on the dialogue object size and camera field of view
         float desiredDistance = dialogueSize / (2f * Mathf.Tan(Mathf.Deg2Rad * Camera.main.fieldOfView / 2f));
         // Set the camera's position to be in front of the dialogue object along its normal
-        _desiredPosition = dialogueObj.transform.position + (dialogueObj.transform.forward * desiredDistance);
+        _desiredPosition = (dialogueObj.transform.position + dialogueObj.Config.Center) + (dialogueObj.transform.forward * desiredDistance);
     }
 
     public void ZoomOutDialogue()
