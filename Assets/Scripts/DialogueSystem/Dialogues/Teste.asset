@@ -16,7 +16,7 @@ MonoBehaviour:
   dialogueNodes:
   - presetName: 
     guid: c90ae67b-83ed-488b-b088-686349959845
-    dialogue: Teret
+    dialogue: Eu sou um copo
     position:
       serializedVersion: 2
       x: 235
@@ -26,5 +26,5 @@ MonoBehaviour:
     isStart: 1
     events: []
     outPorts: []
-    <PresetName>k__BackingField: 1
+    <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: 1

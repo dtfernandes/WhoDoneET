@@ -114,6 +114,9 @@ public class Interactor : MonoBehaviour
                 DialogueScript description = obj.Description;
                 DialogueDisplayHandler ddh = _gameSettings.DialogueHandler;
                 ddh.StartDialolgue(description);
+                _grabbedObject = null;
+
+
                 ddh.onEndDialogue -= EndDescription;
                 ddh.onEndDialogue += EndDescription;
             }
@@ -121,6 +124,7 @@ public class Interactor : MonoBehaviour
 
         void EndDescription()
         {
+            _grabbedObject = _focusItem as PickupableObject;
             //Setup Camera
             _controller.Inspect(_grabbedObject);
         }
