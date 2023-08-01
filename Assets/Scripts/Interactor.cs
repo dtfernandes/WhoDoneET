@@ -1,4 +1,5 @@
 using DialogueSystem;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -97,6 +98,31 @@ public class Interactor : MonoBehaviour
             _controller.ZoomOutDialogue();
             Cursor.lockState = CursorLockMode.Locked;
             _interactorIcon.gameObject.SetActive(true);
+        }
+    }
+
+    void OnInspect()
+    {
+        //Check if the player is looking at an object
+        if (_focusItem != null)
+        {
+            //Check if the object is an object that can be pick up
+            if (_focusItem is PickupableObject)
+            {
+                PickupableObject obj = _focusItem as PickupableObject;
+                _controller.Stop();
+                DialogueScript description = obj.Description;
+                DialogueDisplayHandler ddh = _gameSettings.DialogueHandler;
+                ddh.StartDialolgue(description);
+                ddh.onEndDialogue -= EndDescription;
+                ddh.onEndDialogue += EndDescription;
+            }
+        }
+
+        void EndDescription()
+        {
+            //Setup Camera
+            _controller.Inspect(_grabbedObject);
         }
     }
 

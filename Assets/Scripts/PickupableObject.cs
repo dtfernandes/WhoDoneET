@@ -1,5 +1,6 @@
+using DialogueSystem;
+using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PickupableObject : Interactable
 {
@@ -12,6 +13,9 @@ public class PickupableObject : Interactable
     private bool _moving;
 
 
+    [field: Header("Dialogue")][field: SerializeField]
+    public DialogueScript Description { get; private set; }
+
     private void Awake()
     {
         _originalPos = transform.position;
@@ -22,6 +26,7 @@ public class PickupableObject : Interactable
     private void Update()
     {
         if (!_moving) return;
+
         if (_isGrabbed && _inspectPosition != null)
         {
             // Interpolate the position to the inspect position

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -64,8 +65,10 @@ public class CameraController : MonoBehaviour
 
     private void OnLook(InputValue value)
     {
+       
         if (_inspectingObject)
         {
+
             Vector2 currentMousePosition = value.Get<Vector2>();
 
             float rotationX = currentMousePosition.y * _rotationSpeed;
@@ -73,9 +76,12 @@ public class CameraController : MonoBehaviour
 
             _inspectingObject.transform.Rotate(_inspectingObject.transform.up, rotationY, Space.World);
             _inspectingObject.transform.Rotate(_inspectingObject.transform.right, rotationX, Space.World);
+
+
         }
 
         if (GameSettings.Instance.isWorldStopped) return;
+
 
         Vector2 mouseDelta = value.Get<Vector2>();
 
@@ -128,4 +134,8 @@ public class CameraController : MonoBehaviour
 
     }
 
+    public void Stop()
+    {
+        _inspectingObject = null;
+    }
 }
