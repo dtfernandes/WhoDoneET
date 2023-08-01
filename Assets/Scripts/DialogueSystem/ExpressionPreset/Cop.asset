@@ -15,7 +15,7 @@ MonoBehaviour:
   <Emotions>k__BackingField:
   - <EmotionName>k__BackingField: Normal
     <Image>k__BackingField: {fileID: 21300000, guid: a1f8f8bfc4ce3044b88937fe10ce022a, type: 3}
-  - <EmotionName>k__BackingField: Happ
+  - <EmotionName>k__BackingField: Happy
     <Image>k__BackingField: {fileID: 21300000, guid: a7e03188ae035df44bf74b28f2ad8dff, type: 3}
   - <EmotionName>k__BackingField: Angry
     <Image>k__BackingField: {fileID: 21300000, guid: b3871d06008ee294494d1e3d03d0569b, type: 3}

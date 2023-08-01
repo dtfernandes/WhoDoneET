@@ -1,5 +1,7 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class responsible for managing the behaviours of a Choice Button
@@ -32,6 +34,10 @@ public class ChoiceSelector : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI textDisplay = default;
 
+    [SerializeField]
+    private Button _button;
+
+
     /// <summary>
     /// Method responsible for changing the text conponent of the 
     /// choice object
@@ -49,5 +55,13 @@ public class ChoiceSelector : MonoBehaviour
     public void SelectChoice()
     {
         NextLine(ChoiceNumb);
+    }
+
+    public void SetHighlight(bool toggle)
+    {
+        if(toggle)
+            _button.targetGraphic.color = _button.colors.highlightedColor;
+        else
+            _button.targetGraphic.color = _button.colors.normalColor;
     }
 }

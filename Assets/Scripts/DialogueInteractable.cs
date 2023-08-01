@@ -31,6 +31,8 @@ public class DialogueInteractable: Interactable
 
     public void StartDialogue()
     {
+       
+
         _dHandler = GameSettings.Instance.DialogueHandler;
         if (!_dHandler.InDialogue)
         {

@@ -125,6 +125,7 @@ public class CameraController : MonoBehaviour
     {
         _dialogueObj = null;
         _zoomOut = true;
+
     }
 
 }

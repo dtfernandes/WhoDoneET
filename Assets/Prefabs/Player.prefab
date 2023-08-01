@@ -622,6 +622,8 @@ GameObject:
   - component: {fileID: 2335628439803715199}
   - component: {fileID: 7365063391419425317}
   - component: {fileID: 1712292537083056988}
+  - component: {fileID: 7035221392775029380}
+  - component: {fileID: 7397990229444870548}
   m_Layer: 5
   m_Name: DDisplay
   m_TagString: Untagged
@@ -675,12 +677,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   border: {fileID: 4732782447253533269}
-  passDialogueKey: 323
+  _control: 0
   dialogueDisplayTarget: {fileID: 7611064732765706664}
   displaySpeed: 0.035
   buttonLayout: {fileID: 5977339414450131277}
   buttonPREFAB: {fileID: 5384297829809235215, guid: 21273f440f7a9b2439f983dab0d20978, type: 3}
   playOnLoad: 0
+--- !u!114 &7035221392775029380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966170451823469353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47929e8bdf2fe76419075e0a07d8614a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueInteractables:
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &7397990229444870548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966170451823469353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: e0bb467e0bbe6b24e8e2463827b0d970, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 3570078750667454596}
 --- !u!1 &5261633925623220733
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +917,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2471560616764571441}
-  - component: {fileID: 8616442905436799277}
+  - component: {fileID: 1972720402087767087}
   m_Layer: 5
   m_Name: OptionsLayout
   m_TagString: Untagged
@@ -895,10 +942,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0021362, y: -67.1}
-  m_SizeDelta: {x: 1918.7039, y: 134.295}
+  m_AnchoredPosition: {x: -5.5744, y: -31.4377}
+  m_SizeDelta: {x: 1577.6831, y: 138.7528}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8616442905436799277
+--- !u!114 &1972720402087767087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -907,7 +954,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5977339414450131277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
@@ -915,14 +962,14 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 0
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
+  m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
 --- !u!1 &6047951768880501401
 GameObject:

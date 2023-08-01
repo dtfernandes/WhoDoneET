@@ -3508,11 +3508,6 @@ Transform:
   m_Father: {fileID: 896405595}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1181516893 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4966170451823469353, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
-  m_PrefabInstance: {fileID: 2101913829}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1182347474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5200,7 +5195,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1610624769
 GameObject:
@@ -5268,7 +5263,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1617785628
 GameObject:
@@ -5692,27 +5687,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1712292537083056988, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
   m_PrefabInstance: {fileID: 2101913829}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181516893}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a61335eb853a1e54ab3a46aed02ad453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1731142435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181516893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47929e8bdf2fe76419075e0a07d8614a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dialogueInteractables:
-  - {fileID: 578483101}
-  - {fileID: 1588982798}
 --- !u!4 &1758719006 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3570078749100920999, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
@@ -6466,8 +6446,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 154055628791534553, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 842356931006448608, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972720402087767087, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_ChildScaleWidth
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2044839834774838473, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
@@ -6586,6 +6574,14 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 7035221392775029380, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: _dialogueInteractables.Array.data[0]
+      value: 
+      objectReference: {fileID: 578483101}
+    - target: {fileID: 7035221392775029380, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: _dialogueInteractables.Array.data[1]
+      value: 
+      objectReference: {fileID: 1588982798}
     - target: {fileID: 7173847623873708510, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_Enabled
       value: 0

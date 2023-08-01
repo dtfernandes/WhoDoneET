@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using DialogueSystem;
 using TMPro;
-using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 //Class responsible for the handling of the Dialogue Display
 public class DialogueDisplayHandler : MonoBehaviour
@@ -12,11 +11,8 @@ public class DialogueDisplayHandler : MonoBehaviour
     [SerializeField]
     private GameObject border;
 
-    /// <summary>
-    /// Key used to pass from a line of dialogue to the next
-    /// </summary>
     [SerializeField]
-    private KeyCode passDialogueKey = default;
+    private Control _control;
 
     /// <summary>
     /// Text component responsible for displaying the Dialogue text
@@ -84,42 +80,16 @@ public class DialogueDisplayHandler : MonoBehaviour
 
     private WaitForSeconds endDelay = new WaitForSeconds(0.01f);
 
+    //Choice being selected during the dialogue
+    private int _currentChoiceIndex;
+    private List<ChoiceSelector> _choices;
+
     private void Start()
     {
+        _choices = new List<ChoiceSelector>();
         if (playOnLoad)
             StartDialolgue(currentScript);
     }
-
-    /// <summary>
-    /// Update is called once per frame
-    /// </summary>
-    void Update()
-    {
-        if (Input.GetKeyDown(passDialogueKey))
-        {
-
-            if (!InDialogue) return;
-
-            if (Ended)
-            {
-                if ((dialogueLine.OutPorts?.Count ?? 0) > 0 )
-                {
-                    if (dialogueLine.OutPorts[0].ChoiceText != "") return;
-                }
-                
-                NextLine(0);
-            }
-            else
-            {
-                dialogueDisplayTarget.text += dialogueText;
-                dialogueText = "";
-                buttonLayout.SetActive(true);
-                Ended = true;
-                StopCoroutine("TypeWriterEffect");
-            }          
-        }
-    }
-
 
     /// <summary>
     /// Method responsible for switching to the passed DialogueScript
@@ -158,14 +128,18 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// </summary>
     private void InstatiateChoices()
     {
-
+        //Delete all instatiated buttons
         foreach (Transform g in buttonLayout.transform)
         {
             Destroy(g.gameObject);
         }
 
+        _choices.Clear();
+
+        //Get the amount of choices in the dialogue
         int choiceNumb = dialogueLine.OutPorts?.Count ?? 0;
         if (choiceNumb == 0) return;
+
 
         for (int i = 0; i < choiceNumb; i++)
         {
@@ -177,10 +151,14 @@ public class DialogueDisplayHandler : MonoBehaviour
             cs.ChangeChoiceText(dialogueLine.OutPorts[i].ChoiceText);
             cs.ChoiceNumb = i;
             cs.NextLine = NextLine;
+            _choices.Add(cs);
         }
 
-        buttonLayout.SetActive(false);
+        if (_control == Control.FullKeyboard)
+            _choices[0].SetHighlight(true);
 
+        buttonLayout.SetActive(false);
+      
     }
 
 
@@ -214,8 +192,7 @@ public class DialogueDisplayHandler : MonoBehaviour
     private void EndDialogue()
     {
         StartCoroutine("EndDialogueDelay");
-        border.SetActive(false);
-        InDialogue = false;
+        border.SetActive(false);     
         dialogueDisplayTarget.text = "";
         StopCoroutine("TypeWriterEffect");
     }
@@ -296,7 +273,60 @@ public class DialogueDisplayHandler : MonoBehaviour
     {
         yield return endDelay;
         onEndDialogue?.Invoke();
+        InDialogue = false;
+    }
 
+
+
+    void OnMove(InputValue value)
+    {
+        if (!InDialogue) return;
+        if (_control != Control.FullKeyboard) return;
+
+
+        _choices[_currentChoiceIndex].SetHighlight(false);
+
+        Vector2 inputVector = value.Get<Vector2>();
+        float moveInput = inputVector.y;
+
+
+        int listLenght = _choices.Count;
+
+        //Select option
+        if (moveInput > 0) // Move to the next index
+        {
+            _currentChoiceIndex = (_currentChoiceIndex + 1) % listLenght;
+        }
+        else if (moveInput < 0) // Move to the previous index
+        {
+            _currentChoiceIndex = (_currentChoiceIndex - 1 + listLenght) % listLenght;
+        }
+
+
+        _choices[_currentChoiceIndex].SetHighlight(true);
+    }
+
+    void OnInteract()
+    {
+        if (!InDialogue) return;
+
+        if (Ended)
+        {
+            if ((dialogueLine.OutPorts?.Count ?? 0) > 0)
+            {
+                if (dialogueLine.OutPorts[0].ChoiceText != "") return;
+            }
+
+            NextLine(0);
+        }
+        else
+        {
+            dialogueDisplayTarget.text += dialogueText;
+            dialogueText = "";
+            buttonLayout.SetActive(true);
+            Ended = true;
+            StopCoroutine("TypeWriterEffect");
+        }
     }
 
 }

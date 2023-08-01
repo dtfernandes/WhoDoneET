@@ -82,10 +82,22 @@ public class Interactor : MonoBehaviour
                 if(!_gameSettings.isWorldStopped)
                      _controller.ZoomForDialogue(_dialogueObj);
                 _gameSettings.isWorldStopped = true;
-                _dialogueObj.OnEndDialogue += _controller.ZoomOutDialogue;
-                _dialogueObj.StartDialogue();                
+                _dialogueObj.OnEndDialogue -= OnEndDialogue;
+                _dialogueObj.OnEndDialogue += OnEndDialogue;
+                _dialogueObj.StartDialogue();
+
+                //Unlock mouse
+                Cursor.lockState = CursorLockMode.None;
+                _interactorIcon.gameObject.SetActive(false);
             }
         }    
+
+        void OnEndDialogue()
+        {
+            _controller.ZoomOutDialogue();
+            Cursor.lockState = CursorLockMode.Locked;
+            _interactorIcon.gameObject.SetActive(true);
+        }
     }
 
     public void Start()

@@ -32,26 +32,28 @@ MonoBehaviour:
     <ExpressionId>k__BackingField: 0
   - presetName: 
     guid: 993e55a1-3396-40fc-86f5-0f628117069e
-    dialogue: But I'm also a guy
+    dialogue: But I'm also a guy. What's up?
     position:
       serializedVersion: 2
       x: 478
       y: 109
-      width: 246
-      height: 138
+      width: 382
+      height: 162
     isStart: 0
     events: []
     outPorts:
-    - choiceText: 
-      id: 54bf770f-0363-448e-9226-02cec9600ab9
+    - choiceText: I don't like cops
+      id: e7d43500-3127-4066-aee7-5d51feb85e89
+    - choiceText: 'Fuck this crime, lets go eat some borritos '
+      id: 7e4461ec-c1d9-4e1e-8b6a-d4b770bcc09e
     <PresetName>k__BackingField: 2
     <ExpressionId>k__BackingField: 0
   - presetName: 
     guid: 54bf770f-0363-448e-9226-02cec9600ab9
-    dialogue: A guy cop
+    dialogue: Waka waka
     position:
       serializedVersion: 2
-      x: 739
+      x: 1098
       y: 109
       width: 246
       height: 138
@@ -67,7 +69,7 @@ MonoBehaviour:
     dialogue: Don't do crime
     position:
       serializedVersion: 2
-      x: 1003
+      x: 1362
       y: 109
       width: 213
       height: 138
@@ -76,3 +78,35 @@ MonoBehaviour:
     outPorts: []
     <PresetName>k__BackingField: 2
     <ExpressionId>k__BackingField: 2
+  - presetName: 
+    guid: e7d43500-3127-4066-aee7-5d51feb85e89
+    dialogue: And I don't like MOPS! HA! you still go it steve, you till got it
+    position:
+      serializedVersion: 2
+      x: 786
+      y: -44
+      width: 348
+      height: 138
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 54bf770f-0363-448e-9226-02cec9600ab9
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 1
+  - presetName: 
+    guid: 7e4461ec-c1d9-4e1e-8b6a-d4b770bcc09e
+    dialogue: Yum yum
+    position:
+      serializedVersion: 2
+      x: 846
+      y: 286
+      width: 246
+      height: 138
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 54bf770f-0363-448e-9226-02cec9600ab9
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 0
