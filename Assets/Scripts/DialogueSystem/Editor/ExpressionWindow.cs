@@ -42,7 +42,9 @@ public class ExpressionWindow : EditorWindow
 
                 string expressionUD = Guid.NewGuid().ToString();
 
-                AssetDatabase.CreateAsset(_expressionPreset, $"Assets/Scripts/DialogueSystem/ExpressionPreset/NewExpression_{expressionUD}.asset");
+                string newPresetName = _entityInfo.EntityName == default ? expressionUD : _entityInfo.EntityName;
+
+                AssetDatabase.CreateAsset(_expressionPreset, $"Assets/Scripts/DialogueSystem/ExpressionPreset/NewExpression_{newPresetName}.asset");
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
                 EditorUtility.FocusProjectWindow();

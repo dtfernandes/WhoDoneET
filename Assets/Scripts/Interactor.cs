@@ -32,7 +32,10 @@ public class Interactor : MonoBehaviour
     //Item currently being grabbed
     private PickupableObject _grabbedObject;
 
-    //
+    //Item currently being dialogued
+    private DialogueInteractable _dialoguedObject;
+
+    // 
     private bool _inDescription;
 
     //Global Settings of the game
@@ -88,8 +91,10 @@ public class Interactor : MonoBehaviour
                 if (_gameSettings.isWorldStopped) return;
 
                 DialogueInteractable _dialogueObj = _focusItem as DialogueInteractable;
-                if(!_gameSettings.isWorldStopped)
-                     _controller.ZoomForDialogue(_dialogueObj);
+
+                _dialoguedObject = _dialogueObj;
+
+                _controller.ZoomForDialogue(_dialogueObj);
                 _gameSettings.isWorldStopped = true;
 
                 _dialogueObj.OnEndDialogue += OnEndDialogue;
@@ -102,15 +107,13 @@ public class Interactor : MonoBehaviour
         }    
 
         void OnEndDialogue()
-        {
-            DialogueInteractable _dialogueObj = _focusItem as DialogueInteractable;
-
+        {           
             _controller.ZoomOutDialogue();
             Cursor.lockState = CursorLockMode.Locked;
             _interactorIcon.gameObject.SetActive(true);
 
             //Remove the end dialogue function after is called
-            _dialogueObj.RemoveEvents();
+            _dialoguedObject.RemoveEvents();
         }
     }
 
