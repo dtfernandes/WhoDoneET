@@ -31,8 +31,6 @@ public class DialogueInteractable: Interactable
 
     public void StartDialogue()
     {
-       
-
         _dHandler = GameSettings.Instance.DialogueHandler;
         if (!_dHandler.InDialogue)
         {
@@ -45,6 +43,12 @@ public class DialogueInteractable: Interactable
     public void ChangeExpression(Sprite expression)
     {
         _rederer.sprite = expression;
+    }
+
+    public void RemoveEvents()
+    {
+        _dHandler.onEndDialogue -= OnEndDialogue;
+        OnEndDialogue = null;
     }
 
     [Serializable]

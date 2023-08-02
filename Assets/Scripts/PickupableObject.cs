@@ -31,7 +31,7 @@ public class PickupableObject : Interactable
         {
             // Interpolate the position to the inspect position
             transform.position = Vector3.Lerp(transform.position, _inspectPosition.position, _lerpTime * Time.deltaTime);
-            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, _inspectPosition.eulerAngles, _lerpTime * 30f * Time.deltaTime);
+            transform.eulerAngles = _inspectPosition.eulerAngles;
 
             if(Vector3.Distance(transform.position, _inspectPosition.position) <= 0.05f)
             {
@@ -42,7 +42,7 @@ public class PickupableObject : Interactable
         {
             // Interpolate the position back to the original position
             transform.position = Vector3.Lerp(transform.position, _originalPos, _lerpTime * Time.deltaTime);
-            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, _originalRot, _lerpTime * 30 * Time.deltaTime);
+            transform.eulerAngles =  _originalRot;
 
             if (Vector3.Distance(transform.position, _originalPos) <= 0.05f)
             {

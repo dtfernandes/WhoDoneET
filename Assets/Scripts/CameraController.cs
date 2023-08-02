@@ -76,8 +76,6 @@ public class CameraController : MonoBehaviour
 
             _inspectingObject.transform.Rotate(_inspectingObject.transform.up, rotationY, Space.World);
             _inspectingObject.transform.Rotate(_inspectingObject.transform.right, rotationX, Space.World);
-
-
         }
 
         if (GameSettings.Instance.isWorldStopped) return;

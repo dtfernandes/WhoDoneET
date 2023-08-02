@@ -1,5 +1,4 @@
 using DialogueSystem;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +32,9 @@ public class Interactor : MonoBehaviour
     //Item currently being grabbed
     private PickupableObject _grabbedObject;
 
+    //
+    private bool _inDescription;
+
     //Global Settings of the game
     private GameSettings _gameSettings;
 
@@ -40,6 +42,8 @@ public class Interactor : MonoBehaviour
     //Uses the new input system
     void OnInteract()
     {
+        if (_inDescription) return;
+
         //Check if the player is looking at an object
         if (_focusItem != null)
         {
@@ -78,12 +82,11 @@ public class Interactor : MonoBehaviour
             //Check if the object is an object that can be talked to
             else if (_focusItem is DialogueInteractable)
             {
-              
                 DialogueInteractable _dialogueObj = _focusItem as DialogueInteractable;
                 if(!_gameSettings.isWorldStopped)
                      _controller.ZoomForDialogue(_dialogueObj);
                 _gameSettings.isWorldStopped = true;
-                _dialogueObj.OnEndDialogue -= OnEndDialogue;
+
                 _dialogueObj.OnEndDialogue += OnEndDialogue;
                 _dialogueObj.StartDialogue();
 
@@ -95,16 +98,21 @@ public class Interactor : MonoBehaviour
 
         void OnEndDialogue()
         {
+            DialogueInteractable _dialogueObj = _focusItem as DialogueInteractable;
+
             _controller.ZoomOutDialogue();
             Cursor.lockState = CursorLockMode.Locked;
             _interactorIcon.gameObject.SetActive(true);
+
+            //Remove the end dialogue function after is called
+            _dialogueObj.RemoveEvents();
         }
     }
 
     void OnInspect()
     {
         //Check if the player is looking at an object
-        if (_focusItem != null)
+        if (_grabbedObject != null)
         {
             //Check if the object is an object that can be pick up
             if (_focusItem is PickupableObject)
@@ -114,10 +122,12 @@ public class Interactor : MonoBehaviour
                 DialogueScript description = obj.Description;
                 DialogueDisplayHandler ddh = _gameSettings.DialogueHandler;
                 ddh.StartDialolgue(description);
+
+                _inDescription = true;
+
                 _grabbedObject = null;
-
-
-                ddh.onEndDialogue -= EndDescription;
+                _focusItem = null;
+            
                 ddh.onEndDialogue += EndDescription;
             }
         }
@@ -125,8 +135,13 @@ public class Interactor : MonoBehaviour
         void EndDescription()
         {
             _grabbedObject = _focusItem as PickupableObject;
+            _inDescription = false;
             //Setup Camera
             _controller.Inspect(_grabbedObject);
+
+            //Remove the end dialogue function after is called
+            DialogueDisplayHandler ddh = _gameSettings.DialogueHandler;
+            ddh.onEndDialogue -= EndDescription;
         }
     }
 
