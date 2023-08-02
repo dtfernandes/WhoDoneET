@@ -6581,6 +6581,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4804717210815993444, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: _lerpSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804717210815993444, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: _rotationSpeed
       value: 1
       objectReference: {fileID: 0}

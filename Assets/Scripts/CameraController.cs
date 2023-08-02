@@ -40,8 +40,7 @@ public class CameraController : MonoBehaviour
     {
         if (_dialogueObj != null)
         {
-
-            transform.position = Vector3.Lerp(transform.position, _desiredPosition, _lerpSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, _desiredPosition, _lerpSpeed * 0.5f * Time.deltaTime);
 
             // Rotate the camera to face the dialogue object while following its normal
 
@@ -55,7 +54,7 @@ public class CameraController : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, _originalPosition, _lerpSpeed * Time.deltaTime);
 
-            if (Vector3.Distance(_originalPosition, transform.position) < 0.01f)
+            if (Vector3.Distance(_originalPosition, transform.position) < 0.1f)
             {
                 _zoomOut = false;
                 GameSettings.Instance.isWorldStopped = false;
@@ -127,9 +126,8 @@ public class CameraController : MonoBehaviour
 
     public void ZoomOutDialogue()
     {
-        _dialogueObj = null;
         _zoomOut = true;
-
+        _dialogueObj = null;
     }
 
     public void Stop()

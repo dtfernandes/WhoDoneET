@@ -43,6 +43,8 @@ public class Interactor : MonoBehaviour
     void OnInteract()
     {
         if (_inDescription) return;
+        if (_gameSettings.isWorldStopped) return;
+
 
         //Check if the player is looking at an object
         if (_focusItem != null)
