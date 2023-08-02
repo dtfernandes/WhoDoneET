@@ -613,7 +613,7 @@ MonoBehaviour:
     <Top>k__BackingField: 3.79
     <Down>k__BackingField: -10
     <Center>k__BackingField: {x: 0, y: 2, z: 0}
-  _script: {fileID: 11400000, guid: 617a32f53b4b4cf4dad031a6fc6e5c0e, type: 2}
+  _controller: {fileID: 11400000, guid: 256078e2be06a494b86cc6c1472f0943, type: 2}
 --- !u!114 &126888604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,7 +2072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &578483098
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2173,7 +2173,7 @@ MonoBehaviour:
     <Top>k__BackingField: 0
     <Down>k__BackingField: 0
     <Center>k__BackingField: {x: 0, y: 0, z: 0}
-  _script: {fileID: 11400000, guid: 865b9cd7e8735d143afd9f190ab49276, type: 2}
+  _controller: {fileID: 0}
 --- !u!65 &578483102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5278,7 +5278,7 @@ MonoBehaviour:
     <Top>k__BackingField: 3.79
     <Down>k__BackingField: -6.63
     <Center>k__BackingField: {x: 0, y: 4, z: 0}
-  _script: {fileID: 11400000, guid: 8b204bfebe65f85449e0a4fc30aba3b1, type: 2}
+  _controller: {fileID: 11400000, guid: 4d9bcc4a5d493b54cb8f7b8d7031a195, type: 2}
 --- !u!114 &1588982799
 MonoBehaviour:
   m_ObjectHideFlags: 0

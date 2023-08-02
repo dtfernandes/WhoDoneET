@@ -16,11 +16,10 @@ public class DialogueInteractable: Interactable
     public Action OnEndDialogue { get; set; }
 
     [SerializeField]
-    private DialogueScript _script;
+    private DialogueController _controller;
 
     private DialogueDisplayHandler _dHandler;
     private SpriteRenderer _rederer;
-
 
 
     private void Awake()
@@ -34,7 +33,7 @@ public class DialogueInteractable: Interactable
         _dHandler = GameSettings.Instance.DialogueHandler;
         if (!_dHandler.InDialogue)
         {
-            _dHandler.StartDialolgue(_script);
+            _dHandler.StartDialolgue(_controller.GetDialogue());
             _dHandler.onEndDialogue -= OnEndDialogue;
             _dHandler.onEndDialogue += OnEndDialogue;
         }
