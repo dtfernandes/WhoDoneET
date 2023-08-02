@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 /// <summary>
 /// Control the camera movement during the game
 /// </summary>
@@ -21,7 +22,7 @@ public class CameraController : MonoBehaviour
 
     private Vector3 _desiredPosition;
     private Vector3 _originalPosition;
-
+    private Vector3 _originalRotation;
 
     private DialogueInteractable _dialogueObj;
 
@@ -53,6 +54,7 @@ public class CameraController : MonoBehaviour
         if (_zoomOut)
         {
             transform.position = Vector3.Lerp(transform.position, _originalPosition, _lerpSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(_originalRotation), _lerpSpeed * Time.deltaTime);
 
             if (Vector3.Distance(_originalPosition, transform.position) < 0.1f)
             {
@@ -99,6 +101,7 @@ public class CameraController : MonoBehaviour
 
     public void ZoomForDialogue(DialogueInteractable dialogueObj)
     {
+        _originalRotation = transform.eulerAngles;
         _originalPosition = transform.position;
         this._dialogueObj = dialogueObj;
 
