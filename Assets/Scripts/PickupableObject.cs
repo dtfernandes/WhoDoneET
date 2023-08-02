@@ -1,5 +1,6 @@
 using DialogueSystem;
 using System;
+using UnityEditor;
 using UnityEngine;
 
 public class PickupableObject : Interactable
@@ -14,7 +15,11 @@ public class PickupableObject : Interactable
 
 
     [field: Header("Dialogue")][field: SerializeField]
-    public DialogueScript Description { get; private set; }
+    public DialogueScript DefaultDescription { get; private set; }
+
+    [SerializeField]
+    private DescriptionMarker[] _descriptionMarker;
+
 
     private void Awake()
     {
@@ -67,4 +72,28 @@ public class PickupableObject : Interactable
         _moving = true;
     }
 
+    public DialogueScript GetDescription()
+    {
+        foreach(DescriptionMarker marker in _descriptionMarker)
+        {
+            // Get the camera's transform
+            Transform cameraTransform = Camera.main.transform; // Assuming you are using the main camera, change accordingly if not
+
+            // Calculate the normalized forward vectors of the camera and the marker
+            Vector3 cameraForward = cameraTransform.forward.normalized;
+            Vector3 markerForward = marker.transform.forward.normalized;
+
+            // Calculate the dot product between the camera and marker forward vectors
+            float dotProduct = Vector3.Dot(cameraForward, markerForward);
+
+            // Now, you can analyze the dot product to determine the orientation of the marker
+            if (dotProduct < -0.7f)
+            {
+                return marker.DescriptionScript;
+            }
+        }
+
+        return DefaultDescription;
+    }
 }
+

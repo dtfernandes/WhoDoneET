@@ -54,7 +54,7 @@ public class CameraController : MonoBehaviour
         if (_zoomOut)
         {
             transform.position = Vector3.Lerp(transform.position, _originalPosition, _lerpSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(_originalRotation), _lerpSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(_originalRotation), _lerpSpeed * 1.5f * Time.deltaTime);
 
             if (Vector3.Distance(_originalPosition, transform.position) < 0.1f)
             {

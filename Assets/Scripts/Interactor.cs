@@ -43,8 +43,8 @@ public class Interactor : MonoBehaviour
     void OnInteract()
     {
         if (_inDescription) return;
-        if (_gameSettings.isWorldStopped) return;
-
+  
+  
 
         //Check if the player is looking at an object
         if (_focusItem != null)
@@ -84,6 +84,9 @@ public class Interactor : MonoBehaviour
             //Check if the object is an object that can be talked to
             else if (_focusItem is DialogueInteractable)
             {
+                //Ignore while stopped
+                if (_gameSettings.isWorldStopped) return;
+
                 DialogueInteractable _dialogueObj = _focusItem as DialogueInteractable;
                 if(!_gameSettings.isWorldStopped)
                      _controller.ZoomForDialogue(_dialogueObj);
@@ -121,7 +124,7 @@ public class Interactor : MonoBehaviour
             {
                 PickupableObject obj = _focusItem as PickupableObject;
                 _controller.Stop();
-                DialogueScript description = obj.Description;
+                DialogueScript description = obj.GetDescription();
                 DialogueDisplayHandler ddh = _gameSettings.DialogueHandler;
                 ddh.StartDialolgue(description);
 
