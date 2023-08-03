@@ -11,6 +11,7 @@ public class ExpressionWindow : EditorWindow
     private static int _entityIndex;
     private static EntityData _entityData;
     private static ExpressionPreset _expressionPreset;
+    private static ExpressionWindow _window;
 
     [MenuItem("Window/Expression Window")] // This will create a new menu item under "Window"
     public static void ShowWindow(ExpressionPreset preset, int entityIndex, EntityData _data)
@@ -21,10 +22,10 @@ public class ExpressionWindow : EditorWindow
         _entityInfo = _data.data[entityIndex];
 
         // Get existing open window or if none, make a new one:
-        ExpressionWindow window = (ExpressionWindow)EditorWindow.GetWindow(typeof(ExpressionWindow));
-        window.titleContent = new GUIContent("Expression Preset");
+        _window = (ExpressionWindow)EditorWindow.GetWindow(typeof(ExpressionWindow));
+        _window.titleContent = new GUIContent("Expression Preset");
 
-        window.Show();
+        _window.Show();
     }
 
     private void OnGUI()
@@ -80,11 +81,9 @@ public class ExpressionWindow : EditorWindow
     private void DisplayEmotionsGrid()
     {
         Undo.RecordObject(_expressionPreset, "Modify Expression Preset");
-
-        ExpressionWindow window = (ExpressionWindow)EditorWindow.GetWindow(typeof(ExpressionWindow));
-
-        int width = (int)window.position.width;
-        int height = (int)window.position.height;
+        
+        int width = (int)_window.position.width;
+        int height = (int)_window.position.height;
         GUILayout.BeginVertical();
 
         int columnCount = 4; // Number of emotions per row
