@@ -72,11 +72,14 @@ public class CameraController : MonoBehaviour
 
             Vector2 currentMousePosition = value.Get<Vector2>();
 
-            float rotationX = currentMousePosition.y * _rotationSpeed;
-            float rotationY = currentMousePosition.x * _rotationSpeed;
+            float rotationX = currentMousePosition.x * _rotationSpeed;
+            float rotationY = currentMousePosition.y * _rotationSpeed;
 
-            _inspectingObject.transform.Rotate(_inspectingObject.transform.up, rotationY, Space.World);
-            _inspectingObject.transform.Rotate(_inspectingObject.transform.right, rotationX, Space.World);
+            // Rotate around the up (vertical) axis for horizontal movement
+            _inspectingObject.transform.Rotate(Vector3.up, rotationX, Space.World);
+
+            // Rotate around the right (horizontal) axis for vertical movement
+            _inspectingObject.transform.Rotate(Vector3.right, rotationY, Space.World);
         }
 
         if (GameSettings.Instance.isWorldStopped) return;
