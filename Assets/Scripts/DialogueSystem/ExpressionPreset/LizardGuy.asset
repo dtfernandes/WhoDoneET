@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24763e45d097a104ab7b4cac60c082df, type: 3}
+  m_Name: LizardGuy
+  m_EditorClassIdentifier: 
+  <Emotions>k__BackingField:
+  - <EmotionName>k__BackingField: Talking
+    <Image>k__BackingField: {fileID: 21300000, guid: 4a5ca99a9e7cc70439386d538c61cc40, type: 3}
+  - <EmotionName>k__BackingField: Happy
+    <Image>k__BackingField: {fileID: 21300000, guid: 189f5964aeb90ec438e4697f137707ae, type: 3}
+  - <EmotionName>k__BackingField: Angry
+    <Image>k__BackingField: {fileID: 21300000, guid: 76d75b7c6edfe7a4aab8b10a8c9cbb4d, type: 3}
+  - <EmotionName>k__BackingField: AAAAAAAAAAAAAAA
+    <Image>k__BackingField: {fileID: 21300000, guid: 644617b1c69b0b245b89f6d1f6e380ce, type: 3}

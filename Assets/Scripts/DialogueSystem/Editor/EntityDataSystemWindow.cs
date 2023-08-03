@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System;
+using UnityEditor.PackageManager.UI;
 
 namespace DialogueSystem.Editor
 {
@@ -31,9 +32,7 @@ namespace DialogueSystem.Editor
             window._entityData = GetEntityData();
 
             window.minSize = new Vector2(750, window.maxSize.y);
-           
-
-            EditorUtility.SetDirty(window._entityData);
+                  
         }
 
         private void OnGUI()
@@ -107,6 +106,8 @@ namespace DialogueSystem.Editor
             }
 
             GUILayout.EndScrollView();
+
+            
         }
    
         private static EntityData GetEntityData()
@@ -133,6 +134,8 @@ namespace DialogueSystem.Editor
         /// <param name="index">Index of the list</param>
         private void DrawEntityDataSlot(EntityInfo info, int index)
         {
+            Undo.RecordObject(_entityData, "Modify Entity Data");
+
             GUIStyle contentStyle = new GUIStyle(GUI.skin.label);
             contentStyle.normal.background = EditorAddOns.MakeTexture(1, 1, new Color(0.3f, 0.3f, 0.3f)); // Set the background color here
             contentStyle.margin = new RectOffset(0, 0, 0, 0);
@@ -159,7 +162,7 @@ namespace DialogueSystem.Editor
 
             if (GUILayout.Button("Open Settings"))
             {
-                ExpressionWindow.ShowWindow(info.Expressions, info);
+                ExpressionWindow.ShowWindow(info.Expressions, index, _entityData);
             }
 
             GUIStyle redButtonStyle = new GUIStyle(GUI.skin.button);
@@ -192,7 +195,12 @@ namespace DialogueSystem.Editor
                objType: typeof(ExpressionPreset), false,
                GUILayout.Height(20), GUILayout.Width(100));
 
-            Expression defaultExpression = info.Expressions?.Emotions?[0] ?? null;
+            Expression defaultExpression = null;
+
+            if (((info.Expressions?.Emotions?.Count) ?? -1) > 0)
+            {
+                defaultExpression = info.Expressions.Emotions[0];
+            }
 
             Sprite defaultSprite = null;
             if (defaultExpression != default)
@@ -213,6 +221,8 @@ namespace DialogueSystem.Editor
 
             GUILayout.Space(5);
             GUILayout.EndVertical();
+
+            EditorUtility.SetDirty(_entityData);
         }
 
     }

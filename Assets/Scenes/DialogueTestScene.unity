@@ -2929,7 +2929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8775417758936078679, guid: b598a9dfdc17fb249a860dd6c1355112, type: 3}
       propertyPath: m_Name
-      value: AssCUP
+      value: ssCUPss
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b598a9dfdc17fb249a860dd6c1355112, type: 3}

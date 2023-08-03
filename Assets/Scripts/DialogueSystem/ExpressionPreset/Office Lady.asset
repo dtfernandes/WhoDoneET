@@ -10,6 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24763e45d097a104ab7b4cac60c082df, type: 3}
-  m_Name: NewExpression_Lizard Guy
+  m_Name: Office Lady
   m_EditorClassIdentifier: 
-  <Emotions>k__BackingField: []
+  <Emotions>k__BackingField:
+  - <EmotionName>k__BackingField: Beep
+    <Image>k__BackingField: {fileID: 0}
+  - <EmotionName>k__BackingField: Weck
+    <Image>k__BackingField: {fileID: 0}
+  - <EmotionName>k__BackingField: 
+    <Image>k__BackingField: {fileID: 0}

@@ -21,8 +21,8 @@ MonoBehaviour:
     <Expressions>k__BackingField: {fileID: 11400000, guid: ea94370723e1e774289696eccba7a3f6, type: 2}
     <Hidden>k__BackingField: 1
   - <EntityName>k__BackingField: Lizard Guy
-    <Expressions>k__BackingField: {fileID: 0}
+    <Expressions>k__BackingField: {fileID: 11400000, guid: 02bf2c116e033734496bf3b06c6cbc7f, type: 2}
     <Hidden>k__BackingField: 1
-  - <EntityName>k__BackingField: 
-    <Expressions>k__BackingField: {fileID: 0}
+  - <EntityName>k__BackingField: Office Lady
+    <Expressions>k__BackingField: {fileID: 11400000, guid: 4978ef86fcddbd24f82c892aa1537d1c, type: 2}
     <Hidden>k__BackingField: 1

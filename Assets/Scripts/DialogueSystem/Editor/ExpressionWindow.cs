@@ -8,20 +8,21 @@ using UnityEngine;
 public class ExpressionWindow : EditorWindow
 {
     private static EntityInfo _entityInfo;
+    private static int _entityIndex;
+    private static EntityData _entityData;
     private static ExpressionPreset _expressionPreset;
 
     [MenuItem("Window/Expression Window")] // This will create a new menu item under "Window"
-    public static void ShowWindow(ExpressionPreset preset, EntityInfo entityInfo)
+    public static void ShowWindow(ExpressionPreset preset, int entityIndex, EntityData _data)
     {
         _expressionPreset = preset;
-        _entityInfo = entityInfo;
+        _entityIndex = entityIndex;
+        _entityData = _data;
+        _entityInfo = _data.data[entityIndex];
 
         // Get existing open window or if none, make a new one:
         ExpressionWindow window = (ExpressionWindow)EditorWindow.GetWindow(typeof(ExpressionWindow));
         window.titleContent = new GUIContent("Expression Preset");
-        
-        if(preset != null)
-            EditorUtility.SetDirty(preset);
 
         window.Show();
     }
@@ -49,7 +50,7 @@ public class ExpressionWindow : EditorWindow
                 AssetDatabase.Refresh();
                 EditorUtility.FocusProjectWindow();
 
-                _entityInfo.Expressions = _expressionPreset;
+                _entityData.data[_entityIndex].Expressions = _expressionPreset;
             }
 
             return;
@@ -78,6 +79,8 @@ public class ExpressionWindow : EditorWindow
 
     private void DisplayEmotionsGrid()
     {
+        Undo.RecordObject(_expressionPreset, "Modify Expression Preset");
+
         ExpressionWindow window = (ExpressionWindow)EditorWindow.GetWindow(typeof(ExpressionWindow));
 
         int width = (int)window.position.width;
@@ -120,6 +123,13 @@ public class ExpressionWindow : EditorWindow
         }
 
         GUILayout.EndVertical();
+
+
+        if (_expressionPreset != null)
+        {
+            EditorUtility.SetDirty(_expressionPreset);
+            EditorUtility.SetDirty(_entityData);
+        }
     }
 
 }

@@ -123,6 +123,10 @@ namespace DialogueSystem.Editor
             if (firstSelected != 0)
             {
                 selectedInfo = data.data[firstSelected - 1];
+
+                Debug.Log(selectedInfo);
+                Debug.Log(selectedInfo.Expressions);
+
                 expressionNames = selectedInfo.Expressions.Emotions.Select(x => x.EmotionName).ToList();              
             }
 
