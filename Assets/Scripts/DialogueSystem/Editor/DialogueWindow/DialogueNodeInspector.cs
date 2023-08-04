@@ -18,6 +18,9 @@ namespace DialogueSystem.Editor
         [HideInInspector]
         public List<EventTriggerData> events;
 
+        [field: SerializeField][HideInInspector]
+        public List<CustomFunction> CustomFunctions { get; set; }
+
         //[SerializeField]
         private EntityInfo entityInfo;
         
@@ -61,3 +64,4 @@ namespace DialogueSystem.Editor
 
     }
 }
+
