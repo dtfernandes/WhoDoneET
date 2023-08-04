@@ -30,6 +30,12 @@ public class ExpressionWindow : EditorWindow
 
     private void OnGUI()
     {
+        if(_entityInfo == null)
+        {
+            EditorGUILayout.HelpBox("Please assign a Entity Preset.", MessageType.Info);
+            return;
+        }
+
         if (_expressionPreset == null)
         {
             EditorGUILayout.HelpBox("Please assign an Expression Preset to display.", MessageType.Info);
@@ -38,9 +44,6 @@ public class ExpressionWindow : EditorWindow
             {
                 _expressionPreset = ScriptableObject.CreateInstance<ExpressionPreset>();
 
-                // Optionally, you can assign some initial values to the preset if needed.
-                // _expressionPreset.presetName = "New Preset";
-                // _expressionPreset.expressionValue = 0;
 
                 string expressionUD = Guid.NewGuid().ToString();
 

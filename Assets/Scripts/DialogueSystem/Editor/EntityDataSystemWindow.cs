@@ -126,6 +126,10 @@ namespace DialogueSystem.Editor
             return Resources.Load<EntityData>("EntityData");
         }
 
+        private void OnEnable()
+        {
+            _entityData = GetEntityData();
+        }
 
         /// <summary>
         /// Draw a slot for a entity
