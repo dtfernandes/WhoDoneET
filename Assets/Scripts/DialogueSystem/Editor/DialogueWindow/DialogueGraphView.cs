@@ -31,9 +31,8 @@ namespace DialogueSystem.Editor
             SaveWatingList = new SavingWaitingList();
 
             hideStatus = DropdownMenuAction.Status.Normal;
-            SetupZoom(ContentZoomer.DefaultMinScale, 
-               ContentZoomer.DefaultMaxScale);
-
+            SetupZoom(0.1f, 
+               3);
             ContentDragger newDragger = new ContentDragger();
             
             this.AddManipulator(newDragger);

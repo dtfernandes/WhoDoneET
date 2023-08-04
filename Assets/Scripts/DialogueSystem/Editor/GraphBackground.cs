@@ -46,15 +46,26 @@ public static class GraphBackground
 		if (Event.current.type == EventType.Repaint)
 		{
 
-			float minGrid = 12 * (float)zoom;
-
+			float minGrid = 15 * (float)zoom;
+			float bigGrid = minGrid * 10;
 
             HandleUtility.ApplyWireMaterial();
 			GL.PushMatrix();
 			GL.Begin(1);
-			DrawGridLines(graphExtents, minGrid, gridMinorColor, offset);
-			Vector2 offSet = new Vector2(offset.x * minGrid, offset.y * minGrid);
-			//DrawGridLines(graphExtents, 120f * zoom, gridMajorColor, offSet);
+
+            // Calculate the blend factor based on the zoom value
+            float blendFactor = Mathf.Clamp01((zoom - 0.3f) / 1); // Adjust 0.3f and 0.7f as needed for the desired range
+            
+			Color transparentGridMinorColor = gridMinorColor;
+            transparentGridMinorColor.a *= blendFactor;
+
+            DrawGridLines(graphExtents, minGrid, transparentGridMinorColor, offset);
+			
+
+            // Blend the grid major and minor colors
+            Color blendedGridColor = Color.Lerp(gridMajorColor, gridMinorColor, blendFactor);
+
+            DrawGridLines(graphExtents, bigGrid, blendedGridColor, offset);
 			GL.End();
 			GL.PopMatrix();
 		}
