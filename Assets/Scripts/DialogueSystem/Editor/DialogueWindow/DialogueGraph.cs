@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
@@ -49,11 +47,27 @@ namespace DialogueSystem.Editor
             rootVisualElement.Remove(graphview);
         }
 
+        private void OnGUI()
+        {
+            VisualElement startNode = graphview.ElementAt(0);
+            Vector2 pos = startNode.localBound.position;
+            Vector2 size = startNode.localBound.size;
 
-        /// <summary>
-        /// Method responsible for opening the Dialogue Window 
-        /// where the node system is placed
-        /// </summary>
+            float sizeRatio = size.x / 1176 ;
+
+            Rect graphPosition = new Rect(0, 0, position.width, position.height);
+            Rect graphExtents = new Rect(0, 0, position.width, position.height);
+
+
+            GraphBackground.DrawGraphBackground(graphPosition, graphExtents, sizeRatio, pos);
+            
+        }
+
+
+    /// <summary>
+    /// Method responsible for opening the Dialogue Window 
+    /// where the node system is placed
+    /// </summary>
         [MenuItem("Dialogue/Dialogue Graph")]
         public static void OpenDialogueGraphWindow()
         {

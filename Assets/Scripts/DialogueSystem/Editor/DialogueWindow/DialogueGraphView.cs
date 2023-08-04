@@ -33,13 +33,17 @@ namespace DialogueSystem.Editor
             hideStatus = DropdownMenuAction.Status.Normal;
             SetupZoom(ContentZoomer.DefaultMinScale, 
                ContentZoomer.DefaultMaxScale);
-        
-            this.AddManipulator(new ContentDragger());
+
+            ContentDragger newDragger = new ContentDragger();
+            
+            this.AddManipulator(newDragger);
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
-
+           
             AddElement(GenerateFirstNode());
         }
+
+        
 
         /// <summary>
         /// Override that adds more menu options to the contextual menu 

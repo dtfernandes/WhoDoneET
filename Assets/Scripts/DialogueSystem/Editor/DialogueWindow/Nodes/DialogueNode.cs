@@ -165,7 +165,7 @@ namespace DialogueSystem.Editor
                 }
                 else
                 {
-                    extensionContainer.style.height = 30;
+                    extensionContainer.style.height = 25;
                 }
 
                
