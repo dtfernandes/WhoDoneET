@@ -47,8 +47,6 @@ public class Interactor : MonoBehaviour
     {
         if (_inDescription) return;
   
-  
-
         //Check if the player is looking at an object
         if (_focusItem != null)
         {
@@ -103,6 +101,13 @@ public class Interactor : MonoBehaviour
                 //Unlock mouse
                 Cursor.lockState = CursorLockMode.None;
                 _interactorIcon.gameObject.SetActive(false);
+            }
+            else
+            {
+                //Ignore while stopped
+                if (_gameSettings.isWorldStopped) return;
+
+                
             }
         }    
 
@@ -175,6 +180,10 @@ public class Interactor : MonoBehaviour
                 else if (item is DialogueInteractable)
                 {
                     _interactorIcon.sprite = _dialogueIcon;
+                }
+                else 
+                {
+                    _interactorIcon.sprite = _generalIcon;
                 }
                 _focusItem = item;
             }
