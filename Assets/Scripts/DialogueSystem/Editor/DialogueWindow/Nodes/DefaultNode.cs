@@ -62,8 +62,22 @@ namespace DialogueSystem.Editor
         /// <param name="value"></param>
         public void SwitchVisibility(bool value)
         {
-            topContainer.visible
-                   = value;
+            float dialogueHeight = mainContainer.ElementAt(1).localBound.height;
+            float hiddenHeight = dialogueHeight + 50;
+
+            
+            style.maxHeight = value ? 9999 : hiddenHeight;
+
+            titleContainer.visible = value;
+            titleContainer.style.maxHeight = value ? 9999 : 20;
+
+            mainContainer.ElementAt(2).style.maxHeight = value ? 9999 : 20;
+            mainContainer.ElementAt(2).style.minHeight = value ? 0 : 20;
+
+            topContainer.visible = value;
+
+            extensionContainer.visible = value;
+
 
             expanded = value;
         }

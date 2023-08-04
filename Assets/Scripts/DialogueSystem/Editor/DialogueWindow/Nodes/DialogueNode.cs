@@ -44,10 +44,12 @@ namespace DialogueSystem.Editor
 
         public DialogueNode(SavingWaitingList savingWaitingList, NodeData nd = null)
         {
-            SaveWatingList = savingWaitingList;
+            //Setup node Default Style
+            style.minWidth = 220;
 
+
+            SaveWatingList = savingWaitingList;
             GUID = nd == null ? Guid.NewGuid().ToString() : nd.GUID;
-            title = "Dialogue Node";
             DialogText = nd == null ? "" : nd.Dialogue;
             Events = nd == null ? new List<EventTriggerData> { } : nd.Events;
 
@@ -60,8 +62,10 @@ namespace DialogueSystem.Editor
             {
                 InstatiateChoicePort();
             });
-            button.text = "Add Choice";
-            titleContainer.Insert(1, button);
+            button.text = "+";
+            button.style.width = 40;
+            titleContainer.Clear();
+            titleContainer.Insert(0,button);
 
             Port port = InstatiateInputPort();
             inputContainer.Add(port);
@@ -135,14 +139,18 @@ namespace DialogueSystem.Editor
 
             PresetName = nd == null ? presetPopUp.index : nd.PresetName;
             ExpresionID = nd == null ? expressionPopUp.index : nd.ExpressionId;
+           
 
             presetPopUp.RegisterCallback<ChangeEvent<string>>((ChangeEvent<string> evt) =>
             {
+                //Choose a preset entity event
+
                 int selectedPresetIndex = presetPopUp.index;
 
-
+                //If its not default
                 if (selectedPresetIndex != 0)
                 {
+                    extensionContainer.style.height = 47f;
                     EntityInfo selectedInfo = data.data[selectedPresetIndex - 1];
 
                     List<string> expressionNames = selectedInfo.Expressions.Emotions.Select(x => x.EmotionName).ToList();
@@ -154,6 +162,10 @@ namespace DialogueSystem.Editor
                     expressionPopUp.value = expressionNames[selectedClampedIndex];
                 
                     ExpresionID = selectedClampedIndex;
+                }
+                else
+                {
+                    extensionContainer.style.height = 30;
                 }
 
                
@@ -174,7 +186,6 @@ namespace DialogueSystem.Editor
 
             expressionPopUp.RegisterCallback<ChangeEvent<string>>((ChangeEvent<string> evt) =>
             {
-
                 ExpresionID = expressionPopUp.index;
                 EnableInspectorDisplay();
             });
@@ -182,8 +193,13 @@ namespace DialogueSystem.Editor
 
             extensionContainer.Add(presetPopUp);
             extensionContainer.Add(expressionPopUp);
+
+            presetPopUp.style.marginTop = 2.5f;
+            presetPopUp.style.marginBottom = 2.5f;
+            extensionContainer.style.height = 25;
             expressionPopUp.visible = expressionVisibility;
-            
+
+          
             #endregion
 
             RegisterCallback<PointerDownEvent>((PointerDownEvent evt) =>
@@ -192,6 +208,7 @@ namespace DialogueSystem.Editor
             });
 
             RefreshExpandedState();
+
         }
 
         private void EnableInspectorDisplay(){
