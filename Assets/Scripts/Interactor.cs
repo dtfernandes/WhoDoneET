@@ -179,7 +179,14 @@ public class Interactor : MonoBehaviour
                 }
                 else if (item is DialogueInteractable)
                 {
-                    _interactorIcon.sprite = _dialogueIcon;
+                    if ((item as DialogueInteractable).PresetEntity < 0)
+                    {
+                        _interactorIcon.sprite = _propIcon;
+                    }
+                    else
+                    {
+                        _interactorIcon.sprite = _dialogueIcon;
+                    }
                 }
                 else 
                 {
