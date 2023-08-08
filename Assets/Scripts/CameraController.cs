@@ -1,4 +1,4 @@
-using System;
+ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,11 +29,13 @@ public class CameraController : MonoBehaviour
     private PickupableObject _inspectingObject;
 
     private Transform _player;
+    GameSettings _gameSettings;
 
-  
+
     void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        _gameSettings = GameSettings.Instance;
+        _gameSettings.LockCursor(true);
         _player = transform.parent;
     }
   
@@ -82,7 +84,7 @@ public class CameraController : MonoBehaviour
             _inspectingObject.transform.Rotate(Vector3.right, rotationY, Space.World);
         }
 
-        if (GameSettings.Instance.isWorldStopped) return;
+        if (_gameSettings.isWorldStopped || _gameSettings.isMenuOpen) return;
 
 
         Vector2 mouseDelta = value.Get<Vector2>();

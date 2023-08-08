@@ -308,6 +308,7 @@ public class DialogueDisplayHandler : MonoBehaviour
 
     void OnInteract()
     {
+        if (GameSettings.Instance.isMenuOpen) return;
         if (!InDialogue) return;
 
         if (Ended)

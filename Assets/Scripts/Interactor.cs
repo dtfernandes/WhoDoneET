@@ -45,6 +45,8 @@ public class Interactor : MonoBehaviour
     //Uses the new input system
     void OnInteract()
     {
+        if (_gameSettings.isMenuOpen) return;
+
         if (_inDescription) return;
   
         //Check if the player is looking at an object
@@ -99,7 +101,7 @@ public class Interactor : MonoBehaviour
                 _dialogueObj.StartDialogue();
 
                 //Unlock mouse
-                Cursor.lockState = CursorLockMode.None;
+                _gameSettings.LockCursor(false);
                 _interactorIcon.gameObject.SetActive(false);
             }
             else
@@ -114,7 +116,7 @@ public class Interactor : MonoBehaviour
         void OnEndDialogue()
         {           
             _controller.ZoomOutDialogue();
-            Cursor.lockState = CursorLockMode.Locked;
+            _gameSettings.LockCursor(true);
             _interactorIcon.gameObject.SetActive(true);
 
             //Remove the end dialogue function after is called
@@ -124,6 +126,8 @@ public class Interactor : MonoBehaviour
 
     void OnInspect()
     {
+        if (GameSettings.Instance.isMenuOpen) return;
+
         //Check if the player is looking at an object
         if (_grabbedObject != null)
         {
