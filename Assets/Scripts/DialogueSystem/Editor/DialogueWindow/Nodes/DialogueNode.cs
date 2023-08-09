@@ -39,11 +39,9 @@ namespace DialogueSystem.Editor
 
         private DialogueNodeInspector inspector;
 
-
         private SavingWaitingList saveWatingList;
         public SavingWaitingList SaveWatingList { get => saveWatingList; set => saveWatingList = value; }
       
-
         public DialogueNode(SavingWaitingList savingWaitingList, NodeData nd = null)
         {
 
@@ -207,13 +205,17 @@ namespace DialogueSystem.Editor
 
             extensionContainer.Add(presetPopUp);
             extensionContainer.Add(expressionPopUp);
-
             presetPopUp.style.marginTop = 2.5f;
             presetPopUp.style.marginBottom = 2.5f;
             extensionContainer.style.backgroundColor = _nodeColor;
             extensionContainer.style.height = 25;
             expressionPopUp.visible = expressionVisibility;
 
+            if (presetPopUp.index != 0)
+            {
+                extensionContainer.style.height = 47f;
+            }
+ 
           
             #endregion
 

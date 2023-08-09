@@ -15,7 +15,6 @@ namespace DialogueSystem.Editor
         public StartNode()
         {
 
-
             mainContainer.style.backgroundColor = Color.green;
 
             title = "Start Node";

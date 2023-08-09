@@ -37,7 +37,6 @@ namespace DialogueSystem.Editor
                 ScriptableObject.CreateInstance<DialogueScript>();
 
            
-
             List<Node> nodes =
                 view.nodes.ToList();
 
@@ -89,6 +88,7 @@ namespace DialogueSystem.Editor
 
             AssetDatabase.CreateAsset(temp, path);
             AssetDatabase.SaveAssets();
+            
 
             return temp;
         }
