@@ -35,6 +35,7 @@ namespace DialogueSystem
         /// </summary>
         public int Count => dialogueNodes.Count;
 
+
         /// <summary>
         /// Method responsible for adding a new NodeData to the
         /// DialogueScript

@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+
 
 namespace DialogueSystem.Editor
 {
@@ -38,14 +37,20 @@ namespace DialogueSystem.Editor
             presetEntityName = dn.PresetName;
             SaveWaitingList = dn.SaveWatingList;
 
+            CustomFunctions = new List<CustomFunction> { };
+            CustomFunctions.AddRange(dn?.CustomFunctions);
+
             EntityData data = Resources.Load<EntityData>("EntityData");
             entityInfo = data.data[presetEntityName];
+        }
 
+        public void UpdateNode()
+        {
+            node.CustomFunctions = CustomFunctions;
         }
 
         public void ChangeDialogue(string newDialogue, bool fromTxt = false)
         {
-
             if (!fromTxt)
             {
                 node.TextField.value = newDialogue;
@@ -55,13 +60,6 @@ namespace DialogueSystem.Editor
 
             dialogueText = newDialogue;
         }
-
-        public void TestList()
-        {
-            node.Events = events;
-            Debug.Log(node.Events[0].IndexPos);
-        }
-
     }
 }
 

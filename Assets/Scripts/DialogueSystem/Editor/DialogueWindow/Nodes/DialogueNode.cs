@@ -25,6 +25,8 @@ namespace DialogueSystem.Editor
        
         public List<EventTriggerData> Events { get; set; }
 
+        public List<CustomFunction> CustomFunctions { get; set; }
+
         /// <summary>
         /// Text component of the Dialogue Node
         /// </summary>
@@ -44,9 +46,14 @@ namespace DialogueSystem.Editor
 
         public DialogueNode(SavingWaitingList savingWaitingList, NodeData nd = null)
         {
+
+            Color _nodeAccentColor = new Color(0.17f, 0.17f, 0.17f);
+            Color _nodeColor = new Color(0.2f,0.2f,0.2f);
+        
             //Setup node Default Style
             style.minWidth = 220;
 
+            CustomFunctions = nd?.CustomFunctions ?? new List<CustomFunction> { };
 
             SaveWatingList = savingWaitingList;
             GUID = nd == null ? Guid.NewGuid().ToString() : nd.GUID;
@@ -63,9 +70,12 @@ namespace DialogueSystem.Editor
                 InstatiateChoicePort();
             });
             button.text = "+";
-            button.style.width = 40;
+
+            button.style.width = 30;
             titleContainer.Clear();
             titleContainer.Insert(0,button);
+            titleContainer.style.height = 30;
+            titleContainer.style.backgroundColor = _nodeColor;
 
             Port port = InstatiateInputPort();
             inputContainer.Add(port);
@@ -81,13 +91,21 @@ namespace DialogueSystem.Editor
             });
             text.multiline = true;
 
+            VisualElement textContainer = new VisualElement();
+            textContainer.style.paddingTop = 2;
+            textContainer.style.paddingBottom = 2;
+            textContainer.style.backgroundColor = _nodeAccentColor;
+
+
             if (nd == null)
                 text.value = $"\n\n\n";
             else
                 text.value = $"{nd?.Dialogue}";
 
-            mainContainer.Insert(1, text);
-       
+            textContainer.Add(text);
+            mainContainer.Insert(1,textContainer);
+            //text.style.backgroundColor = _nodeColor;
+
             #region Entity Preset PopUp
             
             //Load Entities and their presets 
@@ -192,6 +210,7 @@ namespace DialogueSystem.Editor
 
             presetPopUp.style.marginTop = 2.5f;
             presetPopUp.style.marginBottom = 2.5f;
+            extensionContainer.style.backgroundColor = _nodeColor;
             extensionContainer.style.height = 25;
             expressionPopUp.visible = expressionVisibility;
 
@@ -226,6 +245,9 @@ namespace DialogueSystem.Editor
 
         private void InstatiateChoicePort(string choice = "", string id = "")
         {
+            Color _xColor = new Color(0.4f,0.2f,0.2f);
+
+
             ChoiceData cD = new ChoiceData(choice, id);
             OutPorts.Add(cD);
             int index = OutPorts.IndexOf(cD);
@@ -278,6 +300,8 @@ namespace DialogueSystem.Editor
             choiceContainer.Add(port);
             choiceContainer.styleSheets.Add(
                 Resources.Load<StyleSheet>("ChoiceComponent_Style"));
+
+            deleteButton.style.backgroundColor = _xColor;
 
             deleteButton.RegisterCallback<ClickEvent>((ClickEvent evt) =>
             {           

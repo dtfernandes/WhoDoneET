@@ -52,6 +52,12 @@ namespace DialogueSystem
         private List<ChoiceData> outPorts = new List<ChoiceData>();
 
         /// <summary>
+        /// List of functions in the dialogue
+        /// </summary>
+        [field: SerializeField]
+        public List<CustomFunction> CustomFunctions { get; set; }
+
+        /// <summary>
         /// Property that defines the unique id of this Node
         /// </summary>
         public string GUID

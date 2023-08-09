@@ -1,7 +1,5 @@
- using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 
 /// <summary>
 /// Control the camera movement during the game
