@@ -297,15 +297,7 @@ namespace DialogueSystem.Editor
             if (GUILayout.Button("Add Custom Event"))
             {
                 CustomFunctionPrompt prompt = new CustomFunctionPrompt();
-                int index = _customFuctions.Count;
-                _customFuctions.Add(prompt);
-                prompt.OnEnable();
-
-                prompt.onSelectFunction += (c) =>
-                {
-                    _customFuctions[index] = c;
-                    c.OnEnable();
-                };
+                SetupCustomFunction(prompt);
             }
 
             GUILayout.Space(10);
@@ -318,6 +310,31 @@ namespace DialogueSystem.Editor
           
 
             serializedObject.ApplyModifiedProperties();
+        }
+
+        private void SetupCustomFunction(CustomFunctionPrompt prompt)
+        {
+            int index = _customFuctions.Count;
+            _customFuctions.Add(prompt);
+            prompt.OnEnable();
+
+            nodeInsp.UpdateNode();
+
+            prompt.onSelectFunction += (c) =>
+            {
+                c.GUID = GUID.Generate().ToString();
+                
+                _customFuctions[index] = c;
+
+                c.OnEnable();
+
+                nodeInsp.UpdateNode();
+
+                c.onUpdate += () =>
+                {
+                    nodeInsp.UpdateNode();
+                };
+            };
         }
 
         private void DrawTriggerLabel(int intValue, string text)

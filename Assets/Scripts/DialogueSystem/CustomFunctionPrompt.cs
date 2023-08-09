@@ -10,6 +10,16 @@ namespace DialogueSystem
     public class CustomFunctionPrompt : CustomFunction
     {
         private int selectedClassIndex = 0;
+        private CustomFunction func;
+
+        public CustomFunctionPrompt()
+        {
+        }
+
+        public CustomFunctionPrompt(CustomFunction func)
+        {
+            this.func = func;
+        }
 
         public Action<CustomFunction> onSelectFunction { get; set; }
 

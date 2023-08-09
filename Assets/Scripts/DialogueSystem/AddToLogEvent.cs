@@ -12,6 +12,21 @@ namespace DialogueSystem
         private GUIStyle miniButton;
 
 
+        [ContextMenu("ShowContextMenu")]
+        private void ShowContextMenu()
+        {
+            // Create and show your context menu options here
+            GenericMenu menu = new GenericMenu();
+            menu.AddItem(new GUIContent("Update ID"), false, UpdateID);
+            menu.ShowAsContext();
+        }
+
+        private void UpdateID()
+        {
+            // Handle Option 1 action here
+            Debug.Log("Option 1 selected");
+        }
+
 
         public override void OnEnable()
         {
@@ -47,6 +62,24 @@ namespace DialogueSystem
                 onUpdate?.Invoke();
             }
 
+            //Dumb
+            GUIStyle style = new GUIStyle(GUI.skin.label);
+            style.normal.textColor = Color.grey;
+
+
+
+            //Even dumber
+            Rect labelRect = GUILayoutUtility.GetRect(new GUIContent("ID: " + GUID), style);
+
+            if (Event.current.type == EventType.ContextClick && labelRect.Contains(Event.current.mousePosition))
+            {
+                ShowContextMenu();
+                Event.current.Use();
+            }
+            GUILayout.Space(-5);
+            GUILayout.Label("ID: " + GUID, style);
+
+            GUILayout.Space(5);
         }
 
 
