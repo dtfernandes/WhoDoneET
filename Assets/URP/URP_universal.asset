@@ -55,7 +55,8 @@ MonoBehaviour:
   - {fileID: 5997408381338158674}
   - {fileID: -871267570367100497}
   - {fileID: 8723365630999469998}
-  m_RendererFeatureMap: 1f39aee73fbcc04852869cae25133b53af89f3cbc2a2e8f3ae1f93b1d29e0f79
+  - {fileID: 4192605671214840906}
+  m_RendererFeatureMap: 1f39aee73fbcc04852869cae25133b53af89f3cbc2a2e8f3ae1f93b1d29e0f794a7c0c04a5202f3a
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -94,6 +95,21 @@ MonoBehaviour:
   m_CopyDepthMode: 1
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
+--- !u!114 &4192605671214840906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcefcfab57ad054580d29137cdf106e, type: 3}
+  m_Name: CustomPostProcessRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_bloomShader: {fileID: 4800000, guid: 5f1864addb451f54bae8c86d230f736e, type: 3}
+  m_compositeShader: {fileID: -6465566751694194690, guid: 59fa8d4d2517f9b43b760de6c98df21b, type: 3}
 --- !u!114 &5242396948915173663
 MonoBehaviour:
   m_ObjectHideFlags: 0
