@@ -55,6 +55,7 @@ namespace DialogueSystem
         /// List of functions in the dialogue
         /// </summary>
         [field: SerializeField]
+        [field: SerializeReference]
         public List<CustomFunction> CustomFunctions { get; set; }
 
         /// <summary>

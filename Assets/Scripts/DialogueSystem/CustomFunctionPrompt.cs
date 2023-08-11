@@ -57,12 +57,18 @@ namespace DialogueSystem
 
         }
 
+        public override void Invoke()
+        {
+            Debug.Log("Test");
+        }
+
         // Method to find all types that inherit from a given class
         private IEnumerable<Type> FindInheritedClasses<T>()
         {
             return Assembly.GetAssembly(typeof(T)).GetTypes()
                 .Where(t => t.IsSubclassOf(typeof(T)) && !t.IsAbstract).Where(x => x != typeof(CustomFunctionPrompt));
         }
+  
         // Method to create a texture of a given color with rounded corners
         private Texture2D MakeTex(int width, int height, int cornerRadius, Color color)
         {

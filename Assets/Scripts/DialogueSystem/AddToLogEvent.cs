@@ -3,6 +3,7 @@ using UnityEditor;
 
 namespace DialogueSystem
 {
+    [System.Serializable]
     public class AddToLogEvent : CustomFunction
     {
         private int _entitySelected;
@@ -82,6 +83,10 @@ namespace DialogueSystem
             GUILayout.Space(5);
         }
 
+        public override void Invoke()
+        {
+            Debug.Log("This is to add: "  +_text);
+        }
 
         public void UpdateNode()
         {

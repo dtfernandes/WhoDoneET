@@ -1,28 +1,51 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using DialogueSystem;
 
+/// <summary>
+/// Class that handles the NameDisplay Component of the Dialogue Display
+/// </summary>
+[RequireComponent(typeof(MaskableGraphic))]
 public class DialogueNameDisplay : MonoBehaviour
 {
     [SerializeField]
-    private DialogueDisplayHandler ddHandler;
+    private DialogueDisplayHandler _dHandler;
 
-    private TextMeshProUGUI textComponent;
+    [SerializeField]
+    private TextMeshProUGUI _textComponent;
+
+    private MaskableGraphic _image;
+
+    private void Awake()
+    {
+        _image = GetComponent<MaskableGraphic>();
+    }
 
     private void Start()
     {
-        textComponent = GetComponent<TextMeshProUGUI>();
-
+        // Get List of PresetData     
         EntityData presetdata = Resources.Load<EntityData>("EntityData");
 
-        ddHandler.onStartLine += (NodeData data) =>
+        //Setup the event on Start Line to change/enable the name display
+        _dHandler.onStartLine += (NodeData data) =>
         {
             if (data.PresetName != 0)
-                textComponent.text = presetdata.presetNames[data.PresetName];
+            {
+                _image.enabled = true;
+                _textComponent.text = presetdata.presetNames[data.PresetName];
+            }
             else
-                textComponent.text = "";
+            {
+                _image.enabled = false;
+                _textComponent.text = "";
+            }
+        };
+
+        _dHandler.onEndDialogue += () =>
+        {
+            _textComponent.text = "";
+            _image.enabled = false;
         };
     }
 
