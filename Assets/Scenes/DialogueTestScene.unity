@@ -3103,11 +3103,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3570078750667454602, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
   m_PrefabInstance: {fileID: 2101913829}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &593455046 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 3570078750667454596, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
-  m_PrefabInstance: {fileID: 2101913829}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &593455052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10094,9 +10089,53 @@ PrefabInstance:
       propertyPath: m_NeverAutoSwitchControlSchemes
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 339100957981806240, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 842356931006448608, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1920.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.16383803
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.16383803
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.16383803
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.225405
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00000057035635
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.6977531
       objectReference: {fileID: 0}
     - target: {fileID: 1712292537083056988, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: _control
@@ -10214,6 +10253,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3570078750667454596, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: field of view
+      value: 83
+      objectReference: {fileID: 0}
     - target: {fileID: 3570078750667454599, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.6977531
@@ -10241,10 +10284,10 @@ PrefabInstance:
     - target: {fileID: 6926702712389004954, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 593455046}
+      objectReference: {fileID: 0}
     - target: {fileID: 6926702712389004954, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6926702712389004954, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
