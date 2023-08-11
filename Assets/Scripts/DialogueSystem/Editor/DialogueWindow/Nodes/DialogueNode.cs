@@ -51,7 +51,10 @@ namespace DialogueSystem.Editor
             //Setup node Default Style
             style.minWidth = 220;
 
-            CustomFunctions = nd?.CustomFunctions ?? new List<CustomFunction> { };
+            CustomFunctions = new List<CustomFunction> { };
+
+            if(nd?.CustomFunctions != null)
+                CustomFunctions.AddRange(nd.CustomFunctions);
 
             SaveWatingList = savingWaitingList;
             GUID = nd == null ? Guid.NewGuid().ToString() : nd.GUID;
@@ -139,8 +142,9 @@ namespace DialogueSystem.Editor
 
             EntityInfo selectedInfo = data.data[firstSelected];
             List<string> expressionNames = new List<string> { };
-
-            if (firstSelected != 0)
+            bool hasExpression = (selectedInfo?.Expressions?.Emotions?.Count ?? 0) > 0;
+           
+            if (firstSelected != 0 && hasExpression)
             {
                 selectedInfo = data.data[firstSelected - 1];
                 expressionNames = selectedInfo.Expressions.Emotions.Select(x => x.EmotionName).ToList();              
@@ -162,18 +166,27 @@ namespace DialogueSystem.Editor
                 //If its not default
                 if (selectedPresetIndex != 0)
                 {
-                    extensionContainer.style.height = 47f;
                     EntityInfo selectedInfo = data.data[selectedPresetIndex - 1];
 
-                    List<string> expressionNames = selectedInfo.Expressions.Emotions.Select(x => x.EmotionName).ToList();
+                    if ((selectedInfo?.Expressions?.Emotions?.Count ?? 0) > 0)
+                    {
 
-                    expressionPopUp.choices = expressionNames;
+                        extensionContainer.style.height = 47f;
 
-                    int selectedClampedIndex = Math.Clamp(expressionPopUp.index, 0, expressionNames.Count - 1);
+                        List<string> expressionNames = selectedInfo.Expressions.Emotions.Select(x => x.EmotionName).ToList();
 
-                    expressionPopUp.value = expressionNames[selectedClampedIndex];
-                
-                    ExpresionID = selectedClampedIndex;
+                        expressionPopUp.choices = expressionNames;
+
+                        int selectedClampedIndex = Math.Clamp(expressionPopUp.index, 0, expressionNames.Count - 1);
+
+                        expressionPopUp.value = expressionNames[selectedClampedIndex];
+
+                        ExpresionID = selectedClampedIndex;
+                    }
+                    else
+                    {
+                         extensionContainer.style.height = 25;
+                    }
                 }
                 else
                 {
@@ -209,10 +222,11 @@ namespace DialogueSystem.Editor
             presetPopUp.style.marginBottom = 2.5f;
             extensionContainer.style.backgroundColor = _nodeColor;
             extensionContainer.style.height = 25;
-            expressionPopUp.visible = expressionVisibility;
+            expressionPopUp.visible = false;
 
-            if (presetPopUp.index != 0)
+            if (presetPopUp.index != 0 && hasExpression)
             {
+                expressionPopUp.visible = true;
                 extensionContainer.style.height = 47f;
             }
  

@@ -51,15 +51,15 @@ namespace DialogueSystem.Editor
             
                               
             foreach (DialogueNode nd in result)
-            {                            
+            {
                 bool isConnected = false;
-                
+
                 //Check if they have any input connections
                 foreach (Port p in nd.inputContainer.Children())
                 {
                     if (p.connected)
                     {
-                        isConnected = true;                      
+                        isConnected = true;
                     }
                 }
 
@@ -78,7 +78,18 @@ namespace DialogueSystem.Editor
                     expressionId: nd.ExpresionID
                     );
 
+                List<CustomFunction> tempLis = new List<CustomFunction>();
+                tempLis.AddRange(nd.CustomFunctions);
+                data.CustomFunctions = tempLis;
+
+                foreach (CustomFunction cF in data.CustomFunctions)
+                {
+                    Debug.Log("ASd" + cF.GUID);
+                }
+
+
                 temp.FillDialogueDic(data);
+
             }
 
             string[] dir = path.Split('/');
@@ -89,7 +100,6 @@ namespace DialogueSystem.Editor
             AssetDatabase.CreateAsset(temp, path);
             AssetDatabase.SaveAssets();
             
-
             return temp;
         }
 

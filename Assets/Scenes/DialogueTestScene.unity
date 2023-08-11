@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.35872743, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2818,7 +2818,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &578483099
@@ -3147,6 +3147,11 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!20 &593455053 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3570078750667454596, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+  m_PrefabInstance: {fileID: 2101913829}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &641676366
 GameObject:
   m_ObjectHideFlags: 0
@@ -10115,27 +10120,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.16383803
+      value: 0.19935395
       objectReference: {fileID: 0}
     - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.16383803
+      value: 0.199354
       objectReference: {fileID: 0}
     - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.16383803
+      value: 0.19935395
       objectReference: {fileID: 0}
     - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.225405
+      value: 189.50946
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7487369
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.66286737
       objectReference: {fileID: 0}
     - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00000057035635
+      value: 23.069378
       objectReference: {fileID: 0}
     - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.6977531
+      value: 106.65116
       objectReference: {fileID: 0}
     - target: {fileID: 1712292537083056988, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: _control
@@ -10284,7 +10301,7 @@ PrefabInstance:
     - target: {fileID: 6926702712389004954, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 593455053}
     - target: {fileID: 6926702712389004954, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_RenderMode
       value: 2

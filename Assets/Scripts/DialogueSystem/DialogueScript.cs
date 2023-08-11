@@ -27,8 +27,7 @@ namespace DialogueSystem
         /// Works in the same way as a dictionary
         /// </summary>
         [SerializeField]
-        private List<NodeData> dialogueNodes =
-            new List<NodeData>();
+        private List<NodeData> dialogueNodes;
 
         /// <summary>
         /// Amount of Nodes in the Dialogue
@@ -43,6 +42,9 @@ namespace DialogueSystem
         /// <param name="nd">NodeData to be added</param>
         public void FillDialogueDic(NodeData data)
         {
+            if(dialogueNodes == null)
+                dialogueNodes = new List<NodeData> { };
+
             dialogueNodes.Add(data);
         }
 

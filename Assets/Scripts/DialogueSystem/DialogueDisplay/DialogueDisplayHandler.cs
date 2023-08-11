@@ -71,9 +71,6 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// </summary>
     public bool InDialogue { get; private set; }
 
-    [SerializeField]
-    private bool playOnLoad = default;
-
     public System.Action<IDialogueScript> onStartDialogue;
     public System.Action<NodeData> onStartLine;
     public System.Action onEndDialogue;
@@ -84,11 +81,9 @@ public class DialogueDisplayHandler : MonoBehaviour
     private int _currentChoiceIndex;
     private List<ChoiceSelector> _choices;
 
-    private void Start()
+    private void Awake()
     {
         _choices = new List<ChoiceSelector>();
-        if (playOnLoad)
-            StartDialolgue(currentScript);
     }
 
     /// <summary>
@@ -116,9 +111,8 @@ public class DialogueDisplayHandler : MonoBehaviour
         dialogueLine = currentScript[0];
         dialogueText = currentScript[0].Dialogue;
 
-        //Handle button Layout
-        InstatiateChoices();
-        DisplayLine();
+       
+        StartLine();
     }
 
 
@@ -143,6 +137,8 @@ public class DialogueDisplayHandler : MonoBehaviour
 
         for (int i = 0; i < choiceNumb; i++)
         {
+            if(dialogueLine.OutPorts[i].ChoiceText == "") continue;
+
             GameObject temp = Instantiate(buttonPREFAB, transform.position,
                 Quaternion.identity, buttonLayout.transform);
 
@@ -162,6 +158,23 @@ public class DialogueDisplayHandler : MonoBehaviour
     }
 
 
+
+    public void StartLine()
+    {
+        if (dialogueLine.CustomFunctions != null)
+        {
+            //Play Custom Events
+            foreach (CustomFunction func in dialogueLine.CustomFunctions)
+            {
+                func.Invoke();
+            }
+        }
+
+        //Handle button Layout
+        InstatiateChoices();
+        DisplayLine();
+    }
+
     /// <summary>
     /// Method responsible for deciding initializing next line of the current 
     /// DialogueScript
@@ -169,7 +182,6 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// <param name="choice">The selected choice of the current line</param>
     public void NextLine(int choice)
     {
-
         dialogueLine =
                currentScript.GetNextNode(dialogueLine, choice);
 
@@ -181,8 +193,7 @@ public class DialogueDisplayHandler : MonoBehaviour
 
         dialogueText = dialogueLine.Dialogue;
 
-        InstatiateChoices();
-        DisplayLine();
+        StartLine();
     }
 
 
@@ -272,11 +283,11 @@ public class DialogueDisplayHandler : MonoBehaviour
     IEnumerator EndDialogueDelay()
     {
         yield return endDelay;
+
+        //Call all custom events
         onEndDialogue?.Invoke();
         InDialogue = false;
     }
-
-
 
     void OnMove(InputValue value)
     {
@@ -308,7 +319,7 @@ public class DialogueDisplayHandler : MonoBehaviour
 
     void OnInteract()
     {
-        if (GameSettings.Instance.isMenuOpen) return;
+        if(GameSettings.Instance.isMenuOpen) return;
         if (!InDialogue) return;
 
         if (Ended)
