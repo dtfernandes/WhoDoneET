@@ -6,7 +6,8 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 
-[Serializable, VolumeComponentMenuForRenderPipeLine("Custom/Ben Day Bloom", typeof(UniversalRenderPipeline))]
+
+[Serializable, VolumeComponentMenuForRenderPipeline("Custom/Ben Day Bloom", typeof(UniversalRenderPipeline))]
 public class BenDayBloomComponent : VolumeComponent, IPostProcessComponent
 {
     [Header("Bloom Settings")]
@@ -28,17 +29,16 @@ public class BenDayBloomComponent : VolumeComponent, IPostProcessComponent
     public ClampedFloatParameter dotsCutoff = new ClampedFloatParameter(0.4f, 0, 1, true);
 
     public Vector2Parameter scrollDirection = new Vector2Parameter(new Vector2());
-
+        
     public bool IsActive()
     {
         return true;
     }
 
-    public bool IsTileCOmpatible()
+    public bool IsTileCompatible()
     {
         return false;
     }
-
 
 
 }
