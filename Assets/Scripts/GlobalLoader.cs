@@ -7,7 +7,8 @@ public static class GlobalLoader
     static void OnRuntimeMethodLoad()
     {
         GameSettings _settings = GameSettings.Instance;
-        _settings.FirstLoad = true;
-        _settings.isWorldStopped = false;     
+
+        _settings.Start();
+
     }
 }

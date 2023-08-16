@@ -39,6 +39,7 @@ namespace DialogueSystem.Editor
             CreateToolbar();
         }
 
+        
         /// <summary>
         /// Method called when this script is disabled
         /// </summary>

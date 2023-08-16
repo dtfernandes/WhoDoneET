@@ -21,13 +21,16 @@ MonoBehaviour:
       serializedVersion: 2
       x: 208
       y: 153
-      width: 246
-      height: 138
+      width: 541
+      height: 120
     isStart: 1
     events: []
     outPorts:
     - choiceText: 
       id: 5e853a19-b1cb-4793-be82-f860d1247fc9
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+    <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   - presetName: 
@@ -35,12 +38,23 @@ MonoBehaviour:
     dialogue: Blood!
     position:
       serializedVersion: 2
-      x: 509
-      y: 108
-      width: 213
-      height: 138
+      x: 749
+      y: 112
+      width: 220
+      height: 120
     isStart: 0
     events: []
     outPorts: []
+    <CustomFunctions>k__BackingField:
+    - rid: 4124876520603516934
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
+  references:
+    version: 2
+    RefIds:
+    - rid: 4124876520603516934
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 95d3b061076a26f788f572896e7466ce
+        _entitySelected: 0
+        _text: Cup with blood

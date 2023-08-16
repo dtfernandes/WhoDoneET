@@ -1278,12 +1278,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61335eb853a1e54ab3a46aed02ad453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  border: {fileID: 4732782447253533269}
   _control: 0
-  dialogueDisplayTarget: {fileID: 7611064732765706664}
   displaySpeed: 0.035
+  dialogueDisplayTarget: {fileID: 7611064732765706664}
   buttonLayout: {fileID: 5977339414450131277}
   buttonPREFAB: {fileID: 5384297829809235215, guid: 21273f440f7a9b2439f983dab0d20978, type: 3}
+  border: {fileID: 4732782447253533269}
 --- !u!114 &7035221392775029380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2729,6 +2729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2263195806511065580}
+  - component: {fileID: 5373868024023602137}
   m_Layer: 0
   m_Name: Character Page
   m_TagString: Untagged
@@ -2756,6 +2757,20 @@ Transform:
   - {fileID: 7684441160964142201}
   m_Father: {fileID: 4434583041485601912}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5373868024023602137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8921488996857636838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de1669eee8d8cbbc9b6b29f82c0cbba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _logItemPREFAB: {fileID: 2622665173676262966, guid: 27cc3357f25e67ea3aad714db576210e, type: 3}
+  _logLayout: {fileID: 1367197074371603845}
 --- !u!1 &9035819665728271932
 GameObject:
   m_ObjectHideFlags: 0

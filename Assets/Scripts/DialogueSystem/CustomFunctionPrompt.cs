@@ -5,103 +5,103 @@ using System.Reflection;
 using System;
 using System.Linq;
 
-namespace DialogueSystem
+namespace DialogueSystem.Editor
 {
+    /// <summary>
+    /// Temporary Custom Prompt for handling editor 
+    /// </summary>
     public class CustomFunctionPrompt : CustomFunction
     {
-        private int selectedClassIndex = 0;
-        private CustomFunction func;
-
-        public CustomFunctionPrompt()
-        {
-        }
-
-        public CustomFunctionPrompt(CustomFunction func)
-        {
-            this.func = func;
-        }
-
+        //Represents the custom function selected by the user
+        private int _selectedClassIndex = 0;
+        
+        /// <summary>
+        /// Method trigered after selecting a new function in the drop down
+        /// </summary>
         public Action<CustomFunction> onSelectFunction { get; set; }
 
+        /// <summary>
+        /// Override method to draw the Function in the inspector
+        /// Uses Layout 
+        /// </summary>
         public override void Draw()
         {
+            List<Type> functionTypes = 
+                FindInheritedClasses<CustomFunction>().ToList();
+
 
             // Create an array to store the names of the inheriting classes
-            List<string> classNames =
-                FindInheritedClasses<CustomFunction>().Select(t => t.Name).ToList();
+            List<string> classNames = functionTypes.Select(t => t.Name).ToList();
 
             classNames.Insert(0, "None");
 
-            int o = selectedClassIndex;
+            int o = _selectedClassIndex;
 
             // Display the dropdown menu with the class names
-            selectedClassIndex = EditorGUILayout.Popup(selectedClassIndex, classNames.ToArray(), GUILayout.ExpandWidth(true));
+            _selectedClassIndex = EditorGUILayout.Popup(_selectedClassIndex, classNames.ToArray(), GUILayout.ExpandWidth(true));
 
-            if (o != selectedClassIndex)
+            //There was a change on the drop down
+            if (o != _selectedClassIndex)
             {
-                //There was a change
-
-                CustomFunction customFunc = this;
-
-                switch (classNames[selectedClassIndex])
-                {
-                    case nameof(AddToLogEvent):
-                        customFunc = new AddToLogEvent();
-                        break;
-                }
-
+                //Get concrete function
+                CustomFunction customFunc = CreateCustomFunction(_selectedClassIndex - 1, functionTypes);
 
                 onSelectFunction?.Invoke(customFunc);
             }
-
-
         }
 
+        /// <summary>
+        /// Override method that represents the action of the function. 
+        /// Empty because this is a aux class
+        /// </summary>
         public override void Invoke()
         {
-            Debug.Log("Test");
+        
         }
 
-        // Method to find all types that inherit from a given class
+        /// <summary>
+        /// Method to find all types that inherit from a given class
+        /// </summary>
+        /// <typeparam name="T">Parent class to search for</typeparam>
+        /// <returns>List of types</returns>
         private IEnumerable<Type> FindInheritedClasses<T>()
         {
             return Assembly.GetAssembly(typeof(T)).GetTypes()
                 .Where(t => t.IsSubclassOf(typeof(T)) && !t.IsAbstract).Where(x => x != typeof(CustomFunctionPrompt));
         }
-  
-        // Method to create a texture of a given color with rounded corners
-        private Texture2D MakeTex(int width, int height, int cornerRadius, Color color)
+    
+        /// <summary>
+        /// Create a CustomFunction of a certain type 
+        /// </summary>
+        /// <param name="index">Index of the CustomFunction selected</param>
+        /// <param name="typeList">List of all classes that inherit CustomFunction</param>
+        /// <returns>-New CustomFunction</returns>
+        public CustomFunction CreateCustomFunction(int index, List<Type> typeList)
         {
-            Color[] pix = new Color[width * height];
-            float radiusSquared = cornerRadius * cornerRadius;
-            int midWidth = width / 2;
-            int midHeight = height / 2;
-
-            for (int x = 0; x < width; x++)
+            if (index < 0 || index >= typeList.Count)
             {
-                for (int y = 0; y < height; y++)
-                {
-                    int index = y * width + x;
-
-                    float dx = Mathf.Abs(x - midWidth);
-                    float dy = Mathf.Abs(y - midHeight);
-
-                    if (dx * dx + dy * dy < radiusSquared)
-                    {
-                        pix[index] = color;
-                    }
-                    else
-                    {
-                        pix[index] = Color.clear; // Set transparent for non-rounded corners
-                    }
-                }
+                Debug.LogError("Index out of range.");
+                return null;
             }
 
-            Texture2D result = new Texture2D(width, height);
-            result.SetPixels(pix);
-            result.Apply();
-            return result;
-        }
+            Type selectedType = typeList[index];
 
+            if (!typeof(CustomFunction).IsAssignableFrom(selectedType))
+            {
+                Debug.LogError("Selected type does not inherit from CustomFunction.");
+                return null;
+            }
+
+            try
+            {
+                CustomFunction instance = (CustomFunction)Activator.CreateInstance(selectedType);
+                return instance;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Failed to create instance: " + e.Message);
+                return null;
+            }
+        }
     }
 }

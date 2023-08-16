@@ -1,6 +1,8 @@
 ﻿using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using PublishersFork;
+using System;
 
 namespace DialogueSystem.Editor
 {
@@ -43,9 +45,8 @@ namespace DialogueSystem.Editor
                 Port.Capacity.Single, typeof(string));
 
             generateOutPort.portName = choice;
-
-
-            //Create and Add a textField to input the dialogue
+            
+                        //Create and Add a textField to input the dialogue
             TextField textNode = new TextField();
 
             textNode.RegisterCallback<ChangeEvent<string>>((ChangeEvent<string> evt) =>
@@ -61,19 +62,6 @@ namespace DialogueSystem.Editor
 
 
         }
-
-      
-
-        ///// <summary>
-        ///// Methos responsible for adding this component to the passed Node
-        ///// </summary>
-        ///// <param name="node">The Node to place this component into</param>
-        //public void AddComponent(DialogueNode node)
-        //{
-        //    node.outputContainer.Add(port);
-        //    node.outputContainer.Add(inputField);
-        //}
-
     }
 
 }

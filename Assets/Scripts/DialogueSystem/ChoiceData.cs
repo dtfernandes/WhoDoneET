@@ -32,6 +32,14 @@ namespace DialogueSystem
         /// Property that defines the unique id of the specific Choice
         /// </summary>
         public string ID => id;
+         
+        public string ChoicePortID { get; set; }
+
+        [field: UnityEngine.SerializeField]
+        public bool IsLocked { get; set; }
+        
+        [field: UnityEngine.SerializeField]
+        public bool IsHidden { get; set; }
 
         /// <summary>
         /// Constructor of this struct

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 390d99bcc1df1e246a4a4c1bd403f11f, type: 3}
-  m_Name: CopController
+  m_Script: {fileID: 11500000, guid: 37fff99d8b9a145ef8a97d702a2c7543, type: 3}
+  m_Name: LizardGuy
   m_EditorClassIdentifier: 
-  _dialogues:
-  - {fileID: 11400000, guid: dc2b60972dbc0100ea07a2476dd3da62, type: 2}
+  <Name>k__BackingField: Lizard Guy
+  <Image>k__BackingField: {fileID: 21300000, guid: 644617b1c69b0b245b89f6d1f6e380ce, type: 3}

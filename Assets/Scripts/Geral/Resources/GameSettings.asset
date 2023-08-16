@@ -13,3 +13,11 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   <isWorldStopped>k__BackingField: 0
+  <isMenuOpen>k__BackingField: 1
+  <FirstLoad>k__BackingField: 1
+  <Log>k__BackingField:
+    <Items>k__BackingField:
+    - <LogText>k__BackingField: 00:01 The cop is a fucking dumbass
+      <Entity>k__BackingField: 2
+    - <LogText>k__BackingField: 
+      <Entity>k__BackingField: 0

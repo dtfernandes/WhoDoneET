@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
-  m_Name: InitialName
+  m_Script: {fileID: 11500000, guid: 37fff99d8b9a145ef8a97d702a2c7543, type: 3}
+  m_Name: Cop
   m_EditorClassIdentifier: 
-  DialogueName: InitialName
-  dialogueNodes: []
+  <Name>k__BackingField: Cop
+  <Image>k__BackingField: {fileID: 21300000, guid: a1f8f8bfc4ce3044b88937fe10ce022a, type: 3}

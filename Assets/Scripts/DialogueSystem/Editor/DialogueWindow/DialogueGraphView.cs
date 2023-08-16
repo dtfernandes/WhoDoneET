@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
-
+using System.Linq;
 
 namespace DialogueSystem.Editor
 {
@@ -49,20 +49,18 @@ namespace DialogueSystem.Editor
         /// of the items
         /// </summary>
         /// <param name="evt"></param>
-        public override void BuildContextualMenu
-            (ContextualMenuPopulateEvent evt)
+        public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
             base.BuildContextualMenu(evt);
 
             if (evt.target is Node)
             {
                 Node node = evt.target as Node;
-              
 
-                evt.menu.InsertAction(0,"Text Only", (e) => 
+
+                evt.menu.InsertAction(0, "Text Only", (e) =>
                 {
-
-                    if (hideStatus != (DropdownMenuAction.Status)4)
+                if (hideStatus != (DropdownMenuAction.Status)4)
                     {
                         (node as DialogueNode).SwitchVisibility(false);
                         hideStatus = DropdownMenuAction.Status.Checked;
@@ -75,8 +73,38 @@ namespace DialogueSystem.Editor
 
                 }, hideStatus);
             }
+            else if(evt.target is Edge)
+            {
+                Edge edge = evt.target as Edge;
+
+                Node node = edge.output.node;
+                if (node is StartNode) return;
+               
+                DialogueNode fromNode = node as DialogueNode;
+                Port fromPort = edge.output;
+
+                evt.menu.InsertAction(0, "Add Locker", (e)=> {
+                    ChoiceData data = 
+                        fromNode.OutPorts.FirstOrDefault(x => x.ChoicePortID == fromPort.name);
+
+                    data.IsLocked = true;
+
+                    Button button = new Button();
+                    button.text = "TEST";
+                    button.style.backgroundColor = Color.red;
+                    button.style.position = Position.Relative;
+
+                    edge.contentContainer.Insert(0, button);
+                });
+                evt.menu.InsertAction(1, "Add Hidder", null);
+            }
+            else
+            {
+                evt.menu.InsertAction(0, "Create Node", (e) => { CreateDialogueNode(); });
+            }
         }
 
+        
 
         /// <summary>
         /// Method responsible for getting all ports 

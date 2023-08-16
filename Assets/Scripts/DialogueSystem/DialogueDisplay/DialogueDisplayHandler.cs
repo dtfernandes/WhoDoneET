@@ -8,17 +8,11 @@ using UnityEngine.InputSystem;
 //Class responsible for the handling of the Dialogue Display
 public class DialogueDisplayHandler : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject border;
 
-    [SerializeField]
+     [SerializeField]
     private Control _control;
 
-    /// <summary>
-    /// Text component responsible for displaying the Dialogue text
-    /// </summary>
-    [SerializeField]
-    private TextMeshProUGUI dialogueDisplayTarget = default;
+  
 
     /// <summary>
     /// Current Dialogue script beeing displayed 
@@ -33,6 +27,12 @@ public class DialogueDisplayHandler : MonoBehaviour
     private float displaySpeed = default;
 
     /// <summary>
+    /// Text component responsible for displaying the Dialogue text
+    /// </summary>
+    [SerializeField][Header("References")]
+    private TextMeshProUGUI dialogueDisplayTarget = default;
+
+    /// <summary>
     /// GameObject that defines the container of the ChoiceButtons
     /// </summary>
     [SerializeField]
@@ -43,7 +43,11 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// </summary>
     [SerializeField]
     private GameObject buttonPREFAB = default;
+     
+    [SerializeField]
+    private GameObject border;
 
+   
     /// <summary>
     /// Variable that defines the data of one line of dialogue
     /// </summary>
@@ -289,6 +293,8 @@ public class DialogueDisplayHandler : MonoBehaviour
         InDialogue = false;
     }
 
+
+
     void OnMove(InputValue value)
     {
         if (!InDialogue) return;
@@ -319,7 +325,6 @@ public class DialogueDisplayHandler : MonoBehaviour
 
     void OnInteract()
     {
-        if(GameSettings.Instance.isMenuOpen) return;
         if (!InDialogue) return;
 
         if (Ended)

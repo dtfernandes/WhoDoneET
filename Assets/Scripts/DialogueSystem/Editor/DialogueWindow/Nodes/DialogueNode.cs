@@ -234,7 +234,7 @@ namespace DialogueSystem.Editor
             #endregion
 
             RegisterCallback<PointerDownEvent>((PointerDownEvent evt) =>
-            {             
+            {
                 EnableInspectorDisplay();
             });
 
@@ -245,8 +245,7 @@ namespace DialogueSystem.Editor
         private void EnableInspectorDisplay(){
 
             inspector =
-                  ScriptableObject.CreateInstance("DialogueNodeInspector")
-                       as DialogueNodeInspector;
+                  ScriptableObject.CreateInstance("DialogueNodeInspector") as DialogueNodeInspector;
             inspector.init(this);
             Selection.activeObject = inspector;
 
@@ -267,11 +266,13 @@ namespace DialogueSystem.Editor
             ChoiceData cD = new ChoiceData(choice, id);
             OutPorts.Add(cD);
             int index = OutPorts.IndexOf(cD);
-
+            cD.ChoicePortID = Guid.NewGuid().ToString();
 
             Port port = InstatiateOutputPort();
-            port.portName = "";
 
+            port.name = cD.ChoicePortID;
+            port.portName = "";
+            
             //Create and Add a textField to input the dialogue
             TextField textNode = new TextField();
         
@@ -300,6 +301,17 @@ namespace DialogueSystem.Editor
                         ((DetachFromPanelEvent evnt) =>
                         {
                             OutPorts[index].ChangeId("");
+                        });
+
+
+                        //Assign inspector event to edge
+
+                        e.RegisterCallback<MouseDownEvent>((MouseDownEvent evt) => 
+                        {
+                            DialogueEdgeInspector edgeInspector =
+                              ScriptableObject.CreateInstance("DialogueEdgeInspector") as DialogueEdgeInspector;
+                            edgeInspector.init(e, OutPorts[index]);
+                            Selection.activeObject = edgeInspector;
                         });
                     }
                 }
@@ -367,11 +379,5 @@ namespace DialogueSystem.Editor
         {
             SetPosition(position);
         }
-   
-        public void ConnectPorts(NodeData nd, DialogueGraphView graph)
-        {
-            //foreach(ChoiceComponent)
-        }
-    
     }
 }
