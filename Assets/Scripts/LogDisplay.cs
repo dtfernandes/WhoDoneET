@@ -9,7 +9,7 @@ public class LogDisplay : MonoBehaviour
     private InvestigationLog _log;
 
     [SerializeField]
-    public CharacterLogPageDisplay _characterPage;
+    public LogPage _characterPage;
 
     [SerializeField]
     public GameObject _mainPage;

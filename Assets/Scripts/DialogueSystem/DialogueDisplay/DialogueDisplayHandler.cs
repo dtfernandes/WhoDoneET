@@ -4,6 +4,7 @@ using DialogueSystem;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using System;
 
 //Class responsible for the handling of the Dialogue Display
 public class DialogueDisplayHandler : MonoBehaviour
@@ -19,6 +20,12 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// </summary>
     [SerializeField]
     private IDialogueScript currentScript = default;
+
+    public void SpecialChoice(string gUID, SpecialChoice skip)
+    {
+        Debug.Log(dialogueLine.Dialogue);
+        Debug.Log(gUID);
+    }
 
     /// <summary>
     /// Time between each char of the Dialogue
@@ -74,6 +81,8 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// currenly beeing displayed
     /// </summary>
     public bool InDialogue { get; private set; }
+
+    public bool DialogueIsPaused { get; set; }
 
     public System.Action<IDialogueScript> onStartDialogue;
     public System.Action<NodeData> onStartLine;
@@ -160,8 +169,6 @@ public class DialogueDisplayHandler : MonoBehaviour
         buttonLayout.SetActive(false);
       
     }
-
-
 
     public void StartLine()
     {
@@ -294,12 +301,11 @@ public class DialogueDisplayHandler : MonoBehaviour
     }
 
 
-
     void OnMove(InputValue value)
     {
         if (!InDialogue) return;
         if (_control != Control.FullKeyboard) return;
-
+        if (DialogueIsPaused) return;
 
         _choices[_currentChoiceIndex].SetHighlight(false);
 
@@ -326,6 +332,7 @@ public class DialogueDisplayHandler : MonoBehaviour
     void OnInteract()
     {
         if (!InDialogue) return;
+        if (DialogueIsPaused) return;
 
         if (Ended)
         {
