@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor.Experimental.GraphView;
 
 namespace DialogueSystem
 {
@@ -41,15 +42,18 @@ namespace DialogueSystem
         [field: UnityEngine.SerializeField]
         public bool IsHidden { get; set; }
 
+        public Port Port { get; private set; }
+
         /// <summary>
         /// Constructor of this struct
         /// </summary>
         /// <param name="name">Choice text</param>
         /// <param name="id">Unique id of the Choice</param>
-        public ChoiceData(string text, string id)
+        public ChoiceData(string text, string id, Port port)
         {
             this.choiceText = text;
             this.id = id;
+            Port = port;
         }
 
         public void ChangeText(string text)
@@ -64,7 +68,10 @@ namespace DialogueSystem
 
         public ChoiceData Clone()
         {
-            return new ChoiceData(ChoiceText, ID);
+            ChoiceData clone = new ChoiceData(ChoiceText, ID, Port);
+            clone.IsHidden = IsHidden;
+            clone.IsLocked = IsLocked;
+            return clone;
         }
     }
 }

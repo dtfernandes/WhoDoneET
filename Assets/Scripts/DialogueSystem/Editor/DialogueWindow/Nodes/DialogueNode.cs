@@ -63,7 +63,7 @@ namespace DialogueSystem.Editor
 
             if (nd != null)
                 foreach (ChoiceData cd in nd.OutPorts)
-                    InstatiateChoicePort(cd.ChoiceText, cd.ID);
+                    InstatiateChoicePort(cd);
 
             //Create and add button that creates choice components
             Button button = new Button(clickEvent: () =>
@@ -72,7 +72,7 @@ namespace DialogueSystem.Editor
             });
             button.text = "+";
 
-            button.style.width = 30;
+            button.style.width = 31;
             titleContainer.Clear();
             titleContainer.Insert(0,button);
             titleContainer.style.height = 30;
@@ -258,18 +258,27 @@ namespace DialogueSystem.Editor
             inspector.ChangeDialogue(evt.newValue, true);
         }
 
-        private void InstatiateChoicePort(string choice = "", string id = "")
+        private void InstatiateChoicePort(ChoiceData data = null)
         {
             Color _xColor = new Color(0.4f,0.2f,0.2f);
 
+            Port port = InstatiateOutputPort();
 
-            ChoiceData cD = new ChoiceData(choice, id);
+            string choice = data == null ? data.ChoiceText : "";
+            string id = data == null ? data.ID : "";
+
+
+            ChoiceData cD = new ChoiceData(choice, id, port);
+
+            cD.IsHidden = data.IsHidden;
+            cD.IsLocked = data.IsLocked;
+
             OutPorts.Add(cD);
             int index = OutPorts.IndexOf(cD);
             cD.ChoicePortID = Guid.NewGuid().ToString();
 
-            Port port = InstatiateOutputPort();
-
+            
+            if(cD.IsHidden || cD.IsLocked) port.portColor = Color.red;
             port.name = cD.ChoicePortID;
             port.portName = "";
             
@@ -278,6 +287,7 @@ namespace DialogueSystem.Editor
         
             textNode.value = choice;
             textNode.multiline = true;
+            textNode.style.width = 100;
 
             textNode.RegisterCallback<ChangeEvent<string>>((ChangeEvent<string> evt) =>
             {

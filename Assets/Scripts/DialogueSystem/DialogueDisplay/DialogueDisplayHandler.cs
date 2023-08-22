@@ -5,6 +5,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using System;
+using System.Linq;
 
 //Class responsible for the handling of the Dialogue Display
 public class DialogueDisplayHandler : MonoBehaviour
@@ -151,6 +152,7 @@ public class DialogueDisplayHandler : MonoBehaviour
         for (int i = 0; i < choiceNumb; i++)
         {
             if(dialogueLine.OutPorts[i].ChoiceText == "") continue;
+            if(dialogueLine.OutPorts[i].IsHidden) continue;
 
             GameObject temp = Instantiate(buttonPREFAB, transform.position,
                 Quaternion.identity, buttonLayout.transform);
@@ -193,10 +195,22 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// <param name="choice">The selected choice of the current line</param>
     public void NextLine(int choice)
     {
+
+        NodeData previousLine = dialogueLine;
+      
+        
         dialogueLine =
                currentScript.GetNextNode(dialogueLine, choice);
 
+        
         if (dialogueLine == null)
+        {
+            EndDialogue();
+            return;
+        }
+
+        //This is kinda cringe. Need to rework
+        if(previousLine.OutPorts[choice].IsHidden)
         {
             EndDialogue();
             return;
@@ -336,9 +350,15 @@ public class DialogueDisplayHandler : MonoBehaviour
 
         if (Ended)
         {
-            if ((dialogueLine.OutPorts?.Count ?? 0) > 0)
+            bool clickSkip = true;
+            clickSkip = 
+                (dialogueLine.OutPorts?.Count ?? 0 ) <= 0 ;
+            
+            if (!clickSkip)
             {
-                if (dialogueLine.OutPorts[0].ChoiceText != "") return;
+                if(dialogueLine.OutPorts.Any(x => !x.IsHidden))
+                    if (dialogueLine.OutPorts[0].ChoiceText != "") 
+                        return;
             }
 
             NextLine(0);

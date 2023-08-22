@@ -88,15 +88,17 @@ namespace DialogueSystem.Editor
                         fromNode.OutPorts.FirstOrDefault(x => x.ChoicePortID == fromPort.name);
 
                     data.IsLocked = true;
-
-                    Button button = new Button();
-                    button.text = "TEST";
-                    button.style.backgroundColor = Color.red;
-                    button.style.position = Position.Relative;
-
-                    edge.contentContainer.Insert(0, button);
+                    data.Port.portColor = Color.red;
+                   
                 });
-                evt.menu.InsertAction(1, "Add Hidder", null);
+                evt.menu.InsertAction(1, "Add Hidder", (e)=> {
+                    ChoiceData data = 
+                        fromNode.OutPorts.FirstOrDefault(x => x.ChoicePortID == fromPort.name);
+
+                    data.IsHidden = true;
+                    data.Port.portColor = Color.red;
+                    
+                });
             }
             else
             {

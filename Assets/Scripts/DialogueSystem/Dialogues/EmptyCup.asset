@@ -19,12 +19,35 @@ MonoBehaviour:
     dialogue: The Cups seems empty
     position:
       serializedVersion: 2
-      x: 324
-      y: 164
-      width: 213
-      height: 138
+      x: 264
+      y: 189
+      width: 247
+      height: 120
     isStart: 1
     events: []
-    outPorts: []
+    outPorts:
+    - choiceText: Emoty Cup
+      id: 886160cf-f86e-4e99-87c2-9f3f4d766754
+      <IsLocked>k__BackingField: 1
+      <IsHidden>k__BackingField: 1
+    <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 886160cf-f86e-4e99-87c2-9f3f4d766754
+    dialogue: The cup was filled with something
+    position:
+      serializedVersion: 2
+      x: 530
+      y: 362
+      width: 220
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  references:
+    version: 2
+    RefIds: []
