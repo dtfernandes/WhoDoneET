@@ -22,12 +22,6 @@ public class DialogueDisplayHandler : MonoBehaviour
     [SerializeField]
     private IDialogueScript currentScript = default;
 
-    public void SpecialChoice(string gUID, SpecialChoice skip)
-    {
-        Debug.Log(dialogueLine.Dialogue);
-        Debug.Log(gUID);
-    }
-
     /// <summary>
     /// Time between each char of the Dialogue
     /// </summary>
@@ -94,6 +88,7 @@ public class DialogueDisplayHandler : MonoBehaviour
     //Choice being selected during the dialogue
     private int _currentChoiceIndex;
     private List<ChoiceSelector> _choices;
+    private bool HasChoices => (dialogueLine.OutPorts?.Count ?? -1) > 0;
 
     private void Awake()
     {
@@ -127,6 +122,24 @@ public class DialogueDisplayHandler : MonoBehaviour
 
        
         StartLine();
+    }
+
+
+    public void SpecialChoice(string gUID, SpecialChoice skip)
+    {
+        if (HasChoices)
+        {
+            int it = 0;
+            foreach (ChoiceData choices in dialogueLine.OutPorts)
+            {
+                if(choices.IsHidden)
+                {
+                    NextLine(it);
+                }
+
+                it++;
+            }
+        }
     }
 
 

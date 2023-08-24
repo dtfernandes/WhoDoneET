@@ -1053,17 +1053,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162048165}
-  m_LocalRotation: {x: -0.00000005960463, y: 0.000000029802315, z: 0.2557844, w: -0.96673393}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0001487732}
+  m_LocalRotation: {x: -0.0000000745058, y: -0, z: 0.25578445, w: -0.9667338}
+  m_LocalPosition: {x: 0, y: 0, z: -6.19746}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 61404588}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1726499294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -29.64}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -973.093, y: -640.70825}
+  m_AnchoredPosition: {x: -1008.372, y: -507.07257}
   m_SizeDelta: {x: 141.3505, y: 75.3591}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162048167
@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1055359278}
+      - m_Target: {fileID: 112864935}
         m_TargetAssemblyTypeName: LogDisplay, Assembly-CSharp
         m_MethodName: GoBack
         m_Mode: 6
@@ -8951,6 +8951,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de1669eee8d8cbbc9b6b29f82c0cbba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1726499294 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2263195806511065580, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+  m_PrefabInstance: {fileID: 2101913829}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1731142432 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1712292537083056988, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
@@ -10780,35 +10785,35 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 58813335268634820, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 58813335268634820, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 58813335268634820, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 124.67865
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 58813335268634820, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -124.1056
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152859095048745491, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152859095048745491, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152859095048745491, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 124.67865
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152859095048745491, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -387.0648
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 154055628791534553, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_NeverAutoSwitchControlSchemes
@@ -11156,7 +11161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1510669219188681058, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_Pivot.x
@@ -11272,19 +11277,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3114242049736005649, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3114242049736005649, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3114242049736005649, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 124.67865
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3114242049736005649, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -650.7338
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3334779679595906312, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_TargetGraphic
@@ -11760,6 +11765,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1562656378523489147, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       insertIndex: 1
       addedObject: {fileID: 664815145}
+    - targetCorrespondingSourceObject: {fileID: 2263195806511065580, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 162048166}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3570078750667454602, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       insertIndex: -1
@@ -11912,6 +11920,5 @@ SceneRoots:
   - {fileID: 126888606}
   - {fileID: 1610624772}
   - {fileID: 1903390521}
-  - {fileID: 162048166}
   - {fileID: 1223345020}
   - {fileID: 1791033894}
