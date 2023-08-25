@@ -21,7 +21,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: -63
       y: -1
-      width: 541
+      width: 247
       height: 142
     isStart: 1
     events: []
@@ -40,7 +40,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 786
       y: -44
-      width: 541
+      width: 330
       height: 142
     isStart: 0
     events: []
@@ -59,7 +59,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 846
       y: 286
-      width: 541
+      width: 247
       height: 142
     isStart: 0
     events: []
@@ -72,37 +72,13 @@ MonoBehaviour:
     <PresetName>k__BackingField: 2
     <ExpressionId>k__BackingField: 0
   - presetName: 
-    guid: 993e55a1-3396-40fc-86f5-0f628117069e
-    dialogue: But I'm also a guy. What's up?
-    position:
-      serializedVersion: 2
-      x: 478
-      y: 109
-      width: 541
-      height: 166
-    isStart: 0
-    events: []
-    outPorts:
-    - choiceText: I don't like cops
-      id: e7d43500-3127-4066-aee7-5d51feb85e89
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-    - choiceText: 'Fuck this crime, lets go eat some borritos '
-      id: 7e4461ec-c1d9-4e1e-8b6a-d4b770bcc09e
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-    <CustomFunctions>k__BackingField:
-    - rid: 4124876520603516928
-    <PresetName>k__BackingField: 2
-    <ExpressionId>k__BackingField: 0
-  - presetName: 
     guid: 54bf770f-0363-448e-9226-02cec9600ab9
     dialogue: Waka waka
     position:
       serializedVersion: 2
       x: 1547
       y: -137
-      width: 541
+      width: 247
       height: 142
     isStart: 0
     events: []
@@ -127,21 +103,64 @@ MonoBehaviour:
     events: []
     outPorts: []
     <CustomFunctions>k__BackingField:
-    - rid: 4124876520603516929
+    - rid: 4124876702832132096
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 2
+  - presetName: 
+    guid: 993e55a1-3396-40fc-86f5-0f628117069e
+    dialogue: But I'm also a guy. What's up?
+    position:
+      serializedVersion: 2
+      x: 478
+      y: 109
+      width: 247
+      height: 190
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: I don't like cops
+      id: e7d43500-3127-4066-aee7-5d51feb85e89
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+    - choiceText: 'Fuck this crime, lets go eat some borritos '
+      id: 7e4461ec-c1d9-4e1e-8b6a-d4b770bcc09e
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+    - choiceText: 
+      id: 3e035338-104d-4048-b0e1-561418f74858
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 1
+    <CustomFunctions>k__BackingField:
+    - rid: 4124876702832132097
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: 3e035338-104d-4048-b0e1-561418f74858
+    dialogue: The fuck is that?
+    position:
+      serializedVersion: 2
+      x: 542
+      y: 491
+      width: 220
+      height: 142
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 2
     <ExpressionId>k__BackingField: 2
   references:
     version: 2
     RefIds:
-    - rid: 4124876520603516928
-      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
-      data:
-        <GUID>k__BackingField: be7727dedf850d93ca117523523f16ef
-        _entitySelected: 2
-        _text: 00:01 The cop is a dumbass
-    - rid: 4124876520603516929
+    - rid: 4124876702832132096
       type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
       data:
         <GUID>k__BackingField: b6d4821d15e3efd9991b85995e1503e0
         _entitySelected: 2
         _text: The cop doesn't like crime... curious
+    - rid: 4124876702832132097
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: be7727dedf850d93ca117523523f16ef
+        _entitySelected: 2
+        _text: 00:01 The cop is a dumbass

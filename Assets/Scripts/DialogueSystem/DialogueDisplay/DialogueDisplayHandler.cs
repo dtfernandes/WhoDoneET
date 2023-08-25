@@ -134,7 +134,12 @@ public class DialogueDisplayHandler : MonoBehaviour
             {
                 if(choices.IsHidden)
                 {
-                    NextLine(it);
+                    dialogueLine =
+                         currentScript.GetNextNode(dialogueLine, it);
+                         
+                    dialogueText = dialogueLine.Dialogue;
+
+                    StartLine();
                 }
 
                 it++;
