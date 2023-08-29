@@ -44,6 +44,9 @@ namespace DialogueSystem
 
         public Port Port { get; private set; }
 
+        [field: UnityEngine.SerializeField]
+        public string[] HideIDs { get; set; }
+
         /// <summary>
         /// Constructor of this struct
         /// </summary>
@@ -73,5 +76,17 @@ namespace DialogueSystem
             clone.IsLocked = IsLocked;
             return clone;
         }
+ 
+        public bool CanUnhide(string guid)
+        {
+            foreach (string s in HideIDs)
+            {
+                if (s == guid)
+                    return true;
+            }
+
+            return false;
+        }
+ 
     }
 }

@@ -48,7 +48,9 @@ public class Interactor : MonoBehaviour
         if (_gameSettings.isMenuOpen) return;
 
         if (_inDescription) return;
-  
+
+        Debug.Log(_inDescription);
+
         //Check if the player is looking at an object
         if (_focusItem != null)
         {
@@ -141,6 +143,7 @@ public class Interactor : MonoBehaviour
                 ddh.StartDialolgue(description);
 
                 _inDescription = true;
+                _gameSettings.LockCursor(false,true);
 
                 _grabbedObject = null;
                 _focusItem = null;
@@ -151,6 +154,7 @@ public class Interactor : MonoBehaviour
 
         void EndDescription()
         {
+            Debug.Log("?");
             _grabbedObject = _focusItem as PickupableObject;
             _inDescription = false;
             //Setup Camera

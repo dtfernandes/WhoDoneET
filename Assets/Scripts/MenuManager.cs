@@ -51,7 +51,7 @@ public class MenuManager : MonoBehaviour
 
         // Stops the Dialogue while opens 
         _gameSettings.DialogueHandler.DialogueIsPaused = miniLog.activeSelf;
-
+        
     }
 
 }

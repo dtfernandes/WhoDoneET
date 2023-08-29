@@ -264,14 +264,14 @@ namespace DialogueSystem.Editor
 
             Port port = InstatiateOutputPort();
 
-            string choice = data == null ? data.ChoiceText : "";
-            string id = data == null ? data.ID : "";
+            string choice = data != null ? data.ChoiceText : "";
+            string id = data != null ? data.ID : "";
 
 
             ChoiceData cD = new ChoiceData(choice, id, port);
 
-            cD.IsHidden = data.IsHidden;
-            cD.IsLocked = data.IsLocked;
+            cD.IsHidden = data?.IsHidden ?? false;
+            cD.IsLocked = data?.IsLocked ?? false;
 
             OutPorts.Add(cD);
             int index = OutPorts.IndexOf(cD);
