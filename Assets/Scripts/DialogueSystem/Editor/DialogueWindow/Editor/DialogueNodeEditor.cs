@@ -10,7 +10,6 @@ namespace DialogueSystem.Editor
     [CustomEditor(typeof(DialogueNode), true)]
     public class DialogueNodeEditor : UnityEditor.Editor
     {
-
         public void OnEnable()
         {
         }

@@ -140,7 +140,7 @@ public class Interactor : MonoBehaviour
                 _controller.Stop();
                 DialogueScript description = obj.GetDescription();
                 DialogueDisplayHandler ddh = _gameSettings.DialogueHandler;
-                ddh.StartDialolgue(description);
+                ddh.StartDialolgue(description, null);
 
                 _inDescription = true;
                 _gameSettings.LockCursor(false,true);

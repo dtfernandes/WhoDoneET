@@ -37,8 +37,8 @@ namespace DialogueSystem
         private bool isStart;
 
         [SerializeField] [HideInInspector]
-        private List<EventTriggerData> events;
-        public List<EventTriggerData> Events {
+        private List<RuntimeEventData> events;
+        public List<RuntimeEventData> Events {
             get
             {
                 return events;
@@ -108,7 +108,7 @@ namespace DialogueSystem
         /// to the "Start"</param>
         /// <param name="outPorts">List of Choice data connected to the node</param>
         public NodeData(string guID, string dialogue, Rect pos, bool start, ICollection<ChoiceData> outPorts, 
-            List<EventTriggerData> events, int presetNames = -1, int expressionId = -1)
+            List<RuntimeEventData> events, int presetNames = -1, int expressionId = -1)
         {
             isStart = start;
             position = pos;

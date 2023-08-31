@@ -12,7 +12,6 @@ namespace DialogueSystem.Editor
     public class DialogueNodeInspectorEditor : UnityEditor.Editor
     {
         SerializedProperty dialogueText;
-        SerializedProperty events;
         DialogueNodeInspector nodeInsp;
 
         int funcSelectPopup;
@@ -21,10 +20,8 @@ namespace DialogueSystem.Editor
 
         void OnEnable()
         {
-            nodeInsp = target as DialogueNodeInspector;
-
+            nodeInsp = target as DialogueNodeInspector;;
             dialogueText = serializedObject.FindProperty("dialogueText");
-            events = serializedObject.FindProperty("events");
             _customFuctions = nodeInsp.CustomFunctions;
             if(_customFuctions == null) _customFuctions= new List<CustomFunction>();
         }
@@ -36,90 +33,133 @@ namespace DialogueSystem.Editor
 
         public override void OnInspectorGUI()
         {           
-
             nodeInsp = target as DialogueNodeInspector;
-
+        
             serializedObject.Update();
 
             base.OnInspectorGUI();
 
+            //Handle the text of the node
+            #region Dialogue Text
+
             string dialTxtTemp = dialogueText.stringValue; 
+
             EditorGUILayout.PropertyField(dialogueText, new GUIContent("Dialogue Text"));
+           
+            //On change text event
             if (dialTxtTemp != dialogueText.stringValue)
                 nodeInsp.ChangeDialogue(dialogueText.stringValue);
 
-            GUILayout.BeginHorizontal();
-          
-            if(GUILayout.Button("Add Event"))
+            #endregion
+
+            GUILayout.Space(10);
+
+            //Make sure the Controller is selected to display the 
+            //runtime events
+            if(nodeInsp.Controller != null)
             {
-                events.InsertArrayElementAtIndex(events.arraySize);
-                SerializedProperty ev = events.GetArrayElementAtIndex(events.arraySize - 1);
-                SerializedProperty gameObj =
-                   ev.FindPropertyRelative("gameObj");
-                SerializedProperty functionName =
-                   ev.FindPropertyRelative("functionName");
-                SerializedProperty index =
-                   ev.FindPropertyRelative("indexPos");
-                SerializedProperty showText =
-                   ev.FindPropertyRelative("showText");
+                List<RuntimeEventData> events = nodeInsp.Events;
 
-                gameObj.objectReferenceValue = null;
-                functionName.stringValue = "";
-                index.intValue = 0;
-                showText.boolValue = false;
-
-
-            }
-           
-            if (GUILayout.Button("Clear"))
-            {
-                for (int i = events.arraySize - 1; i >= 0; i--)
+                #region Event Region
+                GUILayout.BeginHorizontal();
+            
+                if(GUILayout.Button("Add Event"))
                 {
-                    RemoveEventFromManager(i);
+                    //Insert new element
+                    events.Add(new RuntimeEventData(null, null, 0));
+                }
+            
+                if (GUILayout.Button("Clear"))
+                {
+                    events.Clear();
                 }
 
+                GUILayout.EndHorizontal();
 
-                events.ClearArray();
+                GUILayout.Space(5);
+            
+                EditorGUI.indentLevel = 2;
+        
+                //Draw Event Trigger Data
+                for (int i = 0; i < events.Count; i++)
+                {
+                    events[i] = DrawRunTimeEventSlot(events[i], i);
+                }
+
+                EditorGUI.indentLevel = 1;
+                #endregion               
+            }
+            else
+            {
+                //If a controller does not exist
+                //Display a warning
+                GUILayout.Label("Runtime Events can only be assigned when" + 
+                 " a Dialogue Controller is selected.");
             }
 
-            GUILayout.EndHorizontal();
+            GUILayout.Space(10);
 
-            GUILayout.Space(5);
-
-            EditorGUI.indentLevel = 2;
-      
-            //Draw Event Trigger Data
-            for (int i = 0; i < events.arraySize; i++)
+            //Display the Custom Events
+            #region Custom Events
+            if (GUILayout.Button("Add Custom Event"))
             {
-                
-                #region Assign Serialized Properties
-                SerializedProperty gameObj =
-                   events.GetArrayElementAtIndex(i).FindPropertyRelative("gameObj");
+                CustomFunctionPrompt prompt = new CustomFunctionPrompt();
+                SetupCustomFunction(prompt);
+            }
+
+            GUILayout.Space(10);
+
+            for (int i = 0; i < _customFuctions.Count; i++)
+            {
+                 CustomFunction func = _customFuctions[i];
+                 func.Draw();
+            }
+            #endregion
+
+            serializedObject.ApplyModifiedProperties();
+        }
+
+            
+        private void DrawEventSlot(SerializedProperty eventInfo, int i)
+        {
+               #region Assign Serialized Properties
                 SerializedProperty functionName =
-                   events.GetArrayElementAtIndex(i).FindPropertyRelative("functionName");
+                   eventInfo.FindPropertyRelative("functionName");
+
                 SerializedProperty index =
-                   events.GetArrayElementAtIndex(i).FindPropertyRelative("indexPos");
+                   eventInfo.FindPropertyRelative("indexPos");
+
                 SerializedProperty showText =
-                   events.GetArrayElementAtIndex(i).FindPropertyRelative("showText");
+                   eventInfo.FindPropertyRelative("showText");
+
                 SerializedProperty showSelf =
-                   events.GetArrayElementAtIndex(i).FindPropertyRelative("showSelf");
+                   eventInfo.FindPropertyRelative("showSelf");
+
                 SerializedProperty uniqueID =
-                   events.GetArrayElementAtIndex(i).FindPropertyRelative("uniqueID");
+                   eventInfo.FindPropertyRelative("uniqueID");
+
                 SerializedProperty savedID =
-                  events.GetArrayElementAtIndex(i).FindPropertyRelative("savedID");
+                  eventInfo.FindPropertyRelative("savedID");
+
                 SerializedProperty listOfType =
-                   events.GetArrayElementAtIndex(i).FindPropertyRelative("listOfType");
+                   eventInfo.FindPropertyRelative("listOfType");
+
                 SerializedProperty selectedComponent =
-                   events.GetArrayElementAtIndex(i).FindPropertyRelative("selectedComponent");
+                   eventInfo.FindPropertyRelative("selectedComponent");
+
                 SerializedProperty seletedTypeIndex =
-                   events.GetArrayElementAtIndex(i).FindPropertyRelative("seletedTypeIndex");
+                   eventInfo.FindPropertyRelative("seletedTypeIndex");
+
                 SerializedProperty seletedMethodIndex =
-                  events.GetArrayElementAtIndex(i).FindPropertyRelative("seletedMethodIndex");
+                  eventInfo.FindPropertyRelative("seletedMethodIndex");
+
                 SerializedProperty listOfAssemblies =
-                  events.GetArrayElementAtIndex(i).FindPropertyRelative("listOfAssemblies");
+                  eventInfo.FindPropertyRelative("listOfAssemblies");
+
                 #endregion
 
                 GUILayout.Space(5);
+                
                 if (EditorGUILayout.DropdownButton(new GUIContent($"Event { i }"), FocusType.Passive))
                 {
                     showSelf.boolValue = !showSelf.boolValue;
@@ -144,93 +184,36 @@ namespace DialogueSystem.Editor
                     #endregion
 
                     #region GameObject Selection
-                    GameObject gameObjTemp = gameObj.objectReferenceValue as GameObject;
-                    EditorGUILayout.PropertyField(gameObj);
+                    GameObject gameObjTemp = nodeInsp.Controller.gameObject;
 
-                    //On Change Game Object
-                    if (gameObjTemp != gameObj.objectReferenceValue)
+                    if(gameObjTemp != null)
+                    {
+                        #region Create List of Types and Assemblies
+                        Component[] components = gameObjTemp.GetComponents(typeof(Component));
+                        List<System.Type> listType = new List<Type> { };
+                        foreach (Component component in components)
+                        {
+                            listType.Add(component.GetType());
+                        }
+
+                        listOfType.ClearArray();
+
+                        for (int o = 0; o < listType.Count; o++)
+                        {
+                            listOfType.InsertArrayElementAtIndex(listOfType.arraySize);
+                            listOfAssemblies.InsertArrayElementAtIndex(listOfAssemblies.arraySize);
+
+                            listOfType.GetArrayElementAtIndex(o).stringValue = listType[o].ToString();
+                            listOfAssemblies.GetArrayElementAtIndex(o).stringValue =
+                                Assembly.GetAssembly(listType[o]).ToString();
+                        }
+                        #endregion 
+                    }
+                    else
                     {
 
-                        GameObject newGameObj = gameObj?.objectReferenceValue as GameObject;
-                        GameObject oldObj = gameObjTemp;
-
-                        //DialogueUniqueId idOld = gameObjTemp?.GetComponent<DialogueUniqueId>();
-                        //DialogueUniqueId idNew =
-                        //    (newGameObj)?.GetComponent<DialogueUniqueId>();
-
-                        //Deselect Old Object
-                        if (oldObj != null)
-                        {
-                            //Compare the objects in the wating list
-                            if (uniqueID.stringValue == 
-                                savedID.stringValue)
-                            {
-                                //Object Changed from One In Used
-                                nodeInsp.SaveWaitingList.WaitListToDelete.Add(oldObj);
-                            }
-                            else
-                            {
-                                //Object Changed from one who is not In use
-                                nodeInsp.SaveWaitingList.WaitListToAdd.Remove(oldObj);
-                            }
-                            //Remove The object equal to this one 
-                            //nodeInsp.SaveWaitingList.WaitListToAdd.Remove(oldObj);
-                        }
-
-                        //New Object Selected
-                        if (newGameObj != null)
-                        {
-                            #region Create List of Types and Assemblies
-                            Component[] components = newGameObj.GetComponents(typeof(Component));
-                            List<System.Type> listType = new List<Type> { };
-                            foreach (Component component in components)
-                            {
-                                listType.Add(component.GetType());
-                            }
-
-                            listOfType.ClearArray();
-
-                            for (int o = 0; o < listType.Count; o++)
-                            {
-                                listOfType.InsertArrayElementAtIndex(listOfType.arraySize);
-                                listOfAssemblies.InsertArrayElementAtIndex(listOfAssemblies.arraySize);
-
-                                listOfType.GetArrayElementAtIndex(o).stringValue = listType[o].ToString();
-                                listOfAssemblies.GetArrayElementAtIndex(o).stringValue =
-                                    Assembly.GetAssembly(listType[o]).ToString();
-                            }
-                            #endregion 
-
-                            string id = DialogueEventManager.GetID(newGameObj);
-                            uniqueID.stringValue = id;
-                            savedID.stringValue = id;
-
-                            if (uniqueID.stringValue ==
-                                savedID.stringValue)
-                            {
-
-                            }
-
-
-                            nodeInsp.SaveWaitingList.WaitListToAdd.Add(newGameObj);
-                            
-                            
-                            //if (idNew)
-                            //{
-                            //    uniqueID.stringValue = idNew.UniqueID;
-                            //}
-                            //else
-                            //{
-                            //    DialogueUniqueId newId = newGameObj.AddComponent<DialogueUniqueId>();
-                            //    newId.UniqueID = Guid.NewGuid().ToString();
-                            //    uniqueID.stringValue = newId.UniqueID;
-                            //}
-                        }
-                        else
-                        {
-                            uniqueID.stringValue = "";
-                        }
                     }
+
                     #endregion
 
                     #region Component Type PopUp
@@ -280,36 +263,106 @@ namespace DialogueSystem.Editor
                     if (GUILayout.Button("Remove Event"))
                     {
                         //Remove Event From Manager
-                        RemoveEventFromManager(i);
-                        events.DeleteArrayElementAtIndex(i);
+                        //events.DeleteArrayElementAtIndex(i);
                     }
 
                 }
 
                 GUILayout.Space(10);
-            }
-
-            EditorGUI.indentLevel = 1;
-
-
-            GUILayout.Space(10);
-
-            if (GUILayout.Button("Add Custom Event"))
+        }
+       
+        private RuntimeEventData DrawRunTimeEventSlot(RuntimeEventData data, int i)
+        {
+            if (EditorGUILayout.DropdownButton(new GUIContent($"Event { i }"), FocusType.Passive))
             {
-                CustomFunctionPrompt prompt = new CustomFunctionPrompt();
-                SetupCustomFunction(prompt);
+                data.ShowSelf = !data.ShowSelf;
             }
 
-            GUILayout.Space(10);
+            int index = data.TriggerIndex;
+            string methodName = data.MethodName;
+            System.Type type = data.ClassType;
 
-            for (int i = 0; i < _customFuctions.Count; i++)
+            if (data.ShowSelf)
             {
-                 CustomFunction func = _customFuctions[i];
-                 func.Draw();
-            }
-          
+                GUILayout.Space(10);
 
-            serializedObject.ApplyModifiedProperties();
+                //Shows a display of the text to show when the event is to be triggered
+                #region Show Text Toggle
+                data.ShowText = EditorGUILayout.Toggle(new GUIContent("Toggle Text View"),data.ShowText);
+                if (data.ShowText)
+                    DrawTriggerLabel(data.TriggerIndex, dialogueText.stringValue);
+                #endregion
+
+                //Slider to select in which letter the event is triggered
+                #region Selected Letter Index Trigger
+                GUILayout.BeginHorizontal();
+                GUILayout.Space(28);
+                GUILayout.Label("Index");
+                index = (int)EditorGUILayout.Slider(index, 0, dialogueText.stringValue.Length - 1);
+                GUILayout.EndHorizontal();
+                #endregion
+
+
+                List<System.Type> typeList = new List<Type> { };
+
+                //Setups the controller objects to connect the event to
+                #region GameObject Setup
+                GameObject gameObjTemp = nodeInsp.Controller.gameObject;
+
+
+                if(gameObjTemp != null)
+                {
+                    #region Create List of Types and Assemblies
+                    
+                    Component[] components = gameObjTemp.GetComponents(typeof(Component));
+                                      
+                    foreach (Component component in components)
+                    {
+                        typeList.Add(component.GetType());
+                    }
+
+                    #endregion 
+                }
+                #endregion
+            
+                //Pop up to select which Component to use
+                #region Component Type PopUp
+                if (typeList.Count > 0)
+                {
+                    string[] typeNameList = typeList.Select(x => x.Name).ToArray();
+ 
+                    data.ClassIndex =
+                        EditorGUILayout.Popup(new GUIContent("Component"), data.ClassIndex, typeNameList);
+
+                    type = typeList[data.ClassIndex];
+                }
+                #endregion
+
+
+                #region Method PopUp
+                if (typeList.Count > 0)
+                {
+                    MethodInfo[] methodInfos = type.GetMethods();
+
+                    string[] methodNames = methodInfos.Select(x => x.Name).ToArray();
+
+                    data.MethodIndex =
+                        EditorGUILayout.Popup(new GUIContent("Method"), data.MethodIndex, methodNames);
+
+                    methodName = methodInfos[data.MethodIndex].Name;
+                }
+                #endregion
+
+
+            }
+
+            return new RuntimeEventData(type, methodName, index)
+            {
+                MethodIndex = data.MethodIndex,
+                ClassIndex = data.ClassIndex,
+                ShowSelf = data.ShowSelf,
+                ShowText = data.ShowText
+            };
         }
 
         private void SetupCustomFunction(CustomFunctionPrompt prompt)
@@ -371,36 +424,36 @@ namespace DialogueSystem.Editor
         }
      
         
-        private void RemoveEventFromManager(int index)
-        {
-            SerializedProperty gameObj =
-                   events.GetArrayElementAtIndex(index).FindPropertyRelative("gameObj");
-            SerializedProperty uniqueID =
-                  events.GetArrayElementAtIndex(index).FindPropertyRelative("uniqueID");
-            SerializedProperty savedID =
-              events.GetArrayElementAtIndex(index).FindPropertyRelative("savedID");
+        // private void RemoveEventFromManager(int index)
+        // {
+        //     SerializedProperty gameObj =
+        //            events.GetArrayElementAtIndex(index).FindPropertyRelative("gameObj");
+        //     SerializedProperty uniqueID =
+        //           events.GetArrayElementAtIndex(index).FindPropertyRelative("uniqueID");
+        //     SerializedProperty savedID =
+        //       events.GetArrayElementAtIndex(index).FindPropertyRelative("savedID");
 
-            GameObject oldObj = gameObj.objectReferenceValue as GameObject;
+        //     GameObject oldObj = gameObj.objectReferenceValue as GameObject;
 
-            //Deselect Old Object
-            if (oldObj != null)
-            {
-                //Compare the objects in the wating list
-                if (uniqueID.stringValue ==
-                    savedID.stringValue)
-                {
-                    //Object Changed from One In Used
-                    nodeInsp.SaveWaitingList.WaitListToDelete.Add(oldObj);
-                }
-                else
-                {
-                    //Object Changed from one who is not In use
-                    nodeInsp.SaveWaitingList.WaitListToAdd.Remove(oldObj);
-                }
-                //Remove The object equal to this one 
-                //nodeInsp.SaveWaitingList.WaitListToAdd.Remove(oldObj);
-            }
-        }
+        //     //Deselect Old Object
+        //     if (oldObj != null)
+        //     {
+        //         //Compare the objects in the wating list
+        //         if (uniqueID.stringValue ==
+        //             savedID.stringValue)
+        //         {
+        //             //Object Changed from One In Used
+        //             nodeInsp.SaveWaitingList.WaitListToDelete.Add(oldObj);
+        //         }
+        //         else
+        //         {
+        //             //Object Changed from one who is not In use
+        //             nodeInsp.SaveWaitingList.WaitListToAdd.Remove(oldObj);
+        //         }
+        //         //Remove The object equal to this one 
+        //         //nodeInsp.SaveWaitingList.WaitListToAdd.Remove(oldObj);
+        //     }
+        // }
 
     }
 }

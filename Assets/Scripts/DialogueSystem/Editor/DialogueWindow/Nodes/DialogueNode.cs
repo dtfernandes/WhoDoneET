@@ -23,7 +23,7 @@ namespace DialogueSystem.Editor
 
         public TextField TextField { get; set; }
        
-        public List<EventTriggerData> Events { get; set; }
+        public List<RuntimeEventData> Events { get; set; }
 
         public List<CustomFunction> CustomFunctions { get; set; }
 
@@ -59,7 +59,7 @@ namespace DialogueSystem.Editor
             SaveWatingList = savingWaitingList;
             GUID = nd == null ? Guid.NewGuid().ToString() : nd.GUID;
             DialogText = nd == null ? "" : nd.Dialogue;
-            Events = nd == null ? new List<EventTriggerData> { } : nd.Events;
+            Events = nd == null ? new List<RuntimeEventData> { } : nd.Events;
 
             if (nd != null)
                 foreach (ChoiceData cd in nd.OutPorts)
@@ -140,7 +140,13 @@ namespace DialogueSystem.Editor
 
             PopupField<string> presetPopUp = new PopupField<string>(names, firstSelected);
 
-            EntityInfo selectedInfo = data.data[firstSelected];
+            int entityId = firstSelected;
+            if(firstSelected != 0)
+            {
+                entityId -= 1;
+            }
+            EntityInfo selectedInfo = data.data[entityId];
+
             List<string> expressionNames = new List<string> { };
             bool hasExpression = (selectedInfo?.Expressions?.Emotions?.Count ?? 0) > 0;
            
@@ -246,9 +252,10 @@ namespace DialogueSystem.Editor
 
             inspector =
                   ScriptableObject.CreateInstance("DialogueNodeInspector") as DialogueNodeInspector;
-            inspector.init(this);
-            Selection.activeObject = inspector;
+            inspector.init(this, DialogueGraph.CurrentController);
 
+            Selection.activeObject = inspector;
+            
             TextField.UnregisterCallback<ChangeEvent<string>>(ChangeText);          
             TextField.RegisterCallback<ChangeEvent<string>>(ChangeText);
         }
@@ -266,7 +273,6 @@ namespace DialogueSystem.Editor
 
             string choice = data != null ? data.ChoiceText : "";
             string id = data != null ? data.ID : "";
-
 
             ChoiceData cD = new ChoiceData(choice, id, port);
 
@@ -297,7 +303,6 @@ namespace DialogueSystem.Editor
                 }
             });
 
-
             //The Event responsible for managing the connetions of two ports
             port.RegisterCallback<MouseUpEvent>((MouseUpEvent evt) =>
             {             
@@ -305,6 +310,8 @@ namespace DialogueSystem.Editor
                 {
                     foreach (Edge e in port.connections)
                     {
+                        Debug.Log("Edge created?");
+
                         OutPorts[index].ChangeId((e.input.node as DefaultNode).GUID);
                         
                         e.RegisterCallback<DetachFromPanelEvent>
@@ -315,7 +322,6 @@ namespace DialogueSystem.Editor
 
 
                         //Assign inspector event to edge
-
                         e.RegisterCallback<MouseDownEvent>((MouseDownEvent evt) => 
                         {
                             DialogueEdgeInspector edgeInspector =
@@ -353,7 +359,6 @@ namespace DialogueSystem.Editor
                 OutPorts.Remove(cD);
                 
             });
-
 
             outputContainer.Add(choiceContainer);
 

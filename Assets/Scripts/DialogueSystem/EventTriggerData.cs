@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-using UnityEngine.Events;
 
+
+/// <summary>
+/// Stored data related to dialogue events
+/// </summary>
 [System.Serializable]
 public class EventTriggerData
 {
-    [SerializeField]
-    GameObject gameObj;
-    public GameObject GameObj => gameObj;
-
     [SerializeField]
     private string uniqueID;
     public string UniqueID => uniqueID;
@@ -22,7 +20,6 @@ public class EventTriggerData
     [SerializeField]
     string functionName;
     public string FunctionName => functionName;
-
 
     [SerializeField]
     int indexPos = default;
@@ -56,4 +53,3 @@ public class EventTriggerData
     int seletedMethodIndex;
     #endregion
 }
-

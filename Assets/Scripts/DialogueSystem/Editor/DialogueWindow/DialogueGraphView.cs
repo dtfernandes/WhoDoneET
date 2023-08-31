@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using System.Linq;
+using UnityEditor;
 
 namespace DialogueSystem.Editor
 {
@@ -43,7 +44,6 @@ namespace DialogueSystem.Editor
         }
 
         
-
         /// <summary>
         /// Override that adds more menu options to the contextual menu 
         /// of the items
@@ -106,7 +106,6 @@ namespace DialogueSystem.Editor
             }
         }
 
-        
 
         /// <summary>
         /// Method responsible for getting all ports 
@@ -142,6 +141,7 @@ namespace DialogueSystem.Editor
             return node;
         }
 
+
         /// <summary>
         /// Method responsible for creating a new Dialogue Node
         /// </summary>
@@ -157,40 +157,57 @@ namespace DialogueSystem.Editor
 
         }
 
-        //LOAD DIALOGUE SCRIPT
 
+        #region LOAD DIALOGUE SCRIPT
+        
         /// <summary>
         /// Method responsible for adding the ports connections to the window
         /// </summary>
         /// <param name="data">Data to base the connections out of</param>
         public void InstatiateEdges(NodeData data)
         {
-            //ConnectStart
+            //Skip if the node has no connections
+            if (data.OutPorts.Count == 0) return;
 
             DialogueNode node = GetNode(data.GUID);
       
             int it = 0;
 
-            foreach (UnityEngine.UIElements.VisualElement welp in node.outputContainer.Children())
+            // Iterate all elements inside the outputcontainer
+            foreach (UnityEngine.UIElements.VisualElement outVMs in node.outputContainer.Children())
             {
-                foreach (UnityEngine.UIElements.VisualElement welp2 in welp.Children())
+                foreach (UnityEngine.UIElements.VisualElement outVM in outVMs.Children())
                 {
-                    if (!(welp2 is Port))
+                    //Ignore all non port elements
+                    if (!(outVM is Port)) continue;
+
+                    //Convert to port
+                    Port port = outVM as Port;
+
+                    ChoiceData edgeData = data.OutPorts[it];
+                    string gui = edgeData.ID;
+
+
+                    //Find the connected node
+                    DialogueNode toNode = GetNode(gui);
+
+                    foreach (Port toPort in toNode.inputContainer.Children())
                     {
-                        continue;
-                    }
+                        Edge edge = toPort.ConnectTo(port);
 
-                    Port p = welp2 as Port;
+                        //Assign inspector event to edge
+                        edge.RegisterCallback<MouseDownEvent>((MouseDownEvent evt) => 
+                        {
+                            DialogueEdgeInspector edgeInspector =
+                              ScriptableObject.CreateInstance("DialogueEdgeInspector") as DialogueEdgeInspector;
 
-                    if (data.OutPorts.Count == 0) continue;
+                            edgeInspector.init(edge, edgeData);
 
-                    string gui = data.OutPorts[it].ID;
-                    DialogueNode conNode = GetNode(gui);
+                            Selection.activeObject = edgeInspector;
+                        });
 
-                    foreach (Port ort in conNode.inputContainer.Children())
-                    {
-                        AddElement(ort.ConnectTo(p));
-                    }
+                        AddElement(edge);
+                    }             
                 }
 
                 it++;
@@ -204,7 +221,7 @@ namespace DialogueSystem.Editor
         /// </summary>
         /// <param name="data">Data to base the connection out of</param>
         public void ConnectToStart(NodeData data)
-        {           
+        {
             StartNode start = nodes.First() as StartNode;
 
             foreach (Port p in start.outputContainer.Children())
@@ -241,7 +258,7 @@ namespace DialogueSystem.Editor
             return z;
 
         }
+        
+        #endregion
     }
-
-
 }

@@ -44,8 +44,10 @@ namespace DialogueSystem
 
         public Port Port { get; private set; }
 
-        [field: UnityEngine.SerializeField]
-        public string[] HideIDs { get; set; }
+        [UnityEngine.SerializeField]
+        private string[] _hideIDs;
+
+        public string[] HideIDs => _hideIDs;
 
         /// <summary>
         /// Constructor of this struct
@@ -74,12 +76,17 @@ namespace DialogueSystem
             ChoiceData clone = new ChoiceData(ChoiceText, ID, Port);
             clone.IsHidden = IsHidden;
             clone.IsLocked = IsLocked;
+            
+            UnityEngine.Debug.Log( "Clones: " + (clone._hideIDs?.Length.ToString() ?? "NUll") );
+            UnityEngine.Debug.Log( (_hideIDs?.Length.ToString() ?? "NUll") );
+
+            clone._hideIDs = _hideIDs;
             return clone;
         }
  
         public bool CanUnhide(string guid)
         {
-            foreach (string s in HideIDs)
+            foreach (string s in _hideIDs)
             {
                 if (s == guid)
                     return true;

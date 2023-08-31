@@ -14,12 +14,13 @@ namespace DialogueSystem.Editor
 
         private DialogueNode node;
 
-        [HideInInspector]
-        public List<EventTriggerData> events;
+        [field: SerializeField][HideInInspector]
+        public List<RuntimeEventData> Events {get; set; }
 
         [field: SerializeField][HideInInspector]
         public List<CustomFunction> CustomFunctions { get; set; }
 
+       
         //[SerializeField]
         private EntityInfo entityInfo;
         
@@ -28,12 +29,19 @@ namespace DialogueSystem.Editor
         private SavingWaitingList saveWaitingList;
         public SavingWaitingList SaveWaitingList { get => saveWaitingList; set => saveWaitingList = value; }
 
-        public void init(DialogueNode dn)
+        public DialogueController Controller { get; private set; }
+
+        public void init(DialogueNode dn, DialogueController controller)
         {
+            Controller = controller;
             node = dn;
             isStart = dn.EntryPoint;
             dialogueText = dn.DialogText;
-            events = node.Events;
+            
+            Events = node.Events;
+            if(Events == null)
+                Events = new List<RuntimeEventData> { };
+
             presetEntityName = dn.PresetName;
             SaveWaitingList = dn.SaveWatingList;
 
@@ -41,7 +49,14 @@ namespace DialogueSystem.Editor
             CustomFunctions.AddRange(dn?.CustomFunctions);
 
             EntityData data = Resources.Load<EntityData>("EntityData");
-            entityInfo = data.data[presetEntityName];
+
+            int entityId = presetEntityName;
+            if(presetEntityName != 0)
+            {
+                entityId -= 1;
+            }
+
+            entityInfo = data.data[entityId];
         }
 
         public void UpdateNode()

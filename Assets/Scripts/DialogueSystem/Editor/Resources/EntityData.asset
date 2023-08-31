@@ -14,15 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomUnusedString: I dont understand
   data:
-  - <EntityName>k__BackingField: Lil Guy
-    <Expressions>k__BackingField: {fileID: 11400000, guid: a4be1bc13b3e64743bffd70c610fbb62, type: 2}
-    <Hidden>k__BackingField: 1
-  - <EntityName>k__BackingField: Cop
-    <Expressions>k__BackingField: {fileID: 11400000, guid: ea94370723e1e774289696eccba7a3f6, type: 2}
-    <Hidden>k__BackingField: 1
-  - <EntityName>k__BackingField: Lizard Guy
-    <Expressions>k__BackingField: {fileID: 11400000, guid: 02bf2c116e033734496bf3b06c6cbc7f, type: 2}
-    <Hidden>k__BackingField: 1
-  - <EntityName>k__BackingField: Office Lady
-    <Expressions>k__BackingField: {fileID: 11400000, guid: 4978ef86fcddbd24f82c892aa1537d1c, type: 2}
+  - <EntityName>k__BackingField: Woman
+    <Expressions>k__BackingField: {fileID: 11400000, guid: f8fbe6efd49e9138a9bee4ff2b580b7f, type: 2}
     <Hidden>k__BackingField: 1

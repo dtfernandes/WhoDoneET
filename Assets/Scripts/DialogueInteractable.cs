@@ -16,7 +16,7 @@ public class DialogueInteractable: Interactable
     public Action OnEndDialogue { get; set; }
 
     [SerializeField]
-    private DialogueController _controller;
+    private DController _controller;
 
     private DialogueDisplayHandler _dHandler;
     private SpriteRenderer _rederer;

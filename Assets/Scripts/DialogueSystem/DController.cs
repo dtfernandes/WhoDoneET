@@ -4,7 +4,7 @@ using UnityEngine;
 namespace DialogueSystem
 {
     [CreateAssetMenu(menuName = "Scriptables/DialogueController")]
-    public class DialogueController : ScriptableObject
+    public class DController : ScriptableObject
     {
         [SerializeField]
         private List<DialogueScript> _dialogues;

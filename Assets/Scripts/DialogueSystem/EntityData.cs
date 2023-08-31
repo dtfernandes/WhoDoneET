@@ -7,7 +7,7 @@ namespace DialogueSystem
 {
     //Day 32
     //This class has completly broken me. The data disapears randomly in a diferent way every time.
-    //When I try to replicate the error it works correctly. I am beeing mocked by it.
+    //When I try to replicate the error it works correctly. I am being mocked by it.
     //Adding Debug.Log sometimes fixes it, adding a random, not used, string value also fixes it sometimes
     //But the data keeps disapearing. Why. What did I do. 
 

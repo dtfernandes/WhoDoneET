@@ -22,6 +22,9 @@ namespace DialogueSystem.Editor
         /// </summary>
         private SaveLoadUtils svUtil;
 
+        internal static DialogueController CurrentController { get; private set; }
+
+
         /// <summary>
         /// Method called when the program starts 
         /// </summary>
@@ -50,6 +53,16 @@ namespace DialogueSystem.Editor
 
         private void OnGUI()
         {
+            
+            // Check if there is a selected GameObject
+            if (Selection.activeGameObject != null)
+            {
+                GameObject selectedObject = Selection.activeGameObject;
+ 
+                CurrentController
+                    = selectedObject.GetComponent<global::DialogueController>();
+            }
+
             VisualElement startNode = graphview.ElementAt(0);
             Vector2 pos = startNode.localBound.position;
             Vector2 size = startNode.localBound.size;

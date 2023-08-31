@@ -4,23 +4,24 @@ using DialogueSystem;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
-using System;
 using System.Linq;
 
-//Class responsible for the handling of the Dialogue Display
+//Class responsible for the handling of the Dialogue Displaystudent council president, woman, serious, stern, smug, blond_hair, uniform, white eyes, white uniform, witch, evil, white cape,whiteeyes, naked, spreading pussy, pussy leaking, pussy, 
 public class DialogueDisplayHandler : MonoBehaviour
 {
-
-     [SerializeField]
+    [SerializeField]
     private Control _control;
-
-  
 
     /// <summary>
     /// Current Dialogue script beeing displayed 
     /// </summary>
     [SerializeField]
     private IDialogueScript currentScript = default;
+
+    /// <summary>
+    /// Dialogue Controller related to the current script
+    /// </summary>
+    private DialogueController _controller;
 
     /// <summary>
     /// Time between each char of the Dialogue
@@ -99,9 +100,11 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// Method responsible for switching to the passed DialogueScript
     /// </summary>
     /// <param name="script">Dialogue Script to inicialize</param>
-    public void StartDialolgue(IDialogueScript script)
+    public void StartDialolgue(IDialogueScript script, DialogueController controller = null) 
     {
         border.SetActive(true);
+
+        _controller = controller;
 
         currentScript = script;
         onStartDialogue?.Invoke(currentScript);
@@ -124,8 +127,12 @@ public class DialogueDisplayHandler : MonoBehaviour
         StartLine();
     }
 
-
-    public void SpecialChoice(string gUID, SpecialChoice skip)
+    /// <summary>
+    /// Method to select a choice not displayed normally
+    /// </summary>
+    /// <param name="gUID">Access GUID</param>
+    /// <param name="choiceType">Reaction to accessing the choice</param>
+    public void SpecialChoice(string gUID, SpecialChoice choiceType)
     {
         if (HasChoices)
         {
@@ -134,19 +141,28 @@ public class DialogueDisplayHandler : MonoBehaviour
             {
                 if(choices.IsHidden)
                 {
-                    dialogueLine =
-                         currentScript.GetNextNode(dialogueLine, it);
-                         
-                    dialogueText = dialogueLine.Dialogue;
+                    if(!choices.CanUnhide(gUID)) return;
 
-                    StartLine();
-                }
+                    if (choiceType == global::SpecialChoice.Skip)
+                    {
+                        dialogueLine =
+                             currentScript.GetNextNode(dialogueLine, it);
 
+                        dialogueText = dialogueLine.Dialogue;
+
+                        StartLine();
+                    }
+
+                    if (choiceType == global::SpecialChoice.Change)
+                    {
+                        choices.IsHidden = !choices.IsHidden;
+                        InstatiateChoices();
+                    }
+                }           
                 it++;
             }
         }
     }
-
 
     /// <summary>
     /// Method responsible for selecting and instantiating the respective 
@@ -234,11 +250,13 @@ public class DialogueDisplayHandler : MonoBehaviour
             return;
         }
 
+        _controller.InvokeTest();
+        
+
         dialogueText = dialogueLine.Dialogue;
 
         StartLine();
     }
-
 
     /// <summary>
     /// Method responsible for ending the current DialogueScript
@@ -251,7 +269,6 @@ public class DialogueDisplayHandler : MonoBehaviour
         StopCoroutine("TypeWriterEffect");
     }
 
-
     /// <summary>
     /// Method that starts the next line in the Dialogue
     /// </summary>
@@ -261,7 +278,6 @@ public class DialogueDisplayHandler : MonoBehaviour
         StopCoroutine("TypeWriterEffect");
         StartCoroutine("TypeWriterEffect");
     }
-
 
     /// <summary>
     /// IEnumerator that creates a TypeWriteEffect
@@ -286,31 +302,24 @@ public class DialogueDisplayHandler : MonoBehaviour
             //Very feio
             if (dialogueLine.Events != null)
             {
-                foreach (EventTriggerData data in dialogueLine.Events)
+                foreach (RuntimeEventData data in dialogueLine.Events)
                 {
-                    if (data.IndexPos == index)
+                    if (data.TriggerIndex == index)
                     {
+                        List<System.Type> typeList = new List<System.Type> { };
 
-                        GameObject obj = DialogueEventManager.GetGameObject(data.UniqueID);
-                        MonoBehaviour mono = obj.GetComponent(data.SelectedComponent) as MonoBehaviour;
-                        mono.Invoke(data.FunctionName, 0);
+                        Component[] components = _controller.GetComponents(typeof(Component));
+                                        
+                        foreach (Component component in components)
+                        {
+                            typeList.Add(component.GetType());
+                        }
 
-                        //DialogueUniqueId[] test = GameObject.FindObjectsOfType<DialogueUniqueId>();
-                        //GameObject currentObject = null;
+                        Object selectedObj = _controller.GetComponent(typeList[data.ClassIndex]);
 
-                        //foreach(DialogueUniqueId d in test)
-                        //{
-                        //    if(d.UniqueID == data.UniqueID)
-                        //    {
-                        //        currentObject = d.gameObject;
-
-                        //        MonoBehaviour obj = currentObject.GetComponent(data.SelectedComponent) as MonoBehaviour;
-                        //        obj.Invoke(data.FunctionName,0);
-                        //        break;
-                        //    }
-
-                        //}
-
+                        var info = typeList[data.ClassIndex].GetMethod(data.MethodName);
+                        
+                        info.Invoke(selectedObj, data.Params);
                     }
                 }
             }
@@ -327,11 +336,10 @@ public class DialogueDisplayHandler : MonoBehaviour
     {
         yield return endDelay;
 
-        //Call all custom events
+       //Call all custom events
         onEndDialogue?.Invoke();
         InDialogue = false;
     }
-
 
     void OnMove(InputValue value)
     {
