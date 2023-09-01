@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 390d99bcc1df1e246a4a4c1bd403f11f, type: 3}
+  m_Script: {fileID: 11500000, guid: db8770991ed8aa557bc9cd905e6b13ae, type: 3}
   m_Name: CopController
   m_EditorClassIdentifier: 
   _dialogues:
-  - {fileID: 11400000, guid: dc2b60972dbc0100ea07a2476dd3da62, type: 2}
+  - {fileID: 11400000, guid: 5476a4b7f95eb8f52a4512588eb43db9, type: 2}

@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 390d99bcc1df1e246a4a4c1bd403f11f, type: 3}
+  m_Script: {fileID: 11500000, guid: db8770991ed8aa557bc9cd905e6b13ae, type: 3}
   m_Name: Pipes
   m_EditorClassIdentifier: 
-  _dialogues:
-  - {fileID: 11400000, guid: eb379dc3def35c5469f0076c8725b799, type: 2}
+  _dialogues: []
