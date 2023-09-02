@@ -11162,7 +11162,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
+  m_StaticShadowCaster: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -12093,7 +12093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 50d2b140af4731d4580fe4d215e78ac1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9920916
+      value: -0.958
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 50d2b140af4731d4580fe4d215e78ac1, type: 3}
       propertyPath: m_LocalPosition.z
