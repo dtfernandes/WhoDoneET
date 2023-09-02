@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: Cop Tutorial 1
+  m_EditorClassIdentifier: 
+  DialogueName: Cop Tutorial 1
+  dialogueNodes:
+  - presetName: 
+    guid: 13e74bc3-8516-40c0-aaa2-1a1eb9b6542a
+    dialogue: Oh here you are detective. I have been waiting for you.
+    position:
+      serializedVersion: 2
+      x: 225
+      y: 170
+      width: 308
+      height: 142
+    isStart: 1
+    events: []
+    outPorts:
+    - choiceText: Who are you? Where's officer Johnson?
+      id: 57c66823-a153-4932-aaeb-011e596e7042
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 1
+  - presetName: 
+    guid: 57c66823-a153-4932-aaeb-011e596e7042
+    dialogue: 'Officer Johnson has been assign to another case. I a new recruit.
+
+      Officer
+      Davy at your service.'
+    position:
+      serializedVersion: 2
+      x: 546
+      y: 170
+      width: 360
+      height: 155
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: Tell me about the caes Davy.
+      id: efdcbb31-7321-4d8e-abea-3ef7e4322f5d
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: efdcbb31-7321-4d8e-abea-3ef7e4322f5d
+    dialogue: 'Ok so... somthing... happen...
+
+      ARGH!!! I can seem to think
+      straight without my cofee'
+    position:
+      serializedVersion: 2
+      x: 933
+      y: 170
+      width: 300
+      height: 155
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: fed8fc4d-15ae-4fd0-8037-6e1a8b12d618
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: fed8fc4d-15ae-4fd0-8037-6e1a8b12d618
+    dialogue: Can you look around the room for a cup? It should be right there?
+    position:
+      serializedVersion: 2
+      x: 713
+      y: 358
+      width: 362
+      height: 142
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 0
+  references:
+    version: 2
+    RefIds: []

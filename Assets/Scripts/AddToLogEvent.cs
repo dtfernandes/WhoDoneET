@@ -21,14 +21,15 @@ public class AddToLogEvent : CustomFunction
     {
         // Create and show your context menu options here
         GenericMenu menu = new GenericMenu();
-        menu.AddItem(new GUIContent("Update ID"), false, UpdateID);
+        menu.AddItem(new GUIContent("Copy"), false, UpdateID);
         menu.ShowAsContext();
     }
 
     private void UpdateID()
     {
         // Handle Option 1 action here
-        Debug.Log("Option 1 selected");
+        Debug.Log(GUID);
+        GUIUtility.systemCopyBuffer = GUID;
     }
 
 

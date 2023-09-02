@@ -250,9 +250,6 @@ public class DialogueDisplayHandler : MonoBehaviour
             return;
         }
 
-        _controller.InvokeTest();
-        
-
         dialogueText = dialogueLine.Dialogue;
 
         StartLine();
@@ -391,6 +388,29 @@ public class DialogueDisplayHandler : MonoBehaviour
         }
         else
         {
+
+            //Invoke all events
+            foreach (RuntimeEventData data in dialogueLine.Events)
+            {
+
+                List<System.Type> typeList = new List<System.Type> { };
+
+                Component[] components = _controller.GetComponents(typeof(Component));
+                                
+                foreach (Component component in components)
+                {
+                    typeList.Add(component.GetType());
+                }
+
+                Object selectedObj = _controller.GetComponent(typeList[data.ClassIndex]);
+
+                var info = typeList[data.ClassIndex].GetMethod(data.MethodName);
+                
+                info.Invoke(selectedObj, data.Params);
+                
+            }
+
+
             dialogueDisplayTarget.text += dialogueText;
             dialogueText = "";
             buttonLayout.SetActive(true);

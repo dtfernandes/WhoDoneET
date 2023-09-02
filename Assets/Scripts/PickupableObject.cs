@@ -13,6 +13,8 @@ public class PickupableObject : Interactable
     private Rigidbody _rigid;
     private bool _moving;
 
+    public Action onGrab, onDrop;
+
 
     [field: Header("Dialogue")][field: SerializeField]
     public DialogueScript DefaultDescription { get; private set; }
@@ -57,6 +59,7 @@ public class PickupableObject : Interactable
 
     public void Drop()
     {
+        onDrop?.Invoke();
         _isGrabbed = false;
         _inspectPosition = null;
         _rigid.velocity = Vector3.zero;
@@ -65,6 +68,7 @@ public class PickupableObject : Interactable
 
     public void Grab(Transform inspectPosition)
     {
+        onGrab?.Invoke();
         _isGrabbed = true;
         _inspectPosition = inspectPosition;
         _rigid.useGravity = false;

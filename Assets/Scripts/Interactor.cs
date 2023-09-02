@@ -35,6 +35,8 @@ public class Interactor : MonoBehaviour
     //Item currently being dialogued
     private DialogueInteractable _dialoguedObject;
 
+    public System.Action<InteractionType> onInteract;
+
     // 
     private bool _inDescription;
 
@@ -70,6 +72,8 @@ public class Interactor : MonoBehaviour
 
                     //Setup Camera
                     _controller.Inspect(_grabbedObject);
+
+                    onInteract?.Invoke(InteractionType.Object);
                 }
                 else
                 {
@@ -105,6 +109,8 @@ public class Interactor : MonoBehaviour
                 //Unlock mouse
                 _gameSettings.LockCursor(false);
                 _interactorIcon.gameObject.SetActive(false);
+
+                onInteract?.Invoke(InteractionType.Dialogue);
             }
             else
             {
@@ -140,7 +146,7 @@ public class Interactor : MonoBehaviour
                 _controller.Stop();
                 DialogueScript description = obj.GetDescription();
                 DialogueDisplayHandler ddh = _gameSettings.DialogueHandler;
-                ddh.StartDialolgue(description, null);
+                ddh.StartDialolgue(description);
 
                 _inDescription = true;
                 _gameSettings.LockCursor(false,true);
@@ -149,6 +155,7 @@ public class Interactor : MonoBehaviour
                 _focusItem = null;
             
                 ddh.onEndDialogue += EndDescription;
+                onInteract?.Invoke(InteractionType.Dialogue);
             }
         }
 
@@ -222,5 +229,11 @@ public class Interactor : MonoBehaviour
         Ray r = new Ray(transform.position, _controller.transform.forward);
         Gizmos.DrawRay(r);
     }
+}
+
+public enum InteractionType
+{
+    Dialogue,
+    Object
 }
 
