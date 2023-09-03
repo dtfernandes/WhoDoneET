@@ -6021,9 +6021,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3570078749100921002, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_Height
+      value: 0.9192462
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570078749100921002, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_Radius
+      value: 0.41999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570078749100921002, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_Center.y
+      value: -0.5403769
+      objectReference: {fileID: 0}
     - target: {fileID: 3570078749100921003, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570078749100921003, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3775147625407043736, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: m_IsActive

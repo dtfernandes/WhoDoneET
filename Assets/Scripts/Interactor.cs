@@ -161,7 +161,7 @@ public class Interactor : MonoBehaviour
 
         void EndDescription()
         {
-            Debug.Log("?");
+            _gameSettings.LockCursor(true,true);
             _grabbedObject = _focusItem as PickupableObject;
             _inDescription = false;
             //Setup Camera
