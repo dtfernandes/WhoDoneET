@@ -28,7 +28,8 @@ public class LogDisplay : MonoBehaviour
 
         _mainPage.SetActive(false);
         _characterPage.gameObject.SetActive(true);
-        _characterPage.Display((LogEntity)(characterIndex + 1));
+        Debug.Log(((LogEntity)characterIndex).ToString());
+        _characterPage.Display((LogEntity)characterIndex);
     }
 
     public void GoBack(bool isCharacter)
