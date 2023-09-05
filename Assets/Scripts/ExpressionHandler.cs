@@ -34,6 +34,8 @@ public class ExpressionHandler : MonoBehaviour
         EntityInfo info = _presetData.data[id-1];
 
         currentEntity.ChangeExpression(info.Expressions.Emotions[nd.ExpressionId].Image);
+
+        return;
     }
 
 }

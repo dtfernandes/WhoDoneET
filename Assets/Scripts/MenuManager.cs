@@ -47,7 +47,7 @@ public class MenuManager : MonoBehaviour
 
         miniLog.SetActive(!miniLog.activeSelf);
 
-        _miniLog.GoBack(true);
+        _miniLog.GoBack();
 
         // Stops the Dialogue while opens 
         _gameSettings.DialogueHandler.DialogueIsPaused = miniLog.activeSelf;

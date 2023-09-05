@@ -1,5 +1,8 @@
 ﻿using System;
+
+#if UNITY_EDITOR
 using UnityEditor.Experimental.GraphView;
+#endif
 
 namespace DialogueSystem
 {
@@ -42,7 +45,9 @@ namespace DialogueSystem
         [field: UnityEngine.SerializeField]
         public bool IsHidden { get; set; }
 
+        #if UNITY_EDITOR
         public Port Port { get; private set; }
+        #endif
 
         [UnityEngine.SerializeField]
         private string[] _hideIDs;
@@ -54,12 +59,25 @@ namespace DialogueSystem
         /// </summary>
         /// <param name="name">Choice text</param>
         /// <param name="id">Unique id of the Choice</param>
+        public ChoiceData(string text, string id)
+        {
+            this.choiceText = text;
+            this.id = id;
+        }
+
+        #if UNITY_EDITOR
+        /// <summary>
+        /// Constructor of this struct
+        /// </summary>
+        /// <param name="name">Choice text</param>
+        /// <param name="id">Unique id of the Choice</param>
         public ChoiceData(string text, string id, Port port)
         {
             this.choiceText = text;
             this.id = id;
             Port = port;
         }
+        #endif
 
         public void ChangeText(string text)
         {
@@ -73,7 +91,17 @@ namespace DialogueSystem
 
         public ChoiceData Clone()
         {
+
+            #if UNITY_EDITOR
+           
             ChoiceData clone = new ChoiceData(ChoiceText, ID, Port);
+           
+            #else
+           
+            ChoiceData clone = new ChoiceData(ChoiceText, ID);
+           
+            #endif
+            
             clone.IsHidden = IsHidden;
             clone.IsLocked = IsLocked;
             

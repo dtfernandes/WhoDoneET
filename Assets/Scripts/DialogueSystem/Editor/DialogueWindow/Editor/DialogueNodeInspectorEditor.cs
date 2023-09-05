@@ -112,7 +112,9 @@ namespace DialogueSystem.Editor
             for (int i = 0; i < _customFuctions.Count; i++)
             {
                  CustomFunction func = _customFuctions[i];
+                 #if UNITY_ENGINE
                  func.Draw();
+                 #endif
             }
             #endregion
 
@@ -369,7 +371,9 @@ namespace DialogueSystem.Editor
         {
             int index = _customFuctions.Count;
             _customFuctions.Add(prompt);
+            #if UNITY_ENGINE
             prompt.OnEnable();
+            #endif
 
             nodeInsp.UpdateNode();
 
@@ -378,8 +382,9 @@ namespace DialogueSystem.Editor
                 c.GUID = GUID.Generate().ToString();
                 
                 _customFuctions[index] = c;
-
+                #if UNITY_ENGINE
                 c.OnEnable();
+                #endif
 
                 nodeInsp.UpdateNode();
 

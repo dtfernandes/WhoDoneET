@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.552}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.294106, y: -21.840208}
-  m_SizeDelta: {x: 205.644, y: 386.5188}
+  m_AnchoredPosition: {x: 18.753082, y: 233.42242}
+  m_SizeDelta: {x: 205.644, y: 131.2443}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &115645315
 MonoBehaviour:
@@ -503,6 +503,8 @@ RectTransform:
   m_Children:
   - {fileID: 1291686429}
   - {fileID: 115645314}
+  - {fileID: 405886438}
+  - {fileID: 1910294737}
   m_Father: {fileID: 2085570421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.176}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -760,6 +762,92 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &405886437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 405886438}
+  - component: {fileID: 405886440}
+  - component: {fileID: 405886439}
+  m_Layer: 5
+  m_Name: Text (TMP) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &405886438
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405886437}
+  m_LocalRotation: {x: -0, y: -0, z: -0.004816339, w: 0.99998844}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 308327614}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.552}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 16, y: 0}
+  m_SizeDelta: {x: 205.644, y: 131.2443}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &405886439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405886437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c813d3f22d35eec39b2d3cde2b17a308, type: 3}
+    m_FontSize: 17
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "This saturday the 25th, Lizard Guy Mc. Dumbass was trialed for the murder
+    of Z\xE9 dos Sacos. The trial had the duration of 30 min and it became clear
+    the prosecution had little evidence to work with. \n\nThe chief of police Nelio
+    Codices had this to say: \"I deeply apologize for the incompetence of my subordinates
+    and take full responsibility. I will do everything in my power to make sure we
+    only work with the best from now on\"\n\nThe lead detective of this investigation
+    was promptly fired after the fact and is now taking imense backlash in the new
+    hit social media Y."
+--- !u!222 &405886440
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405886437}
+  m_CullTransparentMesh: 1
 --- !u!1 &610054400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,7 +1473,7 @@ GameObject:
   - component: {fileID: 1291686431}
   - component: {fileID: 1291686430}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Big Titl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1443,7 +1531,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Murder in a Motel - FAILURE
+  m_Text: Murder in a Motel
 --- !u!222 &1291686431
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2612,6 +2700,92 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4210854e-15, y: 0.09999997, z: 0.14999998}
   m_Center: {x: -0.00000011920929, y: -0.00000023841858, z: -0.00000001117587}
+--- !u!1 &1910294736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1910294737}
+  - component: {fileID: 1910294739}
+  - component: {fileID: 1910294738}
+  m_Layer: 5
+  m_Name: Text (TMP) (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1910294737
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910294736}
+  m_LocalRotation: {x: -0, y: -0, z: -0.004816339, w: 0.99998844}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 308327614}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.552}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 14, y: -278}
+  m_SizeDelta: {x: 205.644, y: 131.2443}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1910294738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910294736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c813d3f22d35eec39b2d3cde2b17a308, type: 3}
+    m_FontSize: 17
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "This saturday the 25th, Lizard Guy Mc. Dumbass was trialed for the murder
+    of Z\xE9 dos Sacos. The trial had the duration of 30 min and it became clear
+    the prosecution had little evidence to work with. \n\nThe chief of police Nelio
+    Codices had this to say: \"I deeply apologize for the incompetence of my subordinates
+    and take full responsibility. I will do everything in my power to make sure we
+    only work with the best from now on\"\n\nThe lead detective of this investigation
+    was promptly fired after the fact and is now taking imense backlash in the new
+    hit social media Y."
+--- !u!222 &1910294739
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910294736}
+  m_CullTransparentMesh: 1
 --- !u!1 &2030549849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,6 +2985,7 @@ GameObject:
   - component: {fileID: 2085570420}
   - component: {fileID: 2085570419}
   - component: {fileID: 2085570418}
+  - component: {fileID: 2085570422}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2907,6 +3082,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2085570422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085570417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2664212f04e45d9a677230e9730154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bigTitle: {fileID: 1291686430}
+  _firstPart: {fileID: 115645315}
+  _secondPart: {fileID: 405886439}
+  _thirdPart: {fileID: 1910294738}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

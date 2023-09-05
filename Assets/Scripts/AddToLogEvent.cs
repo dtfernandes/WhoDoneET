@@ -9,12 +9,14 @@ public class AddToLogEvent : CustomFunction
 {
     [SerializeField]
     private LogEntity _entitySelected;
-     [SerializeField]
+    [SerializeField]
     private string _text;
 
     // Define a custom GUIStyle without any padding or margin
     private GUIStyle miniButton;
 
+
+    #if UNITY_ENGINE
 
     [ContextMenu("ShowContextMenu")]
     private void ShowContextMenu()
@@ -87,6 +89,7 @@ public class AddToLogEvent : CustomFunction
         GUILayout.Space(5);
     }
 
+#endif
     public override void Invoke()
     {
         LogItem item = new LogItem(_text, _entitySelected, GUID);

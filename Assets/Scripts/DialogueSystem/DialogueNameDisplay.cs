@@ -28,8 +28,11 @@ public class DialogueNameDisplay : MonoBehaviour
         EntityData presetdata = Resources.Load<EntityData>("EntityData");
 
         //Setup the event on Start Line to change/enable the name display
+        
         _dHandler.onStartLine += (NodeData data) =>
         {
+            GameSettings.Instance.DialogueHandler.Test("Start Expression");
+
             if (data.PresetName != 0)
             {
                 _image.enabled = true;
@@ -47,6 +50,8 @@ public class DialogueNameDisplay : MonoBehaviour
             _textComponent.text = "";
             _image.enabled = false;
         };
+
+        GameSettings.Instance.DialogueHandler.Test("End Expression");
     }
 
 }

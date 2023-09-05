@@ -74,7 +74,7 @@ public class DialogueDisplayHandler : MonoBehaviour
 
     /// <summary>
     /// Variable that defines if the current line of dialogue is 
-    /// currenly beeing displayed
+    /// currenly beeing displayed 
     /// </summary>
     public bool InDialogue { get; private set; }
 
@@ -96,12 +96,17 @@ public class DialogueDisplayHandler : MonoBehaviour
         _choices = new List<ChoiceSelector>();
     }
 
+    public void Test(string test)
+    {
+        dialogueDisplayTarget.text = test;
+    }
+
     /// <summary>
-    /// Method responsible for switching to the passed DialogueScript
+    /// Method responsibsle for switching to the passed DialogueScript
     /// </summary>
     /// <param name="script">Dialogue Script to inicialize</param>
     public void StartDialolgue(IDialogueScript script, DialogueController controller = null) 
-    {
+    {     
         border.SetActive(true);
 
         _controller = controller;
@@ -122,8 +127,6 @@ public class DialogueDisplayHandler : MonoBehaviour
         //Initialize First Line
         dialogueLine = currentScript[0];
         dialogueText = currentScript[0].Dialogue;
-
-       
         StartLine();
     }
 
@@ -170,6 +173,7 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// </summary>
     private void InstatiateChoices()
     {
+
         //Delete all instatiated buttons
         foreach (Transform g in buttonLayout.transform)
         {
@@ -229,7 +233,6 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// <param name="choice">The selected choice of the current line</param>
     public void NextLine(int choice)
     {
-
         NodeData previousLine = dialogueLine;
       
         
@@ -271,6 +274,7 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// </summary>
     private void DisplayLine()
     {
+        Test("!");
         onStartLine?.Invoke(dialogueLine);
         StopCoroutine("TypeWriterEffect");
         StartCoroutine("TypeWriterEffect");
@@ -282,6 +286,7 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// <returns></returns>
     IEnumerator TypeWriterEffect()
     {
+
         //Wait a bit so inputs don't overlap
         yield return endDelay;
 
@@ -290,6 +295,7 @@ public class DialogueDisplayHandler : MonoBehaviour
         
         dialogueDisplayTarget.text = "";
         int index = 0;
+
         while (dialogueText.Length > 0)
         {
             yield return effectSpeed;
