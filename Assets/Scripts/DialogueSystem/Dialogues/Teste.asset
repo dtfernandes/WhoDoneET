@@ -21,10 +21,20 @@ MonoBehaviour:
       serializedVersion: 2
       x: 235
       y: 134
-      width: 213
-      height: 138
+      width: 220
+      height: 120
     isStart: 1
-    events: []
+    events:
+    - <MethodName>k__BackingField: Test
+      <TriggerIndex>k__BackingField: 7
+      <ClassIndex>k__BackingField: 7
+      <MethodIndex>k__BackingField: 0
+      <ShowText>k__BackingField: 1
+      <ShowSelf>k__BackingField: 1
     outPorts: []
+    <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: 1
+  references:
+    version: 2
+    RefIds: []

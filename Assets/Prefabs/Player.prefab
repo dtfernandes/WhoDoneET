@@ -5844,7 +5844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterPage: {fileID: 3368028229212266883}
-  _solveItMenu: {fileID: 0}
+  _solveItMenu: {fileID: 15100279815208536}
   _mainPage: {fileID: 6223112280464613247}
 --- !u!1 &7932658372518917606
 GameObject:
