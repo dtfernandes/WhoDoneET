@@ -20,21 +20,22 @@ MonoBehaviour:
     position:
       serializedVersion: 2
       x: 235
-      y: 134
+      y: 140
       width: 220
       height: 120
     isStart: 1
-    events:
-    - <MethodName>k__BackingField: Test
-      <TriggerIndex>k__BackingField: 7
-      <ClassIndex>k__BackingField: 7
-      <MethodIndex>k__BackingField: 0
-      <ShowText>k__BackingField: 1
-      <ShowSelf>k__BackingField: 1
+    events: []
     outPorts: []
-    <CustomFunctions>k__BackingField: []
+    <CustomFunctions>k__BackingField:
+    - rid: 1986383347266093057
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: 1
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1986383347266093057
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 8c291bf287f16d9d9bb22dc2b8fa30be
+        _entitySelected: 0
+        _text: Copo foi visto woawoa

@@ -21,7 +21,7 @@ namespace DialogueSystem.Editor
         public Action<CustomFunction> onSelectFunction { get; set; }
 
 
-        #if UNITY_ENGINE
+        #if UNITY_EDITOR
         /// <summary>
         /// Override method to draw the Function in the inspector
         /// Uses Layout 

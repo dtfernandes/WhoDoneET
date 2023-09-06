@@ -115,7 +115,7 @@ namespace DialogueSystem.Editor
             for (int i = 0; i < _customFuctions.Count; i++)
             {
                  CustomFunction func = _customFuctions[i];
-                 #if UNITY_ENGINE
+                 #if UNITY_EDITOR
                  func.Draw();
                  #endif
             }
@@ -374,7 +374,7 @@ namespace DialogueSystem.Editor
         {
             int index = _customFuctions.Count;
             _customFuctions.Add(prompt);
-            #if UNITY_ENGINE
+            #if UNITY_EDITOR
             prompt.OnEnable();
             #endif
 
@@ -385,7 +385,7 @@ namespace DialogueSystem.Editor
                 c.GUID = GUID.Generate().ToString();
                 
                 _customFuctions[index] = c;
-                #if UNITY_ENGINE
+               #if UNITY_EDITOR
                 c.OnEnable();
                 #endif
 

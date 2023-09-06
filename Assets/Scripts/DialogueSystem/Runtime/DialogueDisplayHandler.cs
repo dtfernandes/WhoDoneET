@@ -212,8 +212,12 @@ public class DialogueDisplayHandler : MonoBehaviour
 
     public void StartLine()
     {
+        Debug.Log("Start Line");
+
         if (dialogueLine.CustomFunctions != null)
         {
+            Debug.Log("Cost Func");
+            
             //Play Custom Events
             foreach (CustomFunction func in dialogueLine.CustomFunctions)
             {

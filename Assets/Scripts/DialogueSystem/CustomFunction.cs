@@ -10,7 +10,7 @@ namespace DialogueSystem
         public string GUID { get; set; }
         public Action onUpdate { get; set; }
         
-        #if UNITY_ENGINE
+        #if UNITY_EDITOR
         public virtual void OnEnable() { }
         public abstract void Draw();
         #endif

@@ -16,7 +16,7 @@ public class AddToLogEvent : CustomFunction
     private GUIStyle miniButton;
 
 
-    #if UNITY_ENGINE
+    #if UNITY_EDITOR
 
     [ContextMenu("ShowContextMenu")]
     private void ShowContextMenu()
