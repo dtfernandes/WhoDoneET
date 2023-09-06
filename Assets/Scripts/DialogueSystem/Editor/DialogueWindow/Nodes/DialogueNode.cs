@@ -70,6 +70,7 @@ namespace DialogueSystem.Editor
             {
                 InstatiateChoicePort();
             });
+
             button.text = "+";
 
             button.style.width = 31;
@@ -273,8 +274,9 @@ namespace DialogueSystem.Editor
 
             string choice = data != null ? data.ChoiceText : "";
             string id = data != null ? data.ID : "";
+            string[] hideIds = data?.HideIDs;
 
-            ChoiceData cD = new ChoiceData(choice, id, port);
+            ChoiceData cD = new ChoiceData(choice, id, port, hideIds);
 
             cD.IsHidden = data?.IsHidden ?? false;
             cD.IsLocked = data?.IsLocked ?? false;

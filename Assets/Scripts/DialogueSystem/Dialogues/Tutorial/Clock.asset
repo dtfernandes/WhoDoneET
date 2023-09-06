@@ -19,11 +19,32 @@ MonoBehaviour:
     dialogue: I'm a clock that looks like a trophy
     position:
       serializedVersion: 2
-      x: 223
-      y: 188
-      width: 220
+      x: 224
+      y: 176
+      width: 247
       height: 120
     isStart: 1
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 39f09e0e-a13e-4c5f-9b3a-f74e303d9b15
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 1
+      _hideIDs:
+      - 8c291bf287f16d9d9bb22dc2b8fa30be
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 39f09e0e-a13e-4c5f-9b3a-f74e303d9b15
+    dialogue: Woahhh um copo?
+    position:
+      serializedVersion: 2
+      x: 517
+      y: 176
+      width: 220
+      height: 120
+    isStart: 0
     events: []
     outPorts: []
     <CustomFunctions>k__BackingField: []
