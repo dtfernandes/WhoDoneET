@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 [CreateAssetMenu(menuName = "Scriptables/GameSettings")]
 public class GameSettings : ScriptableSingletonObject<GameSettings>
@@ -22,12 +22,32 @@ public class GameSettings : ScriptableSingletonObject<GameSettings>
     [field:SerializeField]
     public InvestigationLog Log { get; private set; }
 
+    public List<string> Peoples { get; set; }
+    public List<string> Weapons { get; set; }
+
+    public List<string> Selected { get; set; }
+
+    public void Submit(string p, string w, string m)
+    {
+        Selected[0] = p;
+        Selected[1] = w;
+        Selected[2] = m;
+    }
+
+    public List<string> Motives { get; set; }
+
+
     public void Start()
     {
         FirstLoad = true;
         isMenuOpen = false;
-        isWorldStopped = false;     
+        isWorldStopped = false;
         Log = new InvestigationLog();
+
+        Selected = new List<string> { "","","" };
+        Peoples = new List<string> { "No One" };
+        Weapons = new List<string> { "Nothing" };
+        Motives = new List<string> { "Just Cause" };
     }
 
     public void LockCursor(bool state, bool save = true)
@@ -41,31 +61,5 @@ public class GameSettings : ScriptableSingletonObject<GameSettings>
             SavedCursorMode = Cursor.lockState;
         }
 
-    }
-}
-
-[System.Serializable]
-public class InvestigationLog
-{
-    [field:SerializeField]
-    public List<LogItem> Items { get; private set; }
-
-    public InvestigationLog()
-    {
-        Items = new List<LogItem> { };
-    }
-
-    public void AddItem(LogItem item)
-    {
-
-        //Check if the item is already in the log
-
-        if(Items.Any(x=> x.GUID == item.GUID))
-        {
-            return;
-        }
-
-
-        Items.Add(item);
     }
 }

@@ -24,7 +24,13 @@ MonoBehaviour:
       width: 308
       height: 142
     isStart: 1
-    events: []
+    events:
+    - <MethodName>k__BackingField: OnFirstTalkStart
+      <TriggerIndex>k__BackingField: 1
+      <ClassIndex>k__BackingField: 7
+      <MethodIndex>k__BackingField: 0
+      <ShowText>k__BackingField: 1
+      <ShowSelf>k__BackingField: 1
     outPorts:
     - choiceText: Who are you? Where's officer Johnson?
       id: 57c66823-a153-4932-aaeb-011e596e7042
@@ -90,7 +96,13 @@ MonoBehaviour:
       width: 362
       height: 142
     isStart: 0
-    events: []
+    events:
+    - <MethodName>k__BackingField: OnFirstTalkEnd
+      <TriggerIndex>k__BackingField: 0
+      <ClassIndex>k__BackingField: 7
+      <MethodIndex>k__BackingField: 1
+      <ShowText>k__BackingField: 0
+      <ShowSelf>k__BackingField: 1
     outPorts: []
     <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 1

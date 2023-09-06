@@ -21,8 +21,10 @@ namespace DialogueSystem
             EntityData presetdata = Resources.Load<EntityData>("EntityData");
 
             //Setup the event on Start Line to change/enable the name display
+          
             _dHandler.onStartLine += (NodeData data) =>
             {
+                GameSettings.Instance.DialogueHandler.Test("Start Expression");
                 int expressionId = data.ExpressionId;
 
                 if (data.PresetName != 0)
@@ -40,6 +42,7 @@ namespace DialogueSystem
             {
                 _image.enabled = false;
             };
+            GameSettings.Instance.DialogueHandler.Test("End Expression");
         }
     }
 

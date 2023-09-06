@@ -84,10 +84,13 @@ namespace DialogueSystem.Editor
                 for (int i = 0; i < events.Count; i++)
                 {
                     events[i] = DrawRunTimeEventSlot(events[i], i);
+                   
                 }
 
                 EditorGUI.indentLevel = 1;
-                #endregion               
+                #endregion           
+
+                EditorUtility.SetDirty(nodeInsp);    
             }
             else
             {
@@ -112,7 +115,9 @@ namespace DialogueSystem.Editor
             for (int i = 0; i < _customFuctions.Count; i++)
             {
                  CustomFunction func = _customFuctions[i];
+                 #if UNITY_EDITOR
                  func.Draw();
+                 #endif
             }
             #endregion
 
@@ -281,7 +286,8 @@ namespace DialogueSystem.Editor
             int index = data.TriggerIndex;
             string methodName = data.MethodName;
             System.Type type = data.ClassType;
-
+            object[] parameters = data.Params;
+            
             if (data.ShowSelf)
             {
                 GUILayout.Space(10);
@@ -338,11 +344,12 @@ namespace DialogueSystem.Editor
                 }
                 #endregion
 
-
+                MethodInfo[] methodInfos = type.GetMethods();
+               
                 #region Method PopUp
                 if (typeList.Count > 0)
                 {
-                    MethodInfo[] methodInfos = type.GetMethods();
+                   
 
                     string[] methodNames = methodInfos.Select(x => x.Name).ToArray();
 
@@ -352,11 +359,34 @@ namespace DialogueSystem.Editor
                     methodName = methodInfos[data.MethodIndex].Name;
                 }
                 #endregion
+    
+                
 
+                #region Paramns
+                ParameterInfo[] neededParams = methodInfos[data.MethodIndex].GetParameters();            
+
+                if(neededParams.Length > 0)
+                {
+                    GUILayout.Label("Params");
+
+                    if ((parameters?.Length ?? 0) != neededParams.Length)
+                    {
+                        parameters = new object[neededParams.Length];
+                    }
+
+                    int it = 0;
+                    foreach(ParameterInfo info in neededParams)
+                    {
+                        parameters[it] = DisplayParam(info, parameters[it]);
+                        it++;
+                    }
+                }
+
+                #endregion
 
             }
 
-            return new RuntimeEventData(type, methodName, index)
+            return new RuntimeEventData(type, methodName, index, parameters)
             {
                 MethodIndex = data.MethodIndex,
                 ClassIndex = data.ClassIndex,
@@ -369,7 +399,9 @@ namespace DialogueSystem.Editor
         {
             int index = _customFuctions.Count;
             _customFuctions.Add(prompt);
+            #if UNITY_EDITOR
             prompt.OnEnable();
+            #endif
 
             nodeInsp.UpdateNode();
 
@@ -378,8 +410,9 @@ namespace DialogueSystem.Editor
                 c.GUID = GUID.Generate().ToString();
                 
                 _customFuctions[index] = c;
-
+               #if UNITY_EDITOR
                 c.OnEnable();
+                #endif
 
                 nodeInsp.UpdateNode();
 
@@ -423,37 +456,32 @@ namespace DialogueSystem.Editor
             GUILayout.EndVertical();
         }
      
-        
-        // private void RemoveEventFromManager(int index)
-        // {
-        //     SerializedProperty gameObj =
-        //            events.GetArrayElementAtIndex(index).FindPropertyRelative("gameObj");
-        //     SerializedProperty uniqueID =
-        //           events.GetArrayElementAtIndex(index).FindPropertyRelative("uniqueID");
-        //     SerializedProperty savedID =
-        //       events.GetArrayElementAtIndex(index).FindPropertyRelative("savedID");
-
-        //     GameObject oldObj = gameObj.objectReferenceValue as GameObject;
-
-        //     //Deselect Old Object
-        //     if (oldObj != null)
-        //     {
-        //         //Compare the objects in the wating list
-        //         if (uniqueID.stringValue ==
-        //             savedID.stringValue)
-        //         {
-        //             //Object Changed from One In Used
-        //             nodeInsp.SaveWaitingList.WaitListToDelete.Add(oldObj);
-        //         }
-        //         else
-        //         {
-        //             //Object Changed from one who is not In use
-        //             nodeInsp.SaveWaitingList.WaitListToAdd.Remove(oldObj);
-        //         }
-        //         //Remove The object equal to this one 
-        //         //nodeInsp.SaveWaitingList.WaitListToAdd.Remove(oldObj);
-        //     }
-        // }
-
+        private object DisplayParam(ParameterInfo info, object current)
+        {
+            System.Type type = info.ParameterType;
+            
+            if(type == typeof(int))
+            {
+                int value = current != null ? (int)current : 0;
+                return (object)EditorGUILayout.IntField(value);
+            }
+            else if (type == typeof(string))
+            {
+                return default;
+            }
+            else if (type == typeof(float))
+            {
+                return default;
+            }
+            else if (type == typeof(bool))
+            {
+                return default;
+            }
+            else
+            {
+                GUILayout.Label("Parameter Type not Implemented");
+                return default;
+            }
+        }
     }
 }

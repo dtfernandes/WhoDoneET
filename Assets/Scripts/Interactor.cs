@@ -51,8 +51,6 @@ public class Interactor : MonoBehaviour
 
         if (_inDescription) return;
 
-        Debug.Log(_inDescription);
-
         //Check if the player is looking at an object
         if (_focusItem != null)
         {

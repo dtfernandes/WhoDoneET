@@ -23,7 +23,21 @@ public class CharacterLogPageDisplay : LogPage
     {
         base.Display(entity);
 
-         EntiyDisplayData data = _displayData[((int)entity) - 1];
+        if(entity == LogEntity.Room)
+        {
+            _logImage.gameObject.SetActive(false);
+            _shadowImage.gameObject.SetActive(false);
+            _logName.gameObject.SetActive(false);   
+            return;
+        }
+        else
+        {
+             _logImage.gameObject.SetActive(true);
+            _shadowImage.gameObject.SetActive(true);
+            _logName.gameObject.SetActive(true);   
+        }
+
+        EntiyDisplayData data = _displayData[((int)entity) - 1];
 
         _logImage.sprite = data.Image;
         _shadowImage.sprite = data.Image;

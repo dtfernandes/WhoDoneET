@@ -9,7 +9,10 @@ public class LogDisplay : MonoBehaviour
     private InvestigationLog _log;
 
     [SerializeField]
-    public LogPage _characterPage;
+    private LogPage _characterPage;
+
+    [SerializeField]
+    private SolvitMenu _solveItMenu;
 
     [SerializeField]
     public GameObject _mainPage;
@@ -23,6 +26,8 @@ public class LogDisplay : MonoBehaviour
 
     public void SelectPage(int characterIndex)
     {
+        _characterPage.gameObject.SetActive(false);
+        _solveItMenu.gameObject.SetActive(false);
 
         if(characterIndex < 0) return;
 
@@ -32,14 +37,10 @@ public class LogDisplay : MonoBehaviour
         _characterPage.Display((LogEntity)characterIndex);
     }
 
-    public void GoBack(bool isCharacter)
+    public void GoBack()
     {
-        if(isCharacter)
-        {
-            _characterPage.gameObject.SetActive(false);
-        }
-
-        
+        _characterPage.gameObject.SetActive(false);
+        _solveItMenu.gameObject.SetActive(false);
         _mainPage.SetActive(true);
     }
 

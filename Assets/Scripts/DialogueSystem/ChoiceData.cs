@@ -1,5 +1,8 @@
 ﻿using System;
+
+#if UNITY_EDITOR
 using UnityEditor.Experimental.GraphView;
+#endif
 
 namespace DialogueSystem
 {
@@ -42,7 +45,9 @@ namespace DialogueSystem
         [field: UnityEngine.SerializeField]
         public bool IsHidden { get; set; }
 
+        #if UNITY_EDITOR
         public Port Port { get; private set; }
+        #endif
 
         [UnityEngine.SerializeField]
         private string[] _hideIDs;
@@ -54,12 +59,30 @@ namespace DialogueSystem
         /// </summary>
         /// <param name="name">Choice text</param>
         /// <param name="id">Unique id of the Choice</param>
-        public ChoiceData(string text, string id, Port port)
+        public ChoiceData(string text, string id)
         {
+            if(_hideIDs == null)
+                _hideIDs = new string[] { };
+            this.choiceText = text;
+            this.id = id;
+        }
+
+        #if UNITY_EDITOR
+        /// <summary>
+        /// Constructor of this struct
+        /// </summary>
+        /// <param name="name">Choice text</param>
+        /// <param name="id">Unique id of the Choice</param>
+        public ChoiceData(string text, string id, Port port, string[] hideIDs)
+        {
+            if(_hideIDs == null)
+                _hideIDs = new string[] { };
             this.choiceText = text;
             this.id = id;
             Port = port;
+            _hideIDs = hideIDs;
         }
+        #endif
 
         public void ChangeText(string text)
         {
@@ -73,14 +96,22 @@ namespace DialogueSystem
 
         public ChoiceData Clone()
         {
-            ChoiceData clone = new ChoiceData(ChoiceText, ID, Port);
+
+            #if UNITY_EDITOR
+           
+            ChoiceData clone = new ChoiceData(ChoiceText, ID, Port, _hideIDs);
+           //
+            #else
+           
+            ChoiceData clone = new ChoiceData(ChoiceText, ID);
+            clone._hideIDs = _hideIDs;
+           
+            #endif
+            
             clone.IsHidden = IsHidden;
             clone.IsLocked = IsLocked;
             
-            UnityEngine.Debug.Log( "Clones: " + (clone._hideIDs?.Length.ToString() ?? "NUll") );
-            UnityEngine.Debug.Log( (_hideIDs?.Length.ToString() ?? "NUll") );
-
-            clone._hideIDs = _hideIDs;
+            
             return clone;
         }
  

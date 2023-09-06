@@ -66,7 +66,6 @@ namespace DialogueSystem.Editor
                 if (!isConnected)
                     continue;
 
-
                 NodeData data = new NodeData(
                     start: nd.EntryPoint,
                     pos: nd.GetPosition(),
@@ -82,10 +81,7 @@ namespace DialogueSystem.Editor
                 tempLis.AddRange(nd.CustomFunctions);
                 data.CustomFunctions = tempLis;
 
-                foreach (CustomFunction cF in data.CustomFunctions)
-                {
-                    Debug.Log("ASd" + cF.GUID);
-                }
+             
 
 
                 temp.FillDialogueDic(data);
