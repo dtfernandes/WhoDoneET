@@ -84,10 +84,13 @@ namespace DialogueSystem.Editor
                 for (int i = 0; i < events.Count; i++)
                 {
                     events[i] = DrawRunTimeEventSlot(events[i], i);
+                   
                 }
 
                 EditorGUI.indentLevel = 1;
-                #endregion               
+                #endregion           
+
+                EditorUtility.SetDirty(nodeInsp);    
             }
             else
             {
@@ -428,37 +431,5 @@ namespace DialogueSystem.Editor
             GUILayout.EndVertical();
         }
      
-        
-        // private void RemoveEventFromManager(int index)
-        // {
-        //     SerializedProperty gameObj =
-        //            events.GetArrayElementAtIndex(index).FindPropertyRelative("gameObj");
-        //     SerializedProperty uniqueID =
-        //           events.GetArrayElementAtIndex(index).FindPropertyRelative("uniqueID");
-        //     SerializedProperty savedID =
-        //       events.GetArrayElementAtIndex(index).FindPropertyRelative("savedID");
-
-        //     GameObject oldObj = gameObj.objectReferenceValue as GameObject;
-
-        //     //Deselect Old Object
-        //     if (oldObj != null)
-        //     {
-        //         //Compare the objects in the wating list
-        //         if (uniqueID.stringValue ==
-        //             savedID.stringValue)
-        //         {
-        //             //Object Changed from One In Used
-        //             nodeInsp.SaveWaitingList.WaitListToDelete.Add(oldObj);
-        //         }
-        //         else
-        //         {
-        //             //Object Changed from one who is not In use
-        //             nodeInsp.SaveWaitingList.WaitListToAdd.Remove(oldObj);
-        //         }
-        //         //Remove The object equal to this one 
-        //         //nodeInsp.SaveWaitingList.WaitListToAdd.Remove(oldObj);
-        //     }
-        // }
-
     }
 }
