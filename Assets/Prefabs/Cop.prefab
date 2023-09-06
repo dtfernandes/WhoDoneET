@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5901914788070052020}
   - component: {fileID: 4809051065403084332}
   - component: {fileID: 259508472576543395}
+  - component: {fileID: 8782316494410483319}
   m_Layer: 3
   m_Name: Cop
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 39.04, y: 7.02, z: -1.2}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -116,12 +117,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2e1bcc45d3d154a9e451a4e02fca6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PresetEntity>k__BackingField: 1
+  <PresetEntity>k__BackingField: 0
   <Config>k__BackingField:
-    <Top>k__BackingField: 3.79
-    <Down>k__BackingField: -6.63
-    <Center>k__BackingField: {x: 0, y: 4, z: 0}
-  _controller: {fileID: 11400000, guid: 4d9bcc4a5d493b54cb8f7b8d7031a195, type: 2}
+    <Top>k__BackingField: 0
+    <Down>k__BackingField: 0
+    <Center>k__BackingField: {x: 0, y: 0, z: 0}
 --- !u!65 &4809051065403084332
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -170,3 +170,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8782316494410483319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6393711400677533860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd04ae078ee53d9dba40fa3282f5909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 11400000, guid: afc6fc00100a069bfac511eb39cd0c7f, type: 2}

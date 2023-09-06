@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 [System.Serializable]
 public class RuntimeEventData
@@ -14,7 +15,7 @@ public class RuntimeEventData
         ClassType = classType;
         MethodName = methodName;
         TriggerIndex = index;
-        Params = parameters;
+        _params = parameters.Select(x => new SerializedObject(x)).ToArray();
     }
 
     [field: SerializeField]
@@ -26,7 +27,11 @@ public class RuntimeEventData
     [field: SerializeField]
     public int TriggerIndex { get; private set; }
 
-    public object[] Params { get; private set; }
+    [field: SerializeField]
+    private SerializedObject[] _params;
+
+    [field: SerializeField]
+    public object[] Params => _params?.Select( x => x.GetValue()).ToArray();
 
     #region  Editor
 
@@ -44,3 +49,5 @@ public class RuntimeEventData
     
     #endregion
 }
+
+

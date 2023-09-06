@@ -7027,10 +7027,6 @@ PrefabInstance:
       propertyPath: <DescriptionScript>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 8aafde1e9fad56baa80df0fde941e881, type: 2}
-    - target: {fileID: 2274432596154045009, guid: 17aa852d0fd713843856743e908efebe, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5173125161449781841, guid: 17aa852d0fd713843856743e908efebe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0009
@@ -8432,7 +8428,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7035221392775029380, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
       propertyPath: _dialogueInteractables.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035221392775029380, guid: 72fc30ed15c781942b27923db4315d60, type: 3}
+      propertyPath: _dialogueInteractables.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -29,4 +29,10 @@ public class DialogueController : MonoBehaviour
 
         info.Invoke(script, new object[] { "Funcionou" });
     }
+
+    public void ChangeDefault(int newDefault)
+    {
+        Debug.Log("WHAT " + newDefault);
+        _controller.ChangeDefault(newDefault);
+    }
 }

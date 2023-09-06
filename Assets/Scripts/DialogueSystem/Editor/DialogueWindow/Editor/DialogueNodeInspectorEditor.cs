@@ -286,7 +286,8 @@ namespace DialogueSystem.Editor
             int index = data.TriggerIndex;
             string methodName = data.MethodName;
             System.Type type = data.ClassType;
-
+            object[] parameters = data.Params;
+            
             if (data.ShowSelf)
             {
                 GUILayout.Space(10);
@@ -343,11 +344,12 @@ namespace DialogueSystem.Editor
                 }
                 #endregion
 
-
+                MethodInfo[] methodInfos = type.GetMethods();
+               
                 #region Method PopUp
                 if (typeList.Count > 0)
                 {
-                    MethodInfo[] methodInfos = type.GetMethods();
+                   
 
                     string[] methodNames = methodInfos.Select(x => x.Name).ToArray();
 
@@ -357,11 +359,34 @@ namespace DialogueSystem.Editor
                     methodName = methodInfos[data.MethodIndex].Name;
                 }
                 #endregion
+    
+                
 
+                #region Paramns
+                ParameterInfo[] neededParams = methodInfos[data.MethodIndex].GetParameters();            
+
+                if(neededParams.Length > 0)
+                {
+                    GUILayout.Label("Params");
+
+                    if ((parameters?.Length ?? 0) != neededParams.Length)
+                    {
+                        parameters = new object[neededParams.Length];
+                    }
+
+                    int it = 0;
+                    foreach(ParameterInfo info in neededParams)
+                    {
+                        parameters[it] = DisplayParam(info, parameters[it]);
+                        it++;
+                    }
+                }
+
+                #endregion
 
             }
 
-            return new RuntimeEventData(type, methodName, index)
+            return new RuntimeEventData(type, methodName, index, parameters)
             {
                 MethodIndex = data.MethodIndex,
                 ClassIndex = data.ClassIndex,
@@ -431,5 +456,32 @@ namespace DialogueSystem.Editor
             GUILayout.EndVertical();
         }
      
+        private object DisplayParam(ParameterInfo info, object current)
+        {
+            System.Type type = info.ParameterType;
+            
+            if(type == typeof(int))
+            {
+                int value = current != null ? (int)current : 0;
+                return (object)EditorGUILayout.IntField(value);
+            }
+            else if (type == typeof(string))
+            {
+                return default;
+            }
+            else if (type == typeof(float))
+            {
+                return default;
+            }
+            else if (type == typeof(bool))
+            {
+                return default;
+            }
+            else
+            {
+                GUILayout.Label("Parameter Type not Implemented");
+                return default;
+            }
+        }
     }
 }
