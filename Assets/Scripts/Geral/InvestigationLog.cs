@@ -13,17 +13,18 @@ public class InvestigationLog
         Items = new List<LogItem> { };
     }
 
-    public void AddItem(LogItem item)
+    public bool AddItem(LogItem item)
     {
 
         //Check if the item is already in the log
 
         if(Items.Any(x=> x.GUID == item.GUID))
         {
-            return;
+            return false;
         }
 
 
         Items.Add(item);
+        return true;
     }
 }

@@ -90,10 +90,16 @@ public class AddToLogEvent : CustomFunction
     }
 
 #endif
+
     public override void Invoke()
     {
         LogItem item = new LogItem(_text, _entitySelected, GUID);
-        GameSettings.Instance.Log.AddItem(item);
+        bool added = GameSettings.Instance.Log.AddItem(item);
+        if (added)
+        {
+            GameSettings.Instance.HasNotif = true;
+            GameSettings.Instance.NotifMessage = _entitySelected.ToString();
+        }
     }
 
     public void UpdateNode()

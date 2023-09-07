@@ -45,7 +45,7 @@ public class DialogueNameDisplay : MonoBehaviour
             }
         };
 
-        _dHandler.onEndDialogue += () =>
+        _dHandler.onEndDialogue += (e) =>
         {
             _textComponent.text = "";
             _image.enabled = false;

@@ -119,7 +119,7 @@ public class Interactor : MonoBehaviour
             }
         }    
 
-        void OnEndDialogue()
+        void OnEndDialogue(IDialogueScript script)
         {           
             _controller.ZoomOutDialogue();
             _gameSettings.LockCursor(true);
@@ -157,7 +157,7 @@ public class Interactor : MonoBehaviour
             }
         }
 
-        void EndDescription()
+        void EndDescription(IDialogueScript script)
         {
             _gameSettings.LockCursor(true,true);
             _grabbedObject = _focusItem as PickupableObject;

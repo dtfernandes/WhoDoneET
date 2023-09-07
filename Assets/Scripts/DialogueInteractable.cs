@@ -13,7 +13,7 @@ public class DialogueInteractable: Interactable
     [field: SerializeField]
     public ZoomConfig Config { get; private set; }
 
-    public Action OnEndDialogue { get; set; }
+    public Action<IDialogueScript> OnEndDialogue { get; set; }
 
     private DialogueDisplayHandler _dHandler;
     private SpriteRenderer _rederer;

@@ -82,7 +82,7 @@ public class DialogueDisplayHandler : MonoBehaviour
 
     public System.Action<IDialogueScript> onStartDialogue;
     public System.Action<NodeData> onStartLine;
-    public System.Action onEndDialogue;
+    public System.Action<IDialogueScript> onEndDialogue;
 
     private WaitForSeconds endDelay = new WaitForSeconds(0.01f);
 
@@ -211,13 +211,10 @@ public class DialogueDisplayHandler : MonoBehaviour
     }
 
     public void StartLine()
+    
     {
-        Debug.Log("Start Line");
-
         if (dialogueLine.CustomFunctions != null)
         {
-            Debug.Log("Cost Func");
-            
             //Play Custom Events
             foreach (CustomFunction func in dialogueLine.CustomFunctions)
             {
@@ -277,8 +274,7 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// Method that starts the next line in the Dialogue
     /// </summary>
     private void DisplayLine()
-    {
-        Test("!");
+    {  
         onStartLine?.Invoke(dialogueLine);
         StopCoroutine("TypeWriterEffect");
         StartCoroutine("TypeWriterEffect");
@@ -344,7 +340,7 @@ public class DialogueDisplayHandler : MonoBehaviour
         yield return endDelay;
 
        //Call all custom events
-        onEndDialogue?.Invoke();
+        onEndDialogue?.Invoke(currentScript);
         InDialogue = false;
     }
 

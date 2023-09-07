@@ -38,7 +38,7 @@ namespace DialogueSystem
                 }
             };
 
-            _dHandler.onEndDialogue += () =>
+            _dHandler.onEndDialogue += (e) =>
             {
                 _image.enabled = false;
             };

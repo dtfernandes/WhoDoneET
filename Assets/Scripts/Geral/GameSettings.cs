@@ -35,7 +35,8 @@ public class GameSettings : ScriptableSingletonObject<GameSettings>
     }
 
     public List<string> Motives { get; set; }
-
+    public bool HasNotif { get; set; }
+    public string NotifMessage { get; set; }
 
     public void Start()
     {
