@@ -75,7 +75,7 @@ public class PickupableObject : Interactable
 
     public void Grab(Transform inspectPosition)
     {
-        _pickSoundInstance.start();
+        RuntimeManager.PlayOneShot(_pickUpSound);
         onGrab?.Invoke();
         _isGrabbed = true;
         _inspectPosition = inspectPosition;
