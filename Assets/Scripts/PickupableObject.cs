@@ -1,10 +1,14 @@
 using DialogueSystem;
 using System;
-using UnityEditor;
 using UnityEngine;
+using FMODUnity;
 
 public class PickupableObject : Interactable
 {
+   
+    [SerializeField]
+    private EventReference _pickUpSound;
+
     private Vector3 _originalPos;
     private Vector3 _originalRot;
     private Transform _inspectPosition;
@@ -68,6 +72,7 @@ public class PickupableObject : Interactable
 
     public void Grab(Transform inspectPosition)
     {
+        RuntimeManager.PlayOneShot(_pickUpSound, transform.position);
         onGrab?.Invoke();
         _isGrabbed = true;
         _inspectPosition = inspectPosition;
