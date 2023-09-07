@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: Cop
+  m_EditorClassIdentifier: 
+  DialogueName: Cop
+  dialogueNodes:
+  - presetName: 
+    guid: 13e74bc3-8516-40c0-aaa2-1a1eb9b6542a
+    dialogue: Ayoo what's up?
+    position:
+      serializedVersion: 2
+      x: 268.8
+      y: 186.4
+      width: 247.20001
+      height: 165.59999
+    isStart: 1
+    events: []
+    outPorts:
+    - choiceText: Huh?
+      id: da38ead2-bef8-4004-b4a2-6b6a864ebea7
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: "What in Davy Jones\u2019 locker did ye just bark at me, ye scurvy
+        bilgerat? I\u2019ll have ye know I be the meanest cutthroat on the seven
+        seas, and I\u2019ve led numerous raids on fishing villages, and raped over
+        300 wenches. I be trained in hit-and-run pillaging and be the deadliest with
+        a pistol of all the captains on the high seas. Ye be nothing to me but another
+        source o\u2019 swag. I\u2019ll have yer guts for garters and keel haul ye
+        like never been done before, hear me true. You think ye can hide behind your
+        newfangled computing device? Think twice on that, scallywag. As we parley
+        I be contacting my secret network o\u2019 pirates across the sea and yer
+        port is being tracked right now so ye better prepare for the typhoon, weevil.
+        The kind o\u2019 monsoon that\u2019ll wipe ye off the map. You\u2019re sharkbait,
+        fool. I can sail anywhere, in any waters, and can kill ye in o\u2019er seven
+        hundred ways, and that be just with me hook and fist. Not only do I be top
+        o\u2019 the line with a cutlass, but I have an entire pirate fleet at my
+        beck and call and I\u2019ll damned sure use it all to wipe yer arse off o\u2019
+        the world, ye dog. If only ye had had the foresight to know what devilish
+        wrath your jibe was about to incur, ye might have belayed the comment. But
+        ye couldn\u2019t, ye didn\u2019t, and now ye\u2019ll pay the ultimate toll,
+        you buffoon. I\u2019ll shit fury all over ye and ye\u2019ll drown in the
+        depths o\u2019 it. You\u2019re fish food now."
+      id: 2d511946-5ca6-419f-898a-4d51273c0152
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 1
+  - presetName: 
+    guid: 2d511946-5ca6-419f-898a-4d51273c0152
+    dialogue: 'Sorry i didn''t mean to say that home boy
+
+'
+    position:
+      serializedVersion: 2
+      x: 548
+      y: 284.80002
+      width: 234.40002
+      height: 155.19998
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 2
+  - presetName: 
+    guid: da38ead2-bef8-4004-b4a2-6b6a864ebea7
+    dialogue: '
+
+      Yikes man wack city central
+
+
+
+'
+    position:
+      serializedVersion: 2
+      x: 548
+      y: 4.800001
+      width: 220
+      height: 195.2
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 3
+  references:
+    version: 2
+    RefIds: []

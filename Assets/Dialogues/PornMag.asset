@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: PornMag
+  m_EditorClassIdentifier: 
+  DialogueName: PornMag
+  dialogueNodes:
+  - presetName: 
+    guid: 37cf9f82-35d7-4a1b-a391-03dffea9356b
+    dialogue: I'm a porn mag, yuo that's me
+    position:
+      serializedVersion: 2
+      x: 261.6
+      y: 134.4
+      width: 247.19998
+      height: 143.2
+    isStart: 1
+    events: []
+    outPorts:
+    - choiceText: fuck i missed that
+      id: 398b50a1-0c87-4025-b198-f0de5c97d05a
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Thats awful
+      id: fd4e1aec-6dbc-4bd5-bf7c-7ddb0443ac18
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 1325b27f-540a-4288-92be-5fb7dd45ba5a
+    dialogue: Okay man do your thing
+    position:
+      serializedVersion: 2
+      x: 621.6
+      y: 416.80002
+      width: 220
+      height: 119.19998
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 398b50a1-0c87-4025-b198-f0de5c97d05a
+    dialogue: Yup that's me, Mr.Pornmag.
+    position:
+      serializedVersion: 2
+      x: 525.6
+      y: 109.59999
+      width: 220
+      height: 119.20001
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: fd4e1aec-6dbc-4bd5-bf7c-7ddb0443ac18
+    dialogue: "Hey Stop Ignoring me man, \nI'm like an important piece of the puzzle!"
+    position:
+      serializedVersion: 2
+      x: 297.6
+      y: 300.80002
+      width: 247.19998
+      height: 132.79999
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 'i ahte that '
+      id: 1325b27f-540a-4288-92be-5fb7dd45ba5a
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  references:
+    version: 2
+    RefIds: []
