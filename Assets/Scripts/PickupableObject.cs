@@ -2,12 +2,14 @@ using DialogueSystem;
 using System;
 using UnityEngine;
 using FMODUnity;
+using FMOD.Studio;
 
 public class PickupableObject : Interactable
 {
    
     [SerializeField]
     private EventReference _pickUpSound;
+    private EventInstance _pickSoundInstance;
 
     private Vector3 _originalPos;
     private Vector3 _originalRot;
@@ -32,6 +34,7 @@ public class PickupableObject : Interactable
         _originalPos = transform.position;
         _originalRot = transform.eulerAngles;
         _rigid = GetComponent<Rigidbody>();
+        _pickSoundInstance = RuntimeManager.CreateInstance(_pickUpSound);
     }
 
     private void Update()
@@ -72,7 +75,7 @@ public class PickupableObject : Interactable
 
     public void Grab(Transform inspectPosition)
     {
-        RuntimeManager.PlayOneShot(_pickUpSound, transform.position);
+        _pickSoundInstance.start();
         onGrab?.Invoke();
         _isGrabbed = true;
         _inspectPosition = inspectPosition;
