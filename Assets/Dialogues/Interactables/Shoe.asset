@@ -1,0 +1,404 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: Shoe
+  m_EditorClassIdentifier: 
+  DialogueName: Shoe
+  dialogueNodes:
+  - presetName: 
+    guid: 39f9d14d-7ff7-497b-809a-44f3a1131559
+    dialogue: You Look down to find worn down trendy shoes.
+    position:
+      serializedVersion: 2
+      x: 254
+      y: 170
+      width: 275
+      height: 144
+    isStart: 1
+    events: []
+    outPorts:
+    - choiceText: Smell Them
+      id: e04f2817-8b1b-42ef-a205-7882c293b798
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Leave them be
+      id: bcb9095c-1e98-49f2-994b-d1c9fff72b19
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 76b182ea-2e6e-413c-96d7-47c333a3fef3
+    dialogue: Even though they look worn, they look like  a modern model.
+    position:
+      serializedVersion: 2
+      x: 565
+      y: 348
+      width: 336
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: bcb9095c-1e98-49f2-994b-d1c9fff72b19
+    dialogue: Even though they look worn, they look like  a modern model.
+    position:
+      serializedVersion: 2
+      x: 207
+      y: 346
+      width: 336
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: e04f2817-8b1b-42ef-a205-7882c293b798
+    dialogue: 'The stench of dried beer and tabacco fill your nostrils,
+
+      but
+      there seems to be something more...'
+    position:
+      serializedVersion: 2
+      x: 548
+      y: 170
+      width: 304
+      height: 157
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: Dive deeper into the stench
+      id: df6afa13-a10a-424c-9c38-9afbe5d9e5e1
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Leave them be
+      id: 76b182ea-2e6e-413c-96d7-47c333a3fef3
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 8349396d-81de-4a1b-9a3d-bd559906295d
+    dialogue: Even though they look worn, they look like  a modern model.
+    position:
+      serializedVersion: 2
+      x: 930
+      y: 352
+      width: 336
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: c7d19769-7721-4ab5-9564-411f3dc88dc9
+    dialogue: 'That''s right... Still with your eyes closed your lungs expand preparing
+      for the deed with a calm...
+
+      Deep... Inhale...
+
+'
+    position:
+      serializedVersion: 2
+      x: 1711
+      y: 195
+      width: 519
+      height: 146
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: I'm ready...
+      id: 8fd643c6-d480-43ac-8ffa-902e7fd96cf0
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: d963a6a0-0b8d-44e0-a79c-ffd60605c558
+    dialogue: 'There it is the sweetly pungent smell of the secret waiting to be
+      revealed! '
+    position:
+      serializedVersion: 2
+      x: 2678
+      y: 685
+      width: 408
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: "Wait I know this smell... it's\u2026\r"
+      id: f313c524-64f6-4162-8543-d5f9adcc5df5
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: ebd627dd-3ec2-4673-a30e-dac76449522b
+    dialogue: 'Correct my dear detective you smell human bile, vomitus, pavement
+      pizza,
+
+      the liquid laugh, chunder, puke, human spew.'
+    position:
+      serializedVersion: 2
+      x: 2837
+      y: 1038
+      width: 410
+      height: 133
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: You can't stop yourself from huffin the gastric acids...
+      id: 838fc0e1-d635-437b-b2bb-61c4c6dd7a2c
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 838fc0e1-d635-437b-b2bb-61c4c6dd7a2c
+    dialogue: As you jerk yourself away from the horrid footwear... You feel something
+      coming up your throat...
+    position:
+      serializedVersion: 2
+      x: 3270
+      y: 1049
+      width: 526
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: "I cant handle this anymore\u2026"
+      id: 7d5e7d5b-2a60-4ed8-9829-382e88e22f39
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 7a1fa829-f86b-4d53-8211-87e3a5219a38
+    dialogue: After the digestive fit, you manage to deduce two things
+    position:
+      serializedVersion: 2
+      x: 4265
+      y: 1049
+      width: 316
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: "Let's hear it then\u2026"
+      id: 61130858-7097-4f1d-a7b8-eee430b02102
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 7d5e7d5b-2a60-4ed8-9829-382e88e22f39
+    dialogue: Your insides become outsides as your breakfeast becomes part of the
+      crime scene.
+    position:
+      serializedVersion: 2
+      x: 3805
+      y: 1043
+      width: 457
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: BLEARRGHHH
+      id: 7a1fa829-f86b-4d53-8211-87e3a5219a38
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 1c746e2f-e5bf-43b2-b874-bfce3109d7cc
+    dialogue: Even though they look worn, they look like  a modern model.
+    position:
+      serializedVersion: 2
+      x: 5072
+      y: 1066
+      width: 336
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 61130858-7097-4f1d-a7b8-eee430b02102
+    dialogue: 'The smell is recent so you can deduce the victim went out to party
+      with to the festivities
+
+      dedicated to the Popular Saints.'
+    position:
+      serializedVersion: 2
+      x: 4586
+      y: 1052
+      width: 481
+      height: 133
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: And?
+      id: 1c746e2f-e5bf-43b2-b874-bfce3109d7cc
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: df6afa13-a10a-424c-9c38-9afbe5d9e5e1
+    dialogue: 'Sweat and general terrible foot hygiene assault your senses,
+
+      but
+      maybe, just maybe you''ll find a clue in this olfactcic mess.
+
+'
+    position:
+      serializedVersion: 2
+      x: 890
+      y: 167
+      width: 343
+      height: 170
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: One L-l-ast push!
+      id: 0fb6eb37-4fe9-4cdc-b19b-d7d5b3c53150
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Oh god just leave it be!
+      id: 8349396d-81de-4a1b-9a3d-bd559906295d
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 0fb6eb37-4fe9-4cdc-b19b-d7d5b3c53150
+    dialogue: 'You pull back, and empty your mind. You close your eyes and calm yourself.
+
+
+
+'
+    position:
+      serializedVersion: 2
+      x: 1288
+      y: 170
+      width: 418
+      height: 160
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: "There's no going back\u2026"
+      id: c7d19769-7721-4ab5-9564-411f3dc88dc9
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 8fd643c6-d480-43ac-8ffa-902e7fd96cf0
+    dialogue: That's right. There's only you and the shoe right now. In this moment
+      there was nothing else ever to be...
+    position:
+      serializedVersion: 2
+      x: 2242
+      y: 197
+      width: 566
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: I'm ready!
+      id: 46da934e-5a33-4b5c-bb7f-bc6ef2a1f505
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 46da934e-5a33-4b5c-bb7f-bc6ef2a1f505
+    dialogue: "Your nose lunges at the innards of the shoe... Beer... The wear...
+      Tobacco... The poor hygenie.. \nYou push past it all as your senes sprint towards
+      the goal..."
+    position:
+      serializedVersion: 2
+      x: 2551
+      y: 417
+      width: 514
+      height: 133
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: "I can sense it it's close\u2026"
+      id: d963a6a0-0b8d-44e0-a79c-ffd60605c558
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: f313c524-64f6-4162-8543-d5f9adcc5df5
+    dialogue: Your mind jutters with anticipation as it start's to recgonize the
+      smell...
+    position:
+      serializedVersion: 2
+      x: 2764
+      y: 884
+      width: 388
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: "Vomit?\r"
+      id: ebd627dd-3ec2-4673-a30e-dac76449522b
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  references:
+    version: 2
+    RefIds: []

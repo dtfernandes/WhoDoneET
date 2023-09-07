@@ -16536,7 +16536,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  <DefaultDescription>k__BackingField: {fileID: 0}
+  <DefaultDescription>k__BackingField: {fileID: 11400000, guid: b1dfe12e34277ba4bab27e2022d7fd51, type: 2}
   _descriptionMarker: []
 --- !u!54 &1810131347
 Rigidbody:
