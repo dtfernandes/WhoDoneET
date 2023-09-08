@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: CopPassive
+  m_EditorClassIdentifier: 
+  DialogueName: CopPassive
+  dialogueNodes:
+  - presetName: 
+    guid: b9eb832f-9f08-4260-8b4b-82aa101ff304
+    dialogue: 'Anything you need Bossman?
+
+'
+    position:
+      serializedVersion: 2
+      x: 266.4
+      y: 176
+      width: 247.19998
+      height: 178.40001
+    isStart: 1
+    events: []
+    outPorts:
+    - choiceText: Nothing carry on...
+      id: d05a3502-2e0c-435d-9939-20363c93f577
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Why do you call me "Bossman", I'm not your boss... Am I ?
+      id: 1533d426-33d6-4e74-bf0a-b3a2467c1d75
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 4
+  - presetName: 
+    guid: d05a3502-2e0c-435d-9939-20363c93f577
+    dialogue: 'Will do... Weirdo...
+
+
+
+'
+    position:
+      serializedVersion: 2
+      x: 554.4
+      y: 34.4
+      width: 247.19995
+      height: 181.6
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: You said somehting?
+      id: 87c98525-3346-4892-a20f-8267bb6cb627
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: 87c98525-3346-4892-a20f-8267bb6cb627
+    dialogue: 'Nothing Bossman
+
+
+
+'
+    position:
+      serializedVersion: 2
+      x: 853.6
+      y: 70.399994
+      width: 220
+      height: 181.59999
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 3
+  - presetName: 
+    guid: 1533d426-33d6-4e74-bf0a-b3a2467c1d75
+    dialogue: Sorry Bossman I didn't mean to get you confused. It's just a term of
+      respect
+    position:
+      serializedVersion: 2
+      x: 594.4
+      y: 308.80002
+      width: 415.19995
+      height: 140.79999
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: Ah... Okay carry on then...
+      id: 57fb7945-7e51-4db4-9706-b3573848d452
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 3
+  - presetName: 
+    guid: 57fb7945-7e51-4db4-9706-b3573848d452
+    dialogue: Will do.
+    position:
+      serializedVersion: 2
+      x: 1168
+      y: 269.6
+      width: 220
+      height: 140.80002
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 1
+  references:
+    version: 2
+    RefIds: []

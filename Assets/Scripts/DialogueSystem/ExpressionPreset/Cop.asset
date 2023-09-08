@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Emotions>k__BackingField:
   - <EmotionName>k__BackingField: Normal
-    <Image>k__BackingField: {fileID: 21300000, guid: a1f8f8bfc4ce3044b88937fe10ce022a, type: 3}
+    <Image>k__BackingField: {fileID: 21300000, guid: f95d20a950145e648a1609a380f973be, type: 3}
   - <EmotionName>k__BackingField: Happy
-    <Image>k__BackingField: {fileID: 21300000, guid: a7e03188ae035df44bf74b28f2ad8dff, type: 3}
+    <Image>k__BackingField: {fileID: 21300000, guid: 3605b4fb79029994fa463461241e5b53, type: 3}
   - <EmotionName>k__BackingField: Angry
-    <Image>k__BackingField: {fileID: 21300000, guid: b3871d06008ee294494d1e3d03d0569b, type: 3}
+    <Image>k__BackingField: {fileID: 21300000, guid: 118729ccfafdfa84abca2292103cbbc8, type: 3}
+  - <EmotionName>k__BackingField: Neutral
+    <Image>k__BackingField: {fileID: 21300000, guid: f95d20a950145e648a1609a380f973be, type: 3}
+  - <EmotionName>k__BackingField: OpenMouth
+    <Image>k__BackingField: {fileID: 21300000, guid: fc8bd707fba94f041a57c988ba872afe, type: 3}
