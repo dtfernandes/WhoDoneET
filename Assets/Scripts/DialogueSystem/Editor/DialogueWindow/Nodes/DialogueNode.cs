@@ -299,7 +299,9 @@ namespace DialogueSystem.Editor
 
             textNode.RegisterCallback<ChangeEvent<string>>((ChangeEvent<string> evt) =>
             {
+
                 OutPorts[index].ChangeText(evt.newValue);
+                
             });
 
             //The Event responsible for managing the connetions of two ports

@@ -48,6 +48,11 @@ namespace DialogueSystem
             dialogueNodes.Add(data);
         }
 
+        public void Clear()
+        {
+            dialogueNodes.Clear();
+        }
+
 
         /// <summary>
         /// Get the data by passing the guid

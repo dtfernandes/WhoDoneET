@@ -35,11 +35,16 @@ namespace DialogueSystem.Editor
 
             DialogueScript instance = AssetDatabase.LoadAssetAtPath<DialogueScript>(path);
             bool assetExists = instance != null;
-            
 
-            if(!assetExists)
+
+            if (!assetExists)
+            {
                 instance = ScriptableObject.CreateInstance<DialogueScript>();
-     
+               
+            }
+
+            instance.Clear();
+
             List<Node> nodes =
                 view.nodes.ToList();
 
