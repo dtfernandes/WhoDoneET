@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: PilePlatesdialogue
+  m_EditorClassIdentifier: 
+  DialogueName: PilePlatesdialogue
+  dialogueNodes:
+  - presetName: 
+    guid: 9ba75183-7621-4da7-8a87-77a016f5f0fb
+    dialogue: "This pile of plate looks about 3 days old. If you were a scientist,
+      you might've been \nenamored with the possibilty of life sprouting from the
+      cutlery."
+    position:
+      serializedVersion: 2
+      x: 251.2
+      y: 168
+      width: 452.8
+      height: 132.8
+    isStart: 1
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  references:
+    version: 2
+    RefIds: []
