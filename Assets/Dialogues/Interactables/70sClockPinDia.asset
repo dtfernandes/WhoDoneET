@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: 70sClockPinDia
+  m_EditorClassIdentifier: 
+  DialogueName: 70sClockPinDia
+  dialogueNodes:
+  - presetName: 
+    guid: 344da507-5866-458a-a032-700ae6daa203
+    dialogue: '"9451" Interesting i should write that down...'
+    position:
+      serializedVersion: 2
+      x: 263.2
+      y: 197.59999
+      width: 254.39996
+      height: 119.20001
+    isStart: 1
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  references:
+    version: 2
+    RefIds: []
