@@ -33,10 +33,13 @@ namespace DialogueSystem.Editor
 
             if (string.IsNullOrEmpty(path)) return null;
 
-            DialogueScript temp = 
-                ScriptableObject.CreateInstance<DialogueScript>();
+            DialogueScript instance = AssetDatabase.LoadAssetAtPath<DialogueScript>(path);
+            bool assetExists = instance != null;
+            
 
-           
+            if(!assetExists)
+                instance = ScriptableObject.CreateInstance<DialogueScript>();
+     
             List<Node> nodes =
                 view.nodes.ToList();
 
@@ -81,22 +84,28 @@ namespace DialogueSystem.Editor
                 tempLis.AddRange(nd.CustomFunctions);
                 data.CustomFunctions = tempLis;
 
-             
-
-
-                temp.FillDialogueDic(data);
+                instance.FillDialogueDic(data);
 
             }
 
             string[] dir = path.Split('/');
 
-            temp.DialogueName = dir[dir.Length - 1].Replace(".asset", "");
+            instance.DialogueName = dir[dir.Length - 1].Replace(".asset", "");
 
 
-            AssetDatabase.CreateAsset(temp, path);
+
+            if (!assetExists)
+            {
+                AssetDatabase.CreateAsset(instance, path);
+            }
+            else
+            {
+
+            }
+
             AssetDatabase.SaveAssets();
-            
-            return temp;
+
+            return instance;
         }
 
 
