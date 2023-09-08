@@ -142,10 +142,11 @@ public class Interactor : MonoBehaviour
             {
                 PickupableObject obj = _focusItem as PickupableObject;
                 _controller.Stop();
-                DialogueScript description = obj.GetDescription();
+              
+                obj.StartDescription();
+                
                 DialogueDisplayHandler ddh = _gameSettings.DialogueHandler;
-                ddh.StartDialolgue(description);
-
+         
                 _inDescription = true;
                 _gameSettings.LockCursor(false,true);
 

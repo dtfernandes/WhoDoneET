@@ -18,9 +18,12 @@ public class DialogueController : MonoBehaviour
         _ddHandler = GameObject.FindObjectOfType<DialogueDisplayHandler>();
     }
 
-    public void Play()
+    public void Play(IDialogueScript descriptionScript = null)
     {
-        _ddHandler.StartDialolgue(_controller.GetDialogue(), this);
+        IDialogueScript scriptToPlay 
+            = descriptionScript != null ? descriptionScript : _controller.GetDialogue();
+
+        _ddHandler.StartDialolgue(scriptToPlay, this);
     }
 
     public void InvokeTest()

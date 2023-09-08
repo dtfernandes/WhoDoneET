@@ -7,14 +7,17 @@ using FMODUnity;
 using FMOD.Studio;
 #endif
 
+[RequireComponent(typeof(DialogueController))]
 public class PickupableObject : Interactable
 {
-   
-    #if !UNITY_EDITOR_LINUX
+
+    private DialogueController _controller;
+
+#if !UNITY_EDITOR_LINUX
     [SerializeField]
     private EventReference _pickUpSound;
-    #endif
-    
+#endif
+
     private Vector3 _originalPos;
     private Vector3 _originalRot;
     private Transform _inspectPosition;
@@ -25,16 +28,13 @@ public class PickupableObject : Interactable
 
     public Action onGrab, onDrop;
 
-
-    [field: Header("Dialogue")][field: SerializeField]
-    public DialogueScript DefaultDescription { get; private set; }
-
     [SerializeField]
     private DescriptionMarker[] _descriptionMarker;
 
 
     private void Awake()
     {
+        _controller = GetComponent<DialogueController>();
         _originalPos = transform.position;
         _originalRot = transform.eulerAngles;
         _rigid = GetComponent<Rigidbody>();
@@ -89,7 +89,7 @@ public class PickupableObject : Interactable
         _moving = true;
     }
 
-    public DialogueScript GetDescription()
+    public void StartDescription()
     {
         foreach(DescriptionMarker marker in _descriptionMarker)
         {
@@ -106,11 +106,11 @@ public class PickupableObject : Interactable
             // Now, you can analyze the dot product to determine the orientation of the marker
             if (dotProduct < -0.7f)
             {
-                return marker.DescriptionScript;
+                _controller.Play(marker.DescriptionScript);
             }
         }
 
-        return DefaultDescription;
+        _controller.Play();
     }
 }
 
