@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: NokiaDia
+  m_EditorClassIdentifier: 
+  DialogueName: NokiaDia
+  dialogueNodes:
+  - presetName: 
+    guid: 79748b7c-73f7-4ae6-bc46-1fee6f4e515a
+    dialogue: You press some buttons, in the unlike hope it turns on and luckily
+      for you it does...
+    position:
+      serializedVersion: 2
+      x: 560
+      y: 382.40002
+      width: 448.8
+      height: 119.20001
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: Luckily the battery isn't dead...
+      id: 0427cfbb-0b8f-4ba7-8189-21f8b206bef8
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 0427cfbb-0b8f-4ba7-8189-21f8b206bef8
+    dialogue: 'Unfortunately for you the phone requires a pin for it to be any use... '
+    position:
+      serializedVersion: 2
+      x: 769.6
+      y: 512.8
+      width: 377.59998
+      height: 167.20001
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: Well...
+      id: 0e18ecec-29cf-494c-8e8a-826f4458b035
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Piece of shi...
+      id: 0e18ecec-29cf-494c-8e8a-826f4458b035
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Another dead end...
+      id: 0e18ecec-29cf-494c-8e8a-826f4458b035
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 0e18ecec-29cf-494c-8e8a-826f4458b035
+    dialogue: You drop the phone unamused.
+    position:
+      serializedVersion: 2
+      x: 1249.6
+      y: 472
+      width: 220
+      height: 119.20001
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  references:
+    version: 2
+    RefIds: []
