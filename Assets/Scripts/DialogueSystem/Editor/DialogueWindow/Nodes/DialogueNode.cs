@@ -299,10 +299,7 @@ namespace DialogueSystem.Editor
 
             textNode.RegisterCallback<ChangeEvent<string>>((ChangeEvent<string> evt) =>
             {
-                if (port.connected)
-                {
-                    OutPorts[index].ChangeText(evt.newValue);
-                }
+                OutPorts[index].ChangeText(evt.newValue);
             });
 
             //The Event responsible for managing the connetions of two ports
@@ -313,6 +310,7 @@ namespace DialogueSystem.Editor
                     foreach (Edge e in port.connections)
                     {
                         Debug.Log("Edge created?");
+                        Debug.Log(OutPorts[index].ChoiceText);
 
                         OutPorts[index].ChangeId((e.input.node as DefaultNode).GUID);
                         
