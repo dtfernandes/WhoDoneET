@@ -121,7 +121,6 @@ MonoBehaviour:
     <Top>k__BackingField: 3.79
     <Down>k__BackingField: -10
     <Center>k__BackingField: {x: 0, y: 2, z: 0}
-  _controller: {fileID: 11400000, guid: 256078e2be06a494b86cc6c1472f0943, type: 2}
 --- !u!65 &6356416265128529227
 BoxCollider:
   m_ObjectHideFlags: 0
