@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db8770991ed8aa557bc9cd905e6b13ae, type: 3}
-  m_Name: LizardController
+  m_Name: Shoe Controller
   m_EditorClassIdentifier: 
   _dialogues:
-  - {fileID: 11400000, guid: 617a32f53b4b4cf4dad031a6fc6e5c0e, type: 2}
+  - {fileID: 11400000, guid: adc16f5bfeac8f1fa80f62bedf450717, type: 2}
   _defaultDialogue: 0

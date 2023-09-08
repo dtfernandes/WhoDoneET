@@ -43,6 +43,9 @@ public class Interactor : MonoBehaviour
     //Global Settings of the game
     private GameSettings _gameSettings;
 
+    [SerializeField]
+    private float _pickUpDistance = 3f;
+
     //Method that is triggered when the user uses the Interact key
     //Uses the new input system
     void OnInteract()
@@ -180,9 +183,7 @@ public class Interactor : MonoBehaviour
     //Update
     public void Update()
     {
-        float pickUpDistance = 10f;
-
-        if (Physics.Raycast(_controller.transform.position, _controller.transform.forward, out RaycastHit raycastHit, pickUpDistance, _interactLayerMask)) {
+        if (Physics.Raycast(_controller.transform.position, _controller.transform.forward, out RaycastHit raycastHit, _pickUpDistance, _interactLayerMask)) {
 
             if (raycastHit.transform.TryGetComponent(out Interactable item))
             {
