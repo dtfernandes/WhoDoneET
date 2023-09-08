@@ -1,8 +1,11 @@
 using DialogueSystem;
 using System;
 using UnityEngine;
+
+#if !UNITY_EDITOR_LINUX
 using FMODUnity;
 using FMOD.Studio;
+#endif
 
 public class PickupableObject : Interactable
 {
