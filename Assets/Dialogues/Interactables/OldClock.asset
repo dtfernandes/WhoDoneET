@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db8770991ed8aa557bc9cd905e6b13ae, type: 3}
-  m_Name: 70sClock
+  m_Name: OldClock
   m_EditorClassIdentifier: 
   _dialogues:
-  - {fileID: 11400000, guid: 08488709137324f4584c4c8f0ede2691, type: 2}
+  - {fileID: 11400000, guid: a5091c1f34459284ba7cfa3b79e0cc4f, type: 2}
   _defaultDialogue: 0

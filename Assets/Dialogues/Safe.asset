@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Safe
   m_EditorClassIdentifier: 
   _dialogues:
-  - {fileID: 11400000, guid: 91d0f823141ae1f4687ed1ac230004f1, type: 2}
+  - {fileID: 11400000, guid: 7da3267580777744c860f24136357bc2, type: 2}
   _defaultDialogue: 0
