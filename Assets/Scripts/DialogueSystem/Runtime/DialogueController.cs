@@ -20,10 +20,16 @@ public class DialogueController : MonoBehaviour
 
     public void Play(IDialogueScript descriptionScript = null)
     {
+        
+
         IDialogueScript scriptToPlay 
             = descriptionScript != null ? descriptionScript : _controller.GetDialogue();
 
-        _ddHandler.StartDialolgue(scriptToPlay, this);
+        if (!_ddHandler.InDialogue)
+        {
+            Debug.Log(scriptToPlay);
+            _ddHandler.StartDialolgue(scriptToPlay, this);
+        }
     }
 
     public void InvokeTest()

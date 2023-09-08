@@ -107,6 +107,7 @@ public class PickupableObject : Interactable
             if (dotProduct < -0.7f)
             {
                 _controller.Play(marker.DescriptionScript);
+                return;
             }
         }
 
