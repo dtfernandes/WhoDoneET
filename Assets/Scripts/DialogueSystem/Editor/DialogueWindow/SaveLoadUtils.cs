@@ -42,8 +42,12 @@ namespace DialogueSystem.Editor
                 instance = ScriptableObject.CreateInstance<DialogueScript>();
                
             }
+            else
+            {
+                instance.Clear();
+            }
 
-            instance.Clear();
+            
 
             List<Node> nodes =
                 view.nodes.ToList();
