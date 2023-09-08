@@ -15,7 +15,10 @@ public class RuntimeEventData
         ClassType = classType;
         MethodName = methodName;
         TriggerIndex = index;
-        _params = parameters.Select(x => new SerializedObject(x)).ToArray();
+        if(_params != null)
+            _params = parameters.Select(x => new SerializedObject(x)).ToArray();
+        else
+            _params = new SerializedObject[] { };
     }
 
     [field: SerializeField]
