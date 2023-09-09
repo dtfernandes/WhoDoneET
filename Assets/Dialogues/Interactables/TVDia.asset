@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: TVDia
+  m_EditorClassIdentifier: 
+  DialogueName: TVDia
+  dialogueNodes:
+  - presetName: 
+    guid: 90089372-526a-4582-8db8-799b5155f818
+    dialogue: "You see a man in the big flat screen TV. The AV cables aaren't probably
+      plugged in correctly \r\nas there's a weird red tone dripping through the pixels.\r"
+    position:
+      serializedVersion: 2
+      x: 293.6
+      y: 145.59999
+      width: 503.19998
+      height: 132.80002
+    isStart: 1
+    events: []
+    outPorts:
+    - choiceText: "Huh the man is pointing at something in a rather humorous manner\u2026\r"
+      id: 961a3bd4-aa41-4993-b94e-862cb740a3b9
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 961a3bd4-aa41-4993-b94e-862cb740a3b9
+    dialogue: "There's nothing else to take from this\u2026"
+    position:
+      serializedVersion: 2
+      x: 796.8
+      y: 230.4
+      width: 226.40002
+      height: 119.2
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  references:
+    version: 2
+    RefIds: []
