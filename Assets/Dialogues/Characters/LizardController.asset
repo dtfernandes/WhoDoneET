@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LizardController
   m_EditorClassIdentifier: 
   _dialogues:
-  - {fileID: 11400000, guid: 617a32f53b4b4cf4dad031a6fc6e5c0e, type: 2}
+  - {fileID: 11400000, guid: 3d50d66c51179a845bde375790b6f24a, type: 2}
   _defaultDialogue: 0

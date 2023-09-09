@@ -20,3 +20,6 @@ MonoBehaviour:
   - <EntityName>k__BackingField: Lizard Guy
     <Expressions>k__BackingField: {fileID: 11400000, guid: 02bf2c116e033734496bf3b06c6cbc7f, type: 2}
     <Hidden>k__BackingField: 1
+  - <EntityName>k__BackingField: OfficeLady
+    <Expressions>k__BackingField: {fileID: 11400000, guid: 897ae2b28d928f74b89deecbcfde75f5, type: 2}
+    <Hidden>k__BackingField: 1
