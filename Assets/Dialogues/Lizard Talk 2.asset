@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: Lizard Talk 2
+  m_EditorClassIdentifier: 
+  DialogueName: Lizard Talk
+  dialogueNodes:
+  - presetName: 
+    guid: 536765b9-4ce3-4911-ace8-1cd6649b8aca
+    dialogue: AAAAAAAAAAAAAAAAAA!
+    position:
+      serializedVersion: 2
+      x: 237
+      y: 109
+      width: 541
+      height: 142
+    isStart: 1
+    events: []
+    outPorts:
+    - choiceText: 
+      id: c6ab3e8e-4542-4766-af6c-ae6278fa7475
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 3
+  - presetName: 
+    guid: b65a8948-1efe-42fd-a6dd-a70dd83621d3
+    dialogue: 'M-me?? '
+    position:
+      serializedVersion: 2
+      x: 860
+      y: 40
+      width: 541
+      height: 142
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: a9611cfc-6534-4080-b2b5-615db68943cf
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: 3dbbde54-efbc-4f1c-9422-ac1a5cf34ebf
+    dialogue: Hey! Don't you know is rude to tell people to calm down
+    position:
+      serializedVersion: 2
+      x: 860
+      y: 203
+      width: 541
+      height: 142
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 1b0dde96-620b-467f-b407-4e982aacadc7
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 2
+  - presetName: 
+    guid: 1b0dde96-620b-467f-b407-4e982aacadc7
+    dialogue: Jeez the gal of some people
+    position:
+      serializedVersion: 2
+      x: 1210
+      y: 178
+      width: 220
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField:
+    - rid: 4124876520603516930
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: c6ab3e8e-4542-4766-af6c-ae6278fa7475
+    dialogue: A MURDER?!
+    position:
+      serializedVersion: 2
+      x: 536
+      y: 82
+      width: 541
+      height: 166
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: Who are you?
+      id: b65a8948-1efe-42fd-a6dd-a70dd83621d3
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Can you calm down pease!
+      id: 3dbbde54-efbc-4f1c-9422-ac1a5cf34ebf
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField:
+    - rid: 4124876520603516931
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 3
+  - presetName: 
+    guid: a9611cfc-6534-4080-b2b5-615db68943cf
+    dialogue: I'm just a resident, from floor 2
+    position:
+      serializedVersion: 2
+      x: 1180
+      y: 18
+      width: 220
+      height: 142
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField:
+    - rid: 4124876520603516932
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4124876520603516930
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 01b8edebaafa100fe8d12035dd0f70c5
+        _entitySelected: 1
+        _text: This guy is kinda cringe
+    - rid: 4124876520603516931
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 5fadba16844fe694a9fe0a01627d85fc
+        _entitySelected: 1
+        _text: Wak, truly wak this guy is
+    - rid: 4124876520603516932
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 6541189a4d13740b99133e360ab8224d
+        _entitySelected: 1
+        _text: The Lizard guy lives in the floor above

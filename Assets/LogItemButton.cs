@@ -1,11 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Method that handles a button related to a log item
+/// </summary>
 [RequireComponent(typeof(Button), typeof(LogItemObject))]
 public class LogItemButton : MonoBehaviour
 {
-
+    // Log item represented by the button
     private LogItemObject _logItem;
+
+    //Button component
     private Button _button;
 
     void Awake()
