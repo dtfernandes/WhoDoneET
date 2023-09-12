@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void GoToGame()
     {
-        SceneManager.LoadScene("TestTiles2");
+        SceneManager.LoadScene("TestTiles 2");
     }
 
     public void QuitGame()
