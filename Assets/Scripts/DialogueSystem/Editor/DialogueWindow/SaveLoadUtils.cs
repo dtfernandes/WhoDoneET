@@ -114,6 +114,8 @@ namespace DialogueSystem.Editor
 
             AssetDatabase.SaveAssets();
 
+            EditorUtility.SetDirty(instance);
+
             return instance;
         }
 

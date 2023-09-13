@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db8770991ed8aa557bc9cd905e6b13ae, type: 3}
-  m_Name: LizardController
+  m_Name: Cup Tutorial Contr
   m_EditorClassIdentifier: 
   _dialogues:
-  - {fileID: 11400000, guid: 617a32f53b4b4cf4dad031a6fc6e5c0e, type: 2}
-  - {fileID: 11400000, guid: cac5b3cc6b79f6fce88e197e8b402ff7, type: 2}
+  - {fileID: 11400000, guid: 2b91007fd9174bf83bc7026caf203ad8, type: 2}
   _defaultDialogue: 0

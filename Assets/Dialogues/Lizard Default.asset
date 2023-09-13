@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: Lizard Default
+  m_EditorClassIdentifier: 
+  DialogueName: Lizard Default
+  dialogueNodes:
+  - presetName: 
+    guid: 536765b9-4ce3-4911-ace8-1cd6649b8aca
+    dialogue: So have you found the killer yet?
+    position:
+      serializedVersion: 2
+      x: 237
+      y: 109
+      width: 247
+      height: 166
+    isStart: 1
+    events: []
+    outPorts:
+    - choiceText: No, still looking
+      id: 95c3cfb7-440a-4b8d-9855-4dd4d5bc625c
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: yes... AND IT'S YOU
+      id: ee9f14f4-a4ab-45bb-8db8-02c960764750
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField:
+    - rid: 1986383499650138112
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: 95c3cfb7-440a-4b8d-9855-4dd4d5bc625c
+    dialogue: Be quick I have things to do
+    position:
+      serializedVersion: 2
+      x: 556
+      y: 48
+      width: 220
+      height: 142
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: 57bfbc61-c253-47b1-a1d1-99f34c1304ca
+    dialogue: ooof. Don't joke like that.
+    position:
+      serializedVersion: 2
+      x: 832
+      y: 217
+      width: 220
+      height: 142
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 2
+  - presetName: 
+    guid: ee9f14f4-a4ab-45bb-8db8-02c960764750
+    dialogue: NOOOOOO IT WASN'T MEEEEEEEEE
+    position:
+      serializedVersion: 2
+      x: 568
+      y: 235
+      width: 247
+      height: 142
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: just kidding
+      id: 57bfbc61-c253-47b1-a1d1-99f34c1304ca
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 3
+  references:
+    version: 2
+    RefIds:
+    - rid: 1986383499650138112
+      type: {class: AddElementToAnswerEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 7bcd0ca45055a376991cf42e891c6a74
+        _answerType: 0
+        _text: Lizard Guy

@@ -44,7 +44,7 @@ public class AddElementToAnswerEvent : CustomFunction
 
     public override void Draw()
     {
-        string[] entities = Enum.GetValues(typeof(LogEntity)).Cast<LogEntity>().Select(x => x.ToString()).ToArray();
+        string[] entities = Enum.GetValues(typeof(AnswerType)).Cast<AnswerType>().Select(x => x.ToString()).ToArray();
 
         GUILayout.Label("Add new Answer Event");
 

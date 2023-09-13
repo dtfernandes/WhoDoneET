@@ -15,10 +15,10 @@ public class RuntimeEventData
         ClassType = classType;
         MethodName = methodName;
         TriggerIndex = index;
-        if(_params != null)
+        // if(_params != null)
             _params = parameters.Select(x => new SerializedObject(x)).ToArray();
-        else
-            _params = new SerializedObject[] { };
+        // else
+        //     _params = new SerializedObject[] { };
     }
 
     [field: SerializeField]
@@ -46,10 +46,10 @@ public class RuntimeEventData
 
     [HideInInspector] [field: SerializeField]
     public bool ShowText { get; set; }
-    
+
     [HideInInspector] [field: SerializeField]
     public bool ShowSelf { get; set; }
-    
+
     #endregion
 }
 

@@ -27,6 +27,7 @@ MonoBehaviour:
     events:
     - <MethodName>k__BackingField: OnFirstTalkStart
       <TriggerIndex>k__BackingField: 1
+      _params: []
       <ClassIndex>k__BackingField: 7
       <MethodIndex>k__BackingField: 0
       <ShowText>k__BackingField: 1
@@ -37,32 +38,10 @@ MonoBehaviour:
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
-    <CustomFunctions>k__BackingField: []
+    <CustomFunctions>k__BackingField:
+    - rid: 1986383499650138113
     <PresetName>k__BackingField: 1
     <ExpressionId>k__BackingField: 1
-  - presetName: 
-    guid: 57c66823-a153-4932-aaeb-011e596e7042
-    dialogue: 'Officer Johnson has been assign to another case. I a new recruit.
-
-      Officer
-      Davy at your service.'
-    position:
-      serializedVersion: 2
-      x: 546
-      y: 170
-      width: 360
-      height: 155
-    isStart: 0
-    events: []
-    outPorts:
-    - choiceText: Tell me about the caes Davy.
-      id: efdcbb31-7321-4d8e-abea-3ef7e4322f5d
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-      _hideIDs: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 1
-    <ExpressionId>k__BackingField: 0
   - presetName: 
     guid: efdcbb31-7321-4d8e-abea-3ef7e4322f5d
     dialogue: 'Ok so... somthing... happen...
@@ -99,6 +78,7 @@ MonoBehaviour:
     events:
     - <MethodName>k__BackingField: OnFirstTalkEnd
       <TriggerIndex>k__BackingField: 0
+      _params: []
       <ClassIndex>k__BackingField: 7
       <MethodIndex>k__BackingField: 1
       <ShowText>k__BackingField: 0
@@ -107,6 +87,35 @@ MonoBehaviour:
     <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 1
     <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: 57c66823-a153-4932-aaeb-011e596e7042
+    dialogue: 'Officer Johnson has been assign to another case. I''m new recruit.
+
+      Officer
+      Davis at your service.'
+    position:
+      serializedVersion: 2
+      x: 557
+      y: 170
+      width: 363
+      height: 155
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: Tell me about the caes Davy.
+      id: efdcbb31-7321-4d8e-abea-3ef7e4322f5d
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1986383499650138113
+      type: {class: AddElementToAnswerEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 6b08bc1c82cf5e89bb6d8b475c39f727
+        _answerType: 0
+        _text: Oficcer Davis

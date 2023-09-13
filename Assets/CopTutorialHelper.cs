@@ -7,6 +7,9 @@ public class CopTutorialHelper : MonoBehaviour
     [SerializeField]
     private TutorialManager _manager;
 
+    [SerializeField]
+    private FadeInScreen fadeScreen;
+
     public void OnFirstTalkStart()
     {
         _manager.TalkToCopFirst();
@@ -15,5 +18,11 @@ public class CopTutorialHelper : MonoBehaviour
     public void OnFirstTalkEnd()
     {
         _manager.TalkCopFirstEnd();
+    }
+
+    public void StarFadeOut()
+    {
+        fadeScreen.SetActive();
+        fadeScreen.StartFadeOut();
     }
 }

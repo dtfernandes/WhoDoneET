@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
-  m_Name: Lizard Talk
+  m_Name: Lizard Intro
   m_EditorClassIdentifier: 
-  DialogueName: Lizard Talk
+  DialogueName: Lizard Intro
   dialogueNodes:
   - presetName: 
     guid: 536765b9-4ce3-4911-ace8-1cd6649b8aca
@@ -21,7 +21,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 237
       y: 109
-      width: 541
+      width: 247
       height: 142
     isStart: 1
     events: []
@@ -31,49 +31,10 @@ MonoBehaviour:
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
-    <CustomFunctions>k__BackingField: []
+    <CustomFunctions>k__BackingField:
+    - rid: 1986383499650138112
     <PresetName>k__BackingField: 2
     <ExpressionId>k__BackingField: 3
-  - presetName: 
-    guid: b65a8948-1efe-42fd-a6dd-a70dd83621d3
-    dialogue: 'M-me?? '
-    position:
-      serializedVersion: 2
-      x: 860
-      y: 40
-      width: 541
-      height: 142
-    isStart: 0
-    events: []
-    outPorts:
-    - choiceText: 
-      id: a9611cfc-6534-4080-b2b5-615db68943cf
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-      _hideIDs: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 2
-    <ExpressionId>k__BackingField: 0
-  - presetName: 
-    guid: 3dbbde54-efbc-4f1c-9422-ac1a5cf34ebf
-    dialogue: Hey! Don't you know is rude to tell people to calm down
-    position:
-      serializedVersion: 2
-      x: 860
-      y: 203
-      width: 541
-      height: 142
-    isStart: 0
-    events: []
-    outPorts:
-    - choiceText: 
-      id: 1b0dde96-620b-467f-b407-4e982aacadc7
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-      _hideIDs: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 2
-    <ExpressionId>k__BackingField: 2
   - presetName: 
     guid: 1b0dde96-620b-467f-b407-4e982aacadc7
     dialogue: Jeez the gal of some people
@@ -97,7 +58,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 536
       y: 82
-      width: 541
+      width: 247
       height: 166
     isStart: 0
     events: []
@@ -132,9 +93,73 @@ MonoBehaviour:
     - rid: 4124876520603516932
     <PresetName>k__BackingField: 2
     <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: b65a8948-1efe-42fd-a6dd-a70dd83621d3
+    dialogue: 'M-me?? '
+    position:
+      serializedVersion: 2
+      x: 860
+      y: 38
+      width: 247
+      height: 142
+    isStart: 0
+    events:
+    - <MethodName>k__BackingField: ChangeDefault
+      <TriggerIndex>k__BackingField: 6
+      _params:
+      - <Type>k__BackingField: int
+        <IntValue>k__BackingField: 1
+      <ClassIndex>k__BackingField: 6
+      <MethodIndex>k__BackingField: 2
+      <ShowText>k__BackingField: 1
+      <ShowSelf>k__BackingField: 1
+    outPorts:
+    - choiceText: 
+      id: a9611cfc-6534-4080-b2b5-615db68943cf
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: 3dbbde54-efbc-4f1c-9422-ac1a5cf34ebf
+    dialogue: Hey! Don't you know is rude to tell people to calm down
+    position:
+      serializedVersion: 2
+      x: 860
+      y: 203
+      width: 312
+      height: 142
+    isStart: 0
+    events:
+    - <MethodName>k__BackingField: ChangeDefault
+      <TriggerIndex>k__BackingField: 54
+      _params:
+      - <Type>k__BackingField: int
+        <IntValue>k__BackingField: 1
+      <ClassIndex>k__BackingField: 6
+      <MethodIndex>k__BackingField: 2
+      <ShowText>k__BackingField: 1
+      <ShowSelf>k__BackingField: 1
+    outPorts:
+    - choiceText: 
+      id: 1b0dde96-620b-467f-b407-4e982aacadc7
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 2
   references:
     version: 2
     RefIds:
+    - rid: 1986383499650138112
+      type: {class: AddElementToAnswerEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 7bcd0ca45055a376991cf42e891c6a74
+        _answerType: 0
+        _text: Lizard Guy
     - rid: 4124876520603516930
       type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
       data:

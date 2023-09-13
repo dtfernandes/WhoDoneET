@@ -23,9 +23,7 @@ public class SolvitMenu : MonoBehaviour
         _weapons.options = 
             _settings.Weapons.Select(x => new TMP_Dropdown.OptionData(x)).ToList();
         _motive.options = 
-            _settings.Motives.Select(x => new TMP_Dropdown.OptionData(x)).ToList();
-
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameResult");
+            _settings.Motives.Select(x => new TMP_Dropdown.OptionData(x)).ToList();    
     }
 
     public void Submit()
@@ -35,5 +33,6 @@ public class SolvitMenu : MonoBehaviour
         string m = _motive.options[_motive.value].text;
 
         _settings.Submit(p, w, m);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameResult");
     }
 }

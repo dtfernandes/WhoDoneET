@@ -103,7 +103,7 @@ MonoBehaviour:
       x: 1557
       y: 157
       width: 247
-      height: 120
+      height: 142
     isStart: 0
     events: []
     outPorts:
@@ -113,19 +113,26 @@ MonoBehaviour:
       <IsHidden>k__BackingField: 0
       _hideIDs: []
     <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 0
-    <ExpressionId>k__BackingField: -1
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 0
   - presetName: 
     guid: b03dcbee-24f4-4f1e-8f66-d73a2138e722
     dialogue: Why don't you come in and look at the scene?
     position:
       serializedVersion: 2
-      x: 1847
+      x: 1848
       y: 157
       width: 261
-      height: 120
+      height: 142
     isStart: 0
-    events: []
+    events:
+    - <MethodName>k__BackingField: StarFadeOut
+      <TriggerIndex>k__BackingField: 43
+      _params: []
+      <ClassIndex>k__BackingField: 7
+      <MethodIndex>k__BackingField: 2
+      <ShowText>k__BackingField: 1
+      <ShowSelf>k__BackingField: 1
     outPorts:
     - choiceText: 
       id: 
@@ -133,8 +140,8 @@ MonoBehaviour:
       <IsHidden>k__BackingField: 0
       _hideIDs: []
     <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 0
-    <ExpressionId>k__BackingField: -1
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 1
   references:
     version: 2
     RefIds: []
