@@ -103,13 +103,13 @@ MonoBehaviour:
       <ShowSelf>k__BackingField: 0
     outPorts: []
     <CustomFunctions>k__BackingField:
-    - rid: 698122134919839745
+    - rid: 698122134919839744
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   references:
     version: 2
     RefIds:
-    - rid: 698122134919839745
+    - rid: 698122134919839744
       type: {class: CustomFunctionPrompt, ns: DialogueSystem.Editor, asm: Assembly-CSharp}
       data:
         <GUID>k__BackingField: 
