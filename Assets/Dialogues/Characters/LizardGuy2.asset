@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: LizardGuy2
+  m_EditorClassIdentifier: 
+  DialogueName: LizardGuy2
+  dialogueNodes:
+  - presetName: 
+    guid: 0b87e246-1fbd-4594-a92e-2ccec82fa642
+    dialogue: Yes Mr.Officer?
+    position:
+      serializedVersion: 2
+      x: 240
+      y: 232
+      width: 247.20001
+      height: 237.59999
+    isStart: 1
+    events: []
+    outPorts:
+    - choiceText: '"Mr." Officer? Isn''t that redudant?'
+      id: 1ccaf273-f823-478e-be90-c865ee750df3
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: 'What? '
+      id: 6c93b6d6-479b-440b-b6b0-da7ad1d18ecf
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Why?
+      id: 6c93b6d6-479b-440b-b6b0-da7ad1d18ecf
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: 
+      id: d98b02ab-7f5e-4381-8938-a2b152c0b9cb
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 1
+      _hideIDs:
+      - 8c291bf287f16d9d9bb22dc2b8fa30be
+    - choiceText: 
+      id: 86a7c0a1-785c-403a-87ae-a7ba239797f8
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 1
+      _hideIDs:
+      - c11b388c2f15de544ae43ffda4b95e15
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 2
+  - presetName: 
+    guid: 86a7c0a1-785c-403a-87ae-a7ba239797f8
+    dialogue: 'A.L.P.B. my comrades in our battle against
+
+      The secret society
+      of Lizard People that
+
+      governs the world from the sadows'
+    position:
+      serializedVersion: 2
+      x: 621.6
+      y: 533.60004
+      width: 243.20001
+      height: 168
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 2
+  - presetName: 
+    guid: d98b02ab-7f5e-4381-8938-a2b152c0b9cb
+    dialogue: 'A GUN? in this building? The walls are paper thin!
+
+'
+    position:
+      serializedVersion: 2
+      x: 621.6
+      y: 378.40002
+      width: 279.2
+      height: 155.20001
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField:
+    - rid: 4080657504055066625
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 3
+  - presetName: 
+    guid: 1ccaf273-f823-478e-be90-c865ee750df3
+    dialogue: 'It''s standard ALPB proceedure. It''s a test against Lizard people
+
+      And
+      you passed with Flying Colours'
+    position:
+      serializedVersion: 2
+      x: 565.6
+      y: 146.4
+      width: 350.40002
+      height: 155.2
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField:
+    - rid: 4080657504055066626
+    <PresetName>k__BackingField: 2
+    <ExpressionId>k__BackingField: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4080657504055066625
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 22e273aee6964b2489e3a35f3050be36
+        _entitySelected: 1
+        _text: The Lizard Guy obviously didn't know anyhting about the gun.
+    - rid: 4080657504055066626
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: c11b388c2f15de544ae43ffda4b95e15
+        _entitySelected: 1
+        _text: 'ALPB? '
