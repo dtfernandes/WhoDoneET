@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
+  m_Name: SafeClosedDia
+  m_EditorClassIdentifier: 
+  DialogueName: SafeClosedDia
+  dialogueNodes:
+  - presetName: 
+    guid: 0f16f246-ee4e-4115-8d11-603351208d11
+    dialogue: You look down to find a closed rust ridden safe inside the closet...
+    position:
+      serializedVersion: 2
+      x: 320
+      y: 182
+      width: 365
+      height: 144
+    isStart: 1
+    events: []
+    outPorts:
+    - choiceText: Try and open it...
+      id: f5a9daef-825f-4a12-b472-943691e703a5
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Leave it for now...
+      id: 4b41f94b-0e11-464f-b227-2f3849f61d07
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 4b41f94b-0e11-464f-b227-2f3849f61d07
+    dialogue: Your knees crackle and pop as you stand up...
+    position:
+      serializedVersion: 2
+      x: 716
+      y: 261
+      width: 262
+      height: 120
+    isStart: 0
+    events:
+    - <MethodName>k__BackingField: OpenedSafe
+      <TriggerIndex>k__BackingField: 0
+      _params: []
+      <ClassIndex>k__BackingField: 0
+      <MethodIndex>k__BackingField: 0
+      <ShowText>k__BackingField: 0
+      <ShowSelf>k__BackingField: 0
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: f5a9daef-825f-4a12-b472-943691e703a5
+    dialogue: 1789
+    position:
+      serializedVersion: 2
+      x: 735
+      y: -3
+      width: 220
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  references:
+    version: 2
+    RefIds: []
