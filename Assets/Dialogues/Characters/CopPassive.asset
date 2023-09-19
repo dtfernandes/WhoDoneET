@@ -45,7 +45,7 @@ MonoBehaviour:
       _hideIDs: []
     - choiceText: I'm sorry can you tell me the date? I seem to be out of it this
         morning.
-      id: 
+      id: 08ca1525-fd82-489c-a845-f8fcf95efa42
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
@@ -98,42 +98,6 @@ MonoBehaviour:
     <PresetName>k__BackingField: 1
     <ExpressionId>k__BackingField: 3
   - presetName: 
-    guid: 7dff3991-e338-49e6-a4c6-970297b823b4
-    dialogue: 'Sorry Bossman local resident... '
-    position:
-      serializedVersion: 2
-      x: 1390
-      y: 604
-      width: 247
-      height: 142
-    isStart: 0
-    events: []
-    outPorts:
-    - choiceText: Let's get back to the case.
-      id: 863f83f2-f435-4a12-a19f-69cefa974822
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-      _hideIDs: []
-    <CustomFunctions>k__BackingField:
-    - rid: 698122154287038472
-    <PresetName>k__BackingField: 1
-    <ExpressionId>k__BackingField: 3
-  - presetName: 
-    guid: d5078f8c-5fe3-40a2-b5de-45db08b91874
-    dialogue: 
-    position:
-      serializedVersion: 2
-      x: 1276
-      y: 780
-      width: 220
-      height: 120
-    isStart: 0
-    events: []
-    outPorts: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 0
-    <ExpressionId>k__BackingField: -1
-  - presetName: 
     guid: 863f83f2-f435-4a12-a19f-69cefa974822
     dialogue: Sure Bossman what do you want to talk about?
     position:
@@ -170,164 +134,52 @@ MonoBehaviour:
     <PresetName>k__BackingField: 1
     <ExpressionId>k__BackingField: 4
   - presetName: 
-    guid: 81a29ce4-8412-4075-a1ca-7c632dd73975
-    dialogue: What about the Kitchen clock?
+    guid: e62d4708-7e00-46e4-ba69-78775f222aa0
+    dialogue: 
     position:
       serializedVersion: 2
-      x: 1106
-      y: 956
-      width: 247
-      height: 166
-    isStart: 0
-    events: []
-    outPorts:
-    - choiceText: (Log Option)
-      id: 2a9b52ae-5659-41d6-9258-096a7a9ce8bd
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 1
-      _hideIDs:
-      - 5454a5272cdf08d40a3072c09b133be7
-    - choiceText: Nothing, let's go back to the case...
-      id: 863f83f2-f435-4a12-a19f-69cefa974822
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-      _hideIDs: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 1
-    <ExpressionId>k__BackingField: 3
-  - presetName: 
-    guid: 1dac68cd-9a32-4ae6-a739-00b3312a3f7e
-    dialogue: 'I''m sorry Bossman I knocked over the clock while
-
-      I was walking
-      around the crime scene. '
-    position:
-      serializedVersion: 2
-      x: 1764
-      y: 951
-      width: 278
-      height: 155
-    isStart: 0
-    events: []
-    outPorts:
-    - choiceText: ...
-      id: a5f58f73-be33-4fe6-bb4e-679b8cfe0c0e
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-      _hideIDs: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 1
-    <ExpressionId>k__BackingField: 2
-  - presetName: 
-    guid: a5f58f73-be33-4fe6-bb4e-679b8cfe0c0e
-    dialogue: 'P-Pl-Please don''t report this to my C.O. it''s my fourth accident
-
-      this
-      month I''d get fired!'
-    position:
-      serializedVersion: 2
-      x: 2068
-      y: 981
-      width: 347
-      height: 155
-    isStart: 0
-    events: []
-    outPorts:
-    - choiceText: We'll talk about it after this mess.
-      id: 
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-      _hideIDs: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 1
-    <ExpressionId>k__BackingField: 3
-  - presetName: 
-    guid: 2a9b52ae-5659-41d6-9258-096a7a9ce8bd
-    dialogue: The Officer looks at you nervously...
-    position:
-      serializedVersion: 2
-      x: 1466
-      y: 979
-      width: 247
-      height: 142
-    isStart: 0
-    events: []
-    outPorts:
-    - choiceText: It seems that there was some tampering with evidence after you
-        arrived...
-      id: 1dac68cd-9a32-4ae6-a739-00b3312a3f7e
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-      _hideIDs: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 1
-    <ExpressionId>k__BackingField: 3
-  - presetName: 
-    guid: 8363555f-9086-4bcf-955a-238fbd61d97c
-    dialogue: "The victim was a caucasian male in his Late 20s by\nthe of Uhhh...
-      Z\xE9 (apelido)"
-    position:
-      serializedVersion: 2
-      x: 1082
-      y: 415
-      width: 287
-      height: 155
+      x: 527
+      y: -760
+      width: 220
+      height: 160
     isStart: 0
     events: []
     outPorts: []
-    <CustomFunctions>k__BackingField:
-    - rid: 698122154287038471
-    <PresetName>k__BackingField: 1
-    <ExpressionId>k__BackingField: 0
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
   - presetName: 
-    guid: 653ca3df-6f07-4c5d-aa41-f819cb5f6479
-    dialogue: 'The case was reported around the early morning
-
-      by that xeno
-      over ther. We arrived at 7:15 A.M.'
+    guid: 08ca1525-fd82-489c-a845-f8fcf95efa42
+    dialogue: 'Today is the 20th of June 2000 '
     position:
       serializedVersion: 2
-      x: 1078
-      y: 589
-      width: 276
-      height: 155
+      x: 163
+      y: -688
+      width: 247
+      height: 144
     isStart: 0
     events: []
     outPorts:
-    - choiceText: Xeno? Is that slang Officer?
-      id: 7dff3991-e338-49e6-a4c6-970297b823b4
+    - choiceText: Leave for now...
+      id: e62d4708-7e00-46e4-ba69-78775f222aa0
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Let's get back to what we were talking about before,,,
+      id: b9eb832f-9f08-4260-8b4b-82aa101ff304
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
     <CustomFunctions>k__BackingField:
-    - rid: 698122154287038473
-    - rid: 698122154287038474
-    <PresetName>k__BackingField: 1
-    <ExpressionId>k__BackingField: 1
+    - rid: 698122154287038478
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
   references:
     version: 2
     RefIds:
-    - rid: 698122154287038471
+    - rid: 698122154287038478
       type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
       data:
-        <GUID>k__BackingField: 7c8c9f1c007e7f643b954a7a25b51d21
+        <GUID>k__BackingField: 4abb0d78b817f2d438f3596b61d15345
         _entitySelected: 0
-        _text: Ask about the victim.
-    - rid: 698122154287038472
-      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
-      data:
-        <GUID>k__BackingField: 95c544e62906d6646ba66a51f9ae23c4
-        _entitySelected: 2
-        _text: The officer uses the word "Xeno"
-    - rid: 698122154287038473
-      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
-      data:
-        <GUID>k__BackingField: 38e1b07eaef9ebf4185a0825bc6b2353
-        _entitySelected: 1
-        _text: The Lizard Guy reported the crime early in the morning.
-    - rid: 698122154287038474
-      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
-      data:
-        <GUID>k__BackingField: 5454a5272cdf08d40a3072c09b133be7
-        _entitySelected: 2
-        _text: The Officer arrived at 7:15 A.M.
+        _text: Any interesting dates?
