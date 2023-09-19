@@ -16,19 +16,26 @@ MonoBehaviour:
   dialogueNodes:
   - presetName: 
     guid: 344da507-5866-458a-a032-700ae6daa203
-    dialogue: '"9451" Interesting i should write that down...'
+    dialogue: '"0451" Interesting i should write that down...'
     position:
       serializedVersion: 2
-      x: 263.2
-      y: 197.59999
-      width: 254.39996
-      height: 119.20001
+      x: 263
+      y: 198
+      width: 253
+      height: 120
     isStart: 1
     events: []
     outPorts: []
-    <CustomFunctions>k__BackingField: []
+    <CustomFunctions>k__BackingField:
+    - rid: 698122154287038464
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 698122154287038464
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 3eacbb8a0f6c81c4c96c6cf1e3c404ea
+        _entitySelected: 0
+        _text: There was a code on the alarm clock "0451"

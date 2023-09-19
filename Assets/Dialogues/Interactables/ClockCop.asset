@@ -16,20 +16,27 @@ MonoBehaviour:
   dialogueNodes:
   - presetName: 
     guid: d0df43d5-0bc1-42e5-89d6-21c35c4544e1
-    dialogue: "This clock looks practically pristine... But its stuck at 7:34 am?
+    dialogue: "This clock looks practically pristine... But its stuck at 7:34 A.M.?
       \nWeird thats after the time the crime was reported..."
     position:
       serializedVersion: 2
-      x: 233.6
-      y: 182.4
-      width: 345.6
-      height: 132.8
+      x: 234
+      y: 181
+      width: 352
+      height: 133
     isStart: 1
     events: []
     outPorts: []
-    <CustomFunctions>k__BackingField: []
+    <CustomFunctions>k__BackingField:
+    - rid: 698122154287038470
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 698122154287038470
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: c6f8c0b95a1c9254da4f7625348ca3f9
+        _entitySelected: 0
+        _text: 'The Clock by the Kitchen was stuck at 7:24 A.M:'
