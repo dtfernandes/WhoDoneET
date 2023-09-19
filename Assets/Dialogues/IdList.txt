@@ -1,0 +1,16 @@
+Trophy Clock
+	
+	"The Trophy looking clock seems to be stuck a 11:55. "	7132dd2bf7032114d86ad2020860440b
+
+
+
+
+Cop
+
+	"Ask about the victim." 7c8c9f1c007e7f643b954a7a25b51d21
+
+	"The Lizard Guy reported the crime early in the morning." 38e1b07eaef9ebf4185a0825bc6b2353
+
+	"The Officer arrived at 7:15 A.M." 5454a5272cdf08d40a3072c09b133be7
+
+	"The officer uses the word "Xeno"" 95c544e62906d6646ba66a51f9ae23c4

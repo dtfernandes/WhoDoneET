@@ -17,20 +17,97 @@ MonoBehaviour:
   - presetName: 
     guid: ce2f8e7f-334b-4055-968f-fdd32678b5d8
     dialogue: "The excentric clock seems to be well taken cared of, it wouldn't be
-      suprising if it was still working a fe whours ago... \nStill its pointers seem
-      stuck at 11:55."
+      suprising if it was still working a few whours ago... \nStill its pointers
+      seem stuck at 11:55."
     position:
       serializedVersion: 2
       x: 248
-      y: 149.59999
-      width: 625.6
-      height: 132.80002
+      y: 150
+      width: 633
+      height: 133
     isStart: 1
+    events: []
+    outPorts:
+    - choiceText: Let's do some deducing shall we?
+      id: 
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField:
+    - rid: 698122154287038476
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: c26cd424-1791-4903-b805-77931c07fe60
+    dialogue: Let's do some deducing shall we?
+    position:
+      serializedVersion: 2
+      x: 655
+      y: 326
+      width: 247
+      height: 144
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: cee41fd4-db8a-49d3-9702-0ebbf5666eaa
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 1
+      _hideIDs: []
+    - choiceText: Let's leave for now...
+      id: b2cd69c4-212e-4260-b548-486610632d91
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: b2cd69c4-212e-4260-b548-486610632d91
+    dialogue: 
+    position:
+      serializedVersion: 2
+      x: 1002
+      y: 458
+      width: 220
+      height: 120
+    isStart: 0
     events: []
     outPorts: []
     <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: cee41fd4-db8a-49d3-9702-0ebbf5666eaa
+    dialogue: 'SInce the team arrived around 7 A.M. then this clock seems
+
+      to
+      have broken on the night of the murder!'
+    position:
+      serializedVersion: 2
+      x: 982
+      y: 319
+      width: 331
+      height: 133
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField:
+    - rid: 698122154287038477
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 698122154287038476
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 7132dd2bf7032114d86ad2020860440b
+        _entitySelected: 0
+        _text: 'The Trophy looking clock seems to be stuck a 11:55. '
+    - rid: 698122154287038477
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 9bfbb0e2242737c4abce8f9522e4cabf
+        _entitySelected: 0
+        _text: Trophy clock was Broken during the night of the murder around 12 P.M.
