@@ -40,28 +40,6 @@ MonoBehaviour:
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   - presetName: 
-    guid: 4b41f94b-0e11-464f-b227-2f3849f61d07
-    dialogue: Your knees crackle and pop as you stand up...
-    position:
-      serializedVersion: 2
-      x: 716
-      y: 261
-      width: 262
-      height: 120
-    isStart: 0
-    events:
-    - <MethodName>k__BackingField: OpenedSafe
-      <TriggerIndex>k__BackingField: 0
-      _params: []
-      <ClassIndex>k__BackingField: 0
-      <MethodIndex>k__BackingField: 0
-      <ShowText>k__BackingField: 0
-      <ShowSelf>k__BackingField: 0
-    outPorts: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 0
-    <ExpressionId>k__BackingField: -1
-  - presetName: 
     guid: f5a9daef-825f-4a12-b472-943691e703a5
     dialogue: Put in a code
     position:
@@ -94,16 +72,38 @@ MonoBehaviour:
       height: 133
     isStart: 0
     events:
-    - <MethodName>k__BackingField: SafeOpening
+    - <MethodName>k__BackingField: get_position
       <TriggerIndex>k__BackingField: 0
       _params: []
       <ClassIndex>k__BackingField: 0
       <MethodIndex>k__BackingField: 0
       <ShowText>k__BackingField: 0
-      <ShowSelf>k__BackingField: 0
+      <ShowSelf>k__BackingField: 1
     outPorts: []
     <CustomFunctions>k__BackingField:
     - rid: 698122134919839745
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 4b41f94b-0e11-464f-b227-2f3849f61d07
+    dialogue: Your knees crackle and pop as you stand up...
+    position:
+      serializedVersion: 2
+      x: 716
+      y: 261
+      width: 262
+      height: 120
+    isStart: 0
+    events:
+    - <MethodName>k__BackingField: Test
+      <TriggerIndex>k__BackingField: 44
+      _params: []
+      <ClassIndex>k__BackingField: 7
+      <MethodIndex>k__BackingField: 0
+      <ShowText>k__BackingField: 1
+      <ShowSelf>k__BackingField: 1
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   references:
