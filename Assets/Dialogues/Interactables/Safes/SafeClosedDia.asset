@@ -60,6 +60,21 @@ MonoBehaviour:
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   - presetName: 
+    guid: 4b41f94b-0e11-464f-b227-2f3849f61d07
+    dialogue: Your knees crackle and pop as you stand up...
+    position:
+      serializedVersion: 2
+      x: 716
+      y: 261
+      width: 262
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
     guid: c359a90c-c5b9-4767-8b36-60e485c283e2
     dialogue: 'The Safe Opens
 
@@ -72,38 +87,16 @@ MonoBehaviour:
       height: 133
     isStart: 0
     events:
-    - <MethodName>k__BackingField: get_position
-      <TriggerIndex>k__BackingField: 0
-      _params: []
-      <ClassIndex>k__BackingField: 0
-      <MethodIndex>k__BackingField: 0
-      <ShowText>k__BackingField: 0
-      <ShowSelf>k__BackingField: 1
-    outPorts: []
-    <CustomFunctions>k__BackingField:
-    - rid: 698122134919839745
-    <PresetName>k__BackingField: 0
-    <ExpressionId>k__BackingField: -1
-  - presetName: 
-    guid: 4b41f94b-0e11-464f-b227-2f3849f61d07
-    dialogue: Your knees crackle and pop as you stand up...
-    position:
-      serializedVersion: 2
-      x: 716
-      y: 261
-      width: 262
-      height: 120
-    isStart: 0
-    events:
-    - <MethodName>k__BackingField: Test
-      <TriggerIndex>k__BackingField: 44
+    - <MethodName>k__BackingField: InvokeEvent
+      <TriggerIndex>k__BackingField: 9
       _params: []
       <ClassIndex>k__BackingField: 7
       <MethodIndex>k__BackingField: 0
       <ShowText>k__BackingField: 1
       <ShowSelf>k__BackingField: 1
     outPorts: []
-    <CustomFunctions>k__BackingField: []
+    <CustomFunctions>k__BackingField:
+    - rid: 698122134919839745
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   references:

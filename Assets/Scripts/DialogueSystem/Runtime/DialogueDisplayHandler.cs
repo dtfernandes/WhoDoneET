@@ -344,7 +344,7 @@ public class DialogueDisplayHandler : MonoBehaviour
         InDialogue = false;
     }
 
-    void OnMove(InputValue value)
+    public void Move(Vector2 value)
     {
         if (!InDialogue) return;
         if (_control != Control.FullKeyboard) return;
@@ -352,7 +352,7 @@ public class DialogueDisplayHandler : MonoBehaviour
 
         _choices[_currentChoiceIndex].SetHighlight(false);
 
-        Vector2 inputVector = value.Get<Vector2>();
+        Vector2 inputVector = value;
         float moveInput = inputVector.y;
 
 
@@ -372,7 +372,7 @@ public class DialogueDisplayHandler : MonoBehaviour
         _choices[_currentChoiceIndex].SetHighlight(true);
     }
 
-    void OnInteract()
+    public void Interact()
     {
         if (!InDialogue) return;
         if (DialogueIsPaused) return;

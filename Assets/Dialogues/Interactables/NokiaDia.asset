@@ -34,7 +34,7 @@ MonoBehaviour:
       _hideIDs: []
     - choiceText: 
       id: c1ecbad9-eb4f-40cd-97c8-fb76a70bf3d7
-      <IsLocked>k__BackingField: 0
+      <IsLocked>k__BackingField: 1
       <IsHidden>k__BackingField: 0
       _hideIDs:
       - 3eacbb8a0f6c81c4c96c6cf1e3c404ea
@@ -99,7 +99,8 @@ MonoBehaviour:
     isStart: 0
     events: []
     outPorts: []
-    <CustomFunctions>k__BackingField: []
+    <CustomFunctions>k__BackingField:
+    - rid: 7092180064849625088
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   references:
@@ -111,3 +112,9 @@ MonoBehaviour:
         <GUID>k__BackingField: 8189ff1d08e294f27b90679a0f4b1894
         _answerType: 1
         _text: Nokia in the head
+    - rid: 7092180064849625088
+      type: {class: AddElementToAnswerEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 9a2970dbe42ab63ed9eec25dbb809597
+        _answerType: 2
+        _text: Dispute Over Scam
