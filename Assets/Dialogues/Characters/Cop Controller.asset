@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Cop Controller
   m_EditorClassIdentifier: 
   _dialogues:
-  - {fileID: 11400000, guid: 7e4deb2c252c2394fb7acd055a2fe961, type: 2}
+  - {fileID: 11400000, guid: 06eb5a07b3846bf4bbc5b7228ae86eab, type: 2}
   _defaultDialogue: 0

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class MiniLog : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-
+ 
     private Animator _anim;
 
     void Awake()
@@ -23,5 +23,11 @@ public class MiniLog : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         _anim.SetBool("Selected", false);
         _anim.SetTrigger("Select");
+    }
+
+    public static void Deactivate()
+    {
+        GameObject.Find("MiniLog").SetActive(false);
+        GameSettings.Instance.DialogueHandler.DialogueIsPaused = false;
     }
 }

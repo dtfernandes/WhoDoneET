@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
   m_Name: CopPassive
   m_EditorClassIdentifier: 
-  DialogueName: CopPassive
+  DialogueName: CopPassive - Copy
   dialogueNodes:
   - presetName: 
     guid: b9eb832f-9f08-4260-8b4b-82aa101ff304
@@ -21,10 +21,10 @@ MonoBehaviour:
 '
     position:
       serializedVersion: 2
-      x: 266.4
-      y: 176
-      width: 247.19998
-      height: 178.40001
+      x: 170
+      y: 294
+      width: 247
+      height: 251
     isStart: 1
     events: []
     outPorts:
@@ -38,7 +38,25 @@ MonoBehaviour:
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
-    <CustomFunctions>k__BackingField: []
+    - choiceText: Can you fill me in this case
+      id: 863f83f2-f435-4a12-a19f-69cefa974822
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: I'm sorry can you tell me the date? I seem to be out of it this
+        morning.
+      id: 08ca1525-fd82-489c-a845-f8fcf95efa42
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: 
+      id: 8b9b34cb-8ca7-4769-a501-73a644f7c6a1
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 1
+      _hideIDs:
+      - 4abb0d78b817f2d438f3596b61d15345
+    <CustomFunctions>k__BackingField:
+    - rid: 7092180267895095296
     <PresetName>k__BackingField: 1
     <ExpressionId>k__BackingField: 4
   - presetName: 
@@ -50,15 +68,15 @@ MonoBehaviour:
 '
     position:
       serializedVersion: 2
-      x: 554.4
-      y: 34.4
-      width: 247.19995
-      height: 181.6
+      x: 554
+      y: 34
+      width: 247
+      height: 182
     isStart: 0
     events: []
     outPorts:
     - choiceText: You said somehting?
-      id: 87c98525-3346-4892-a20f-8267bb6cb627
+      id: 2d6a5200-7043-4414-bdfe-9a3cf7b2e1a2
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
@@ -66,39 +84,20 @@ MonoBehaviour:
     <PresetName>k__BackingField: 1
     <ExpressionId>k__BackingField: 0
   - presetName: 
-    guid: 87c98525-3346-4892-a20f-8267bb6cb627
-    dialogue: 'Nothing Bossman
-
-
-
-'
-    position:
-      serializedVersion: 2
-      x: 853.6
-      y: 70.399994
-      width: 220
-      height: 181.59999
-    isStart: 0
-    events: []
-    outPorts: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 1
-    <ExpressionId>k__BackingField: 3
-  - presetName: 
     guid: 1533d426-33d6-4e74-bf0a-b3a2467c1d75
     dialogue: Sorry Bossman I didn't mean to get you confused. It's just a term of
       respect
     position:
       serializedVersion: 2
-      x: 594.4
-      y: 308.80002
-      width: 415.19995
-      height: 140.79999
+      x: 594
+      y: 309
+      width: 414
+      height: 142
     isStart: 0
     events: []
     outPorts:
     - choiceText: Ah... Okay carry on then...
-      id: 57fb7945-7e51-4db4-9706-b3573848d452
+      id: 19ec5efc-7b6e-4085-9cd0-cb6109fdb88f
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
@@ -106,20 +105,139 @@ MonoBehaviour:
     <PresetName>k__BackingField: 1
     <ExpressionId>k__BackingField: 3
   - presetName: 
-    guid: 57fb7945-7e51-4db4-9706-b3573848d452
-    dialogue: Will do.
+    guid: 863f83f2-f435-4a12-a19f-69cefa974822
+    dialogue: Sure Bossman what do you want to talk about?
     position:
       serializedVersion: 2
-      x: 1168
-      y: 269.6
+      x: 688
+      y: 544
+      width: 267
+      height: 214
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: Tell me about the Victim.
+      id: 8363555f-9086-4bcf-955a-238fbd61d97c
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: When was the case reported?
+      id: 653ca3df-6f07-4c5d-aa41-f819cb5f6479
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Leave for now...
+      id: d5078f8c-5fe3-40a2-b5de-45db08b91874
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: 
+      id: 81a29ce4-8412-4075-a1ca-7c632dd73975
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 1
+      _hideIDs:
+      - c6f8c0b95a1c9254da4f7625348ca3f9
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 4
+  - presetName: 
+    guid: 39bbf819-9f75-49f7-965a-899d47e72692
+    dialogue: 
+    position:
+      serializedVersion: 2
+      x: 668
+      y: -231
       width: 220
-      height: 140.80002
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 2d6a5200-7043-4414-bdfe-9a3cf7b2e1a2
+    dialogue: Noyhing, nothing
+    position:
+      serializedVersion: 2
+      x: 852
+      y: 34
+      width: 220
+      height: 142
     isStart: 0
     events: []
     outPorts: []
     <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 1
-    <ExpressionId>k__BackingField: 1
+    <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: 19ec5efc-7b6e-4085-9cd0-cb6109fdb88f
+    dialogue: 
+    position:
+      serializedVersion: 2
+      x: 1037
+      y: 264
+      width: 220
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 08ca1525-fd82-489c-a845-f8fcf95efa42
+    dialogue: 'Today is the 20th of June 2000 '
+    position:
+      serializedVersion: 2
+      x: 320
+      y: -183
+      width: 247
+      height: 144
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: Leave for now...
+      id: 39bbf819-9f75-49f7-965a-899d47e72692
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Let's get back to what we were talking about before,,,
+      id: 39bbf819-9f75-49f7-965a-899d47e72692
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField:
+    - rid: 7092180267895095297
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 8b9b34cb-8ca7-4769-a501-73a644f7c6a1
+    dialogue: 'Hmm? Yeah... I know '
+    position:
+      serializedVersion: 2
+      x: 427
+      y: 638
+      width: 220
+      height: 142
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 3
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7092180267895095296
+      type: {class: AddElementToAnswerEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: cb5f33cc2433d129ea6a18542f5b2e44
+        _answerType: 0
+        _text: Police Officer
+    - rid: 7092180267895095297
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 4abb0d78b817f2d438f3596b61d15345
+        _entitySelected: 2
+        _text: Today = 20 of June 2000

@@ -25,6 +25,7 @@ public class LogItemButton : MonoBehaviour
     void SelectButton()
     {
         GameSettings.Instance.DialogueHandler.SpecialChoice(_logItem.Item.GUID, SpecialChoice.Skip);
+        MiniLog.Deactivate();
     }
 
     
