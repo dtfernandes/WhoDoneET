@@ -70,7 +70,7 @@ MonoBehaviour:
     events: []
     outPorts:
     - choiceText: You said somehting?
-      id: 87c98525-3346-4892-a20f-8267bb6cb627
+      id: 2d6a5200-7043-4414-bdfe-9a3cf7b2e1a2
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
@@ -91,7 +91,7 @@ MonoBehaviour:
     events: []
     outPorts:
     - choiceText: Ah... Okay carry on then...
-      id: 57fb7945-7e51-4db4-9706-b3573848d452
+      id: 19ec5efc-7b6e-4085-9cd0-cb6109fdb88f
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
@@ -139,25 +139,70 @@ MonoBehaviour:
     dialogue: 'Today is the 20th of June 2000 '
     position:
       serializedVersion: 2
-      x: 163
-      y: -688
+      x: 321
+      y: -188
       width: 247
       height: 144
     isStart: 0
     events: []
     outPorts:
     - choiceText: Leave for now...
-      id: e62d4708-7e00-46e4-ba69-78775f222aa0
+      id: 39bbf819-9f75-49f7-965a-899d47e72692
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
     - choiceText: Let's get back to what we were talking about before,,,
-      id: e62d4708-7e00-46e4-ba69-78775f222aa0
+      id: 39bbf819-9f75-49f7-965a-899d47e72692
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
     <CustomFunctions>k__BackingField:
     - rid: 698122154287038478
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 39bbf819-9f75-49f7-965a-899d47e72692
+    dialogue: 
+    position:
+      serializedVersion: 2
+      x: 668
+      y: -231
+      width: 220
+      height: 160
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 2d6a5200-7043-4414-bdfe-9a3cf7b2e1a2
+    dialogue: Noyhing, nothing
+    position:
+      serializedVersion: 2
+      x: 852
+      y: 34
+      width: 220
+      height: 142
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 0
+  - presetName: 
+    guid: 19ec5efc-7b6e-4085-9cd0-cb6109fdb88f
+    dialogue: 
+    position:
+      serializedVersion: 2
+      x: 1037
+      y: 264
+      width: 220
+      height: 160
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   references:
@@ -167,8 +212,8 @@ MonoBehaviour:
       type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
       data:
         <GUID>k__BackingField: 4abb0d78b817f2d438f3596b61d15345
-        _entitySelected: 0
-        _text: Any interesting dates?
+        _entitySelected: 2
+        _text: Today = 20 of June 2000
     - rid: 7092180064509362176
       type: {class: AddElementToAnswerEvent, ns: , asm: Assembly-CSharp}
       data:
