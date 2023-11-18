@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalizedScenes/GameResult.unity
     guid: 2f2f6145159c2b7b1aeaafc11532fc7c
+  - enabled: 1
+    path: Assets/Scenes/TestTiles 2.unity
+    guid: 13627b3c4ee2bbf428393dde875c3446
   m_configObjects: {}
