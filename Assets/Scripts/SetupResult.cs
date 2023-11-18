@@ -11,7 +11,7 @@ public class SetupResult : MonoBehaviour
 
     const string _people = "Office Lady";
     const string _gun = "Gun";
-    const string _motive = "Dispote Over Scam";
+    const string _motive = "Dispute Over Scam";
 
     private GameSettings _settings;
 
