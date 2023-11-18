@@ -27,6 +27,7 @@ public class FadeInScreen : MonoBehaviour
 
     public void StartFadeOut()
     {
+        SetActive();
         _anim.Play("FadeOut");
     }
 
