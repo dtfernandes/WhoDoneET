@@ -12,7 +12,7 @@ namespace DialogueSystem.Editor
     /// Class responsible for Saving and Loading a DialogueScript
     /// </summary>
     public class SaveLoadUtils
-    {       
+    {
         /// <summary>
         /// Method responsible for saving the Dialogue
         /// </summary>
@@ -21,7 +21,7 @@ namespace DialogueSystem.Editor
         /// <param name="dialogueName">Name of the passed Dialogue</param>
         public DialogueScript SaveDialogues(GraphView view, string dialogueName)
         {
-                       
+
             if (dialogueName == null)
                 dialogueName = "InitialName";
 
@@ -40,28 +40,28 @@ namespace DialogueSystem.Editor
             if (!assetExists)
             {
                 instance = ScriptableObject.CreateInstance<DialogueScript>();
-               
+
             }
             else
             {
                 instance.Clear();
             }
 
-            
+
 
             List<Node> nodes =
                 view.nodes.ToList();
 
             List<DialogueNode> result = (from n in nodes
-                                        where n is DialogueNode
-                                        select n as DialogueNode).ToList();
+                                         where n is DialogueNode
+                                         select n as DialogueNode).ToList();
 
             result = (from n in result
-                     orderby !n.EntryPoint
-                     select n).ToList();
-            
-            
-                              
+                      orderby !n.EntryPoint
+                      select n).ToList();
+
+
+
             foreach (DialogueNode nd in result)
             {
                 bool isConnected = false;
@@ -88,6 +88,7 @@ namespace DialogueSystem.Editor
                     presetNames: nd.PresetName,
                     expressionId: nd.ExpresionID
                     );
+
 
                 List<CustomFunction> tempLis = new List<CustomFunction>();
                 tempLis.AddRange(nd.CustomFunctions);
@@ -138,7 +139,7 @@ namespace DialogueSystem.Editor
             {
                 view.CreateDialogueNode(io);
             }
-  
+
             foreach (NodeData data in script)
             {
                 if (data.IsStart) view.ConnectToStart(data);

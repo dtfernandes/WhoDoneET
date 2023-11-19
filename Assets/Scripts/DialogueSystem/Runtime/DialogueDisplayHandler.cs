@@ -32,7 +32,8 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// <summary>
     /// Text component responsible for displaying the Dialogue text
     /// </summary>
-    [SerializeField][Header("References")]
+    [SerializeField]
+    [Header("References")]
     private TextMeshProUGUI dialogueDisplayTarget = default;
 
     /// <summary>
@@ -46,11 +47,11 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// </summary>
     [SerializeField]
     private GameObject buttonPREFAB = default;
-     
+
     [SerializeField]
     private GameObject border;
 
-   
+
     /// <summary>
     /// Variable that defines the data of one line of dialogue
     /// </summary>
@@ -104,9 +105,9 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// <summary>
     /// Method responsibsle for switching to the passed DialogueScript
     /// </summary>
-    /// <param name="script">Dialogue Script to inicialize</param>
-    public void StartDialolgue(IDialogueScript script, DialogueController controller = null) 
-    {     
+    /// <param name="script">DiSetActive(false);alogue Script to inicialize</param>
+    public void StartDialolgue(IDialogueScript script, DialogueController controller = null)
+    {
         border.SetActive(true);
 
         _controller = controller;
@@ -115,7 +116,7 @@ public class DialogueDisplayHandler : MonoBehaviour
         onStartDialogue?.Invoke(currentScript);
         PrepareNewDialogue();
     }
-    
+
     /// <summary>
     /// Method responsible for seting up the Dialogue
     /// </summary>
@@ -139,15 +140,19 @@ public class DialogueDisplayHandler : MonoBehaviour
     {
         if (HasChoices)
         {
-            int it = 0;
+            int it = -1;
             foreach (ChoiceData choices in dialogueLine.OutPorts)
-            {
-                if(choices.IsHidden)
+            { 
+                it++;
+                Debug.Log("WHY " + choices.ID);
+                if (choices.IsHidden)
                 {
-                    if(!choices.CanUnhide(gUID)) return;
+                  
+                    if (!choices.CanUnhide(gUID)) continue;
 
                     if (choiceType == global::SpecialChoice.Skip)
                     {
+                        Debug.Log("IT " + it);
                         dialogueLine =
                              currentScript.GetNextNode(dialogueLine, it);
 
@@ -160,9 +165,10 @@ public class DialogueDisplayHandler : MonoBehaviour
                     {
                         choices.IsHidden = !choices.IsHidden;
                         InstatiateChoices();
+                        
                     }
-                }           
-                it++;
+                }
+               
             }
         }
     }
@@ -189,8 +195,8 @@ public class DialogueDisplayHandler : MonoBehaviour
 
         for (int i = 0; i < choiceNumb; i++)
         {
-            if(dialogueLine.OutPorts[i].ChoiceText == "") continue;
-            if(dialogueLine.OutPorts[i].IsHidden) continue;
+            if (dialogueLine.OutPorts[i].ChoiceText == "") continue;
+            if (dialogueLine.OutPorts[i].IsHidden) continue;
 
             GameObject temp = Instantiate(buttonPREFAB, transform.position,
                 Quaternion.identity, buttonLayout.transform);
@@ -207,11 +213,11 @@ public class DialogueDisplayHandler : MonoBehaviour
             _choices[0].SetHighlight(true);
 
         buttonLayout.SetActive(false);
-      
+
     }
 
     public void StartLine()
-    
+
     {
         if (dialogueLine.CustomFunctions != null)
         {
@@ -224,6 +230,14 @@ public class DialogueDisplayHandler : MonoBehaviour
 
         //Handle button Layout
         InstatiateChoices();
+
+        if (dialogueText.Trim()  == "")
+        {
+            
+            EndDialogue();
+            return;
+        }
+
         DisplayLine();
     }
 
@@ -235,12 +249,12 @@ public class DialogueDisplayHandler : MonoBehaviour
     public void NextLine(int choice)
     {
         NodeData previousLine = dialogueLine;
-      
-        
+
+
         dialogueLine =
                currentScript.GetNextNode(dialogueLine, choice);
 
-        
+
         if (dialogueLine == null)
         {
             EndDialogue();
@@ -248,13 +262,15 @@ public class DialogueDisplayHandler : MonoBehaviour
         }
 
         //This is kinda cringe. Need to rework
-        if(previousLine.OutPorts[choice].IsHidden)
+        if (previousLine.OutPorts[choice].IsHidden)
         {
             EndDialogue();
             return;
         }
 
         dialogueText = dialogueLine.Dialogue;
+
+
 
         StartLine();
     }
@@ -265,7 +281,7 @@ public class DialogueDisplayHandler : MonoBehaviour
     private void EndDialogue()
     {
         StartCoroutine("EndDialogueDelay");
-        border.SetActive(false);     
+        border.SetActive(false);
         dialogueDisplayTarget.text = "";
         StopCoroutine("TypeWriterEffect");
     }
@@ -274,7 +290,7 @@ public class DialogueDisplayHandler : MonoBehaviour
     /// Method that starts the next line in the Dialogue
     /// </summary>
     private void DisplayLine()
-    {  
+    {
         onStartLine?.Invoke(dialogueLine);
         StopCoroutine("TypeWriterEffect");
         StartCoroutine("TypeWriterEffect");
@@ -292,14 +308,14 @@ public class DialogueDisplayHandler : MonoBehaviour
 
         InDialogue = true;
         Ended = false;
-        
+
         dialogueDisplayTarget.text = "";
         int index = 0;
 
         while (dialogueText.Length > 0)
         {
             yield return effectSpeed;
-            
+
             //Feio
             index++;
             //Very feio
@@ -312,7 +328,7 @@ public class DialogueDisplayHandler : MonoBehaviour
                         List<System.Type> typeList = new List<System.Type> { };
 
                         Component[] components = _controller.GetComponents(typeof(Component));
-                                        
+
                         foreach (Component component in components)
                         {
                             typeList.Add(component.GetType());
@@ -321,7 +337,7 @@ public class DialogueDisplayHandler : MonoBehaviour
                         Object selectedObj = _controller.GetComponent(typeList[data.ClassIndex]);
 
                         var info = typeList[data.ClassIndex].GetMethod(data.MethodName);
-                        
+
                         info.Invoke(selectedObj, data.Params);
                     }
                 }
@@ -339,7 +355,7 @@ public class DialogueDisplayHandler : MonoBehaviour
     {
         yield return endDelay;
 
-       //Call all custom events
+        //Call all custom events
         onEndDialogue?.Invoke(currentScript);
         InDialogue = false;
     }
@@ -380,13 +396,13 @@ public class DialogueDisplayHandler : MonoBehaviour
         if (Ended)
         {
             bool clickSkip = true;
-            clickSkip = 
-                (dialogueLine.OutPorts?.Count ?? 0 ) <= 0 ;
-            
+            clickSkip =
+                (dialogueLine.OutPorts?.Count ?? 0) <= 0;
+
             if (!clickSkip)
             {
-                if(dialogueLine.OutPorts.Any(x => !x.IsHidden))
-                    if (dialogueLine.OutPorts[0].ChoiceText != "") 
+                if (dialogueLine.OutPorts.Any(x => !x.IsHidden))
+                    if (dialogueLine.OutPorts[0].ChoiceText != "")
                         return;
             }
 
@@ -402,7 +418,7 @@ public class DialogueDisplayHandler : MonoBehaviour
                 List<System.Type> typeList = new List<System.Type> { };
 
                 Component[] components = _controller.GetComponents(typeof(Component));
-                                
+
                 foreach (Component component in components)
                 {
                     typeList.Add(component.GetType());
@@ -411,9 +427,9 @@ public class DialogueDisplayHandler : MonoBehaviour
                 Object selectedObj = _controller.GetComponent(typeList[data.ClassIndex]);
 
                 var info = typeList[data.ClassIndex].GetMethod(data.MethodName);
-                
+
                 info.Invoke(selectedObj, data.Params);
-                
+
             }
 
 

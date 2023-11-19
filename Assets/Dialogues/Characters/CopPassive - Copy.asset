@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ba3f72017ded4643bce7c1639f7a5f4, type: 3}
-  m_Name: CopPassive
+  m_Name: CopPassive - Copy
   m_EditorClassIdentifier: 
   DialogueName: CopPassive - Copy
   dialogueNodes:
@@ -24,7 +24,7 @@ MonoBehaviour:
       x: 170
       y: 294
       width: 247
-      height: 251
+      height: 275
     isStart: 1
     events: []
     outPorts:
@@ -55,6 +55,12 @@ MonoBehaviour:
       <IsHidden>k__BackingField: 1
       _hideIDs:
       - 4abb0d78b817f2d438f3596b61d15345
+    - choiceText: 
+      id: c0d6a461-57f8-405f-ae3e-e13d11921edb
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 1
+      _hideIDs:
+      - c6f8c0b95a1c9254da4f7625348ca3f9
     <CustomFunctions>k__BackingField:
     - rid: 7092180267895095296
     <PresetName>k__BackingField: 1
@@ -117,22 +123,22 @@ MonoBehaviour:
     events: []
     outPorts:
     - choiceText: Tell me about the Victim.
-      id: 8363555f-9086-4bcf-955a-238fbd61d97c
+      id: 208afdea-9567-4f73-a214-9b2d5981eb3e
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
     - choiceText: When was the case reported?
-      id: 653ca3df-6f07-4c5d-aa41-f819cb5f6479
+      id: 208afdea-9567-4f73-a214-9b2d5981eb3e
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
     - choiceText: Leave for now...
-      id: d5078f8c-5fe3-40a2-b5de-45db08b91874
+      id: 208afdea-9567-4f73-a214-9b2d5981eb3e
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
     - choiceText: 
-      id: 81a29ce4-8412-4075-a1ca-7c632dd73975
+      id: 208afdea-9567-4f73-a214-9b2d5981eb3e
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 1
       _hideIDs:
@@ -140,21 +146,6 @@ MonoBehaviour:
     <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 1
     <ExpressionId>k__BackingField: 4
-  - presetName: 
-    guid: 39bbf819-9f75-49f7-965a-899d47e72692
-    dialogue: 
-    position:
-      serializedVersion: 2
-      x: 668
-      y: -231
-      width: 220
-      height: 120
-    isStart: 0
-    events: []
-    outPorts: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 0
-    <ExpressionId>k__BackingField: -1
   - presetName: 
     guid: 2d6a5200-7043-4414-bdfe-9a3cf7b2e1a2
     dialogue: Noyhing, nothing
@@ -186,24 +177,54 @@ MonoBehaviour:
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   - presetName: 
+    guid: 64c5d5b6-b42c-4de3-bea0-867466a7b6d0
+    dialogue: 
+    position:
+      serializedVersion: 2
+      x: 622
+      y: -157
+      width: 220
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 208afdea-9567-4f73-a214-9b2d5981eb3e
+    dialogue: 
+    position:
+      serializedVersion: 2
+      x: 1062
+      y: 451
+      width: 220
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
     guid: 08ca1525-fd82-489c-a845-f8fcf95efa42
     dialogue: 'Today is the 20th of June 2000 '
     position:
       serializedVersion: 2
-      x: 320
-      y: -183
+      x: 307
+      y: -181
       width: 247
       height: 144
     isStart: 0
     events: []
     outPorts:
     - choiceText: Leave for now...
-      id: 39bbf819-9f75-49f7-965a-899d47e72692
+      id: 64c5d5b6-b42c-4de3-bea0-867466a7b6d0
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
     - choiceText: Let's get back to what we were talking about before,,,
-      id: 39bbf819-9f75-49f7-965a-899d47e72692
+      id: 64c5d5b6-b42c-4de3-bea0-867466a7b6d0
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
@@ -216,8 +237,8 @@ MonoBehaviour:
     dialogue: 'Hmm? Yeah... I know '
     position:
       serializedVersion: 2
-      x: 427
-      y: 638
+      x: 446
+      y: 609
       width: 220
       height: 142
     isStart: 0
@@ -226,6 +247,83 @@ MonoBehaviour:
     <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 1
     <ExpressionId>k__BackingField: 3
+  - presetName: 
+    guid: 5480bd7d-f636-4f98-b867-e8ca48d00be1
+    dialogue: "You were taking a bit to arrive, Bossman.  So I was fidgeting \nwith
+      the clock and.... I broke it"
+    position:
+      serializedVersion: 2
+      x: 641
+      y: 829
+      width: 335
+      height: 155
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 1f39e1d4-3888-4572-9d33-a36b7e9eab41
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 3
+  - presetName: 
+    guid: 1f39e1d4-3888-4572-9d33-a36b7e9eab41
+    dialogue: These new clocks are so fragile !!!
+    position:
+      serializedVersion: 2
+      x: 1008
+      y: 824
+      width: 247
+      height: 142
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: sigh
+      id: f7db56bd-0887-46a6-93a7-c6fcf10c815c
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 2
+  - presetName: 
+    guid: f7db56bd-0887-46a6-93a7-c6fcf10c815c
+    dialogue: 
+    position:
+      serializedVersion: 2
+      x: 1298
+      y: 829
+      width: 220
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: c0d6a461-57f8-405f-ae3e-e13d11921edb
+    dialogue: So....
+    position:
+      serializedVersion: 2
+      x: 156
+      y: 677
+      width: 247
+      height: 142
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: What did you do?
+      id: 5480bd7d-f636-4f98-b867-e8ca48d00be1
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField:
+    - rid: 7092180291254222849
+    <PresetName>k__BackingField: 1
+    <ExpressionId>k__BackingField: 4
   references:
     version: 2
     RefIds:
@@ -241,3 +339,9 @@ MonoBehaviour:
         <GUID>k__BackingField: 4abb0d78b817f2d438f3596b61d15345
         _entitySelected: 2
         _text: Today = 20 of June 2000
+    - rid: 7092180291254222849
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 0bcd4dac281f8b143a0dd931ddc7481a
+        _entitySelected: 2
+        _text: The clock in the kitchen was broken by the cop

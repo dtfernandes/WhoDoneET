@@ -17,13 +17,13 @@ namespace DialogueSystem.Editor
         /// Property that defines the name of the dislayed Dialogue
         /// </summary>
         public string DialogueName { get; set; }
-        
+
         private DropdownMenuAction.Status hideStatus;
 
-      
+
         private SavingWaitingList saveWatingList;
         public SavingWaitingList SaveWatingList { get => saveWatingList; set => saveWatingList = value; }
-              
+
         /// <summary>
         /// Constructor of this class
         /// </summary>
@@ -32,18 +32,18 @@ namespace DialogueSystem.Editor
             SaveWatingList = new SavingWaitingList();
 
             hideStatus = DropdownMenuAction.Status.Normal;
-            SetupZoom(0.1f, 
+            SetupZoom(0.1f,
                3);
             ContentDragger newDragger = new ContentDragger();
-            
+
             this.AddManipulator(newDragger);
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
-           
+
             AddElement(GenerateFirstNode());
         }
 
-        
+
         /// <summary>
         /// Override that adds more menu options to the contextual menu 
         /// of the items
@@ -60,7 +60,7 @@ namespace DialogueSystem.Editor
 
                 evt.menu.InsertAction(0, "Text Only", (e) =>
                 {
-                if (hideStatus != (DropdownMenuAction.Status)4)
+                    if (hideStatus != (DropdownMenuAction.Status)4)
                     {
                         (node as DialogueNode).SwitchVisibility(false);
                         hideStatus = DropdownMenuAction.Status.Checked;
@@ -73,31 +73,33 @@ namespace DialogueSystem.Editor
 
                 }, hideStatus);
             }
-            else if(evt.target is Edge)
+            else if (evt.target is Edge)
             {
                 Edge edge = evt.target as Edge;
 
                 Node node = edge.output.node;
                 if (node is StartNode) return;
-               
+
                 DialogueNode fromNode = node as DialogueNode;
                 Port fromPort = edge.output;
 
-                evt.menu.InsertAction(0, "Add Locker", (e)=> {
-                    ChoiceData data = 
+                evt.menu.InsertAction(0, "Add Locker", (e) =>
+                {
+                    ChoiceData data =
                         fromNode.OutPorts.FirstOrDefault(x => x.ChoicePortID == fromPort.name);
 
                     data.IsLocked = true;
                     data.Port.portColor = Color.red;
-                   
+
                 });
-                evt.menu.InsertAction(1, "Add Hidder", (e)=> {
-                    ChoiceData data = 
+                evt.menu.InsertAction(1, "Add Hidder", (e) =>
+                {
+                    ChoiceData data =
                         fromNode.OutPorts.FirstOrDefault(x => x.ChoicePortID == fromPort.name);
 
                     data.IsHidden = true;
                     data.Port.portColor = Color.red;
-                    
+
                 });
             }
             else
@@ -127,7 +129,7 @@ namespace DialogueSystem.Editor
             return compatiblePorts;
         }
 
- 
+
         /// <summary>
         /// Method responsible for creating the "Start" node of the 
         /// Dialogue System
@@ -136,7 +138,7 @@ namespace DialogueSystem.Editor
         private StartNode GenerateFirstNode()
         {
             StartNode node = new StartNode();
-            
+
             node.SetPosition(new Rect(100, 200, 100, 150));
             return node;
         }
@@ -150,8 +152,8 @@ namespace DialogueSystem.Editor
         {
             DialogueNode node = new DialogueNode(SaveWatingList, nd);
             AddElement(node);
-            if(nd == null)
-                node.SetInInitialPosition(this); 
+            if (nd == null)
+                node.SetInInitialPosition(this);
             else
                 node.SetInInitialPosition(nd.Position);
 
@@ -159,7 +161,7 @@ namespace DialogueSystem.Editor
 
 
         #region LOAD DIALOGUE SCRIPT
-        
+
         /// <summary>
         /// Method responsible for adding the ports connections to the window
         /// </summary>
@@ -170,7 +172,7 @@ namespace DialogueSystem.Editor
             if (data.OutPorts.Count == 0) return;
 
             DialogueNode node = GetNode(data.GUID);
-      
+
             int it = 0;
 
             // Iterate all elements inside the outputcontainer
@@ -187,7 +189,6 @@ namespace DialogueSystem.Editor
                     ChoiceData edgeData = data.OutPorts[it];
                     string gui = edgeData.ID;
 
-
                     //Find the connected node
                     DialogueNode toNode = GetNode(gui);
 
@@ -196,7 +197,7 @@ namespace DialogueSystem.Editor
                         Edge edge = toPort.ConnectTo(port);
 
                         //Assign inspector event to edge
-                        edge.RegisterCallback<MouseDownEvent>((MouseDownEvent evt) => 
+                        edge.RegisterCallback<MouseDownEvent>((MouseDownEvent evt) =>
                         {
                             DialogueEdgeInspector edgeInspector =
                               ScriptableObject.CreateInstance("DialogueEdgeInspector") as DialogueEdgeInspector;
@@ -207,7 +208,7 @@ namespace DialogueSystem.Editor
                         });
 
                         AddElement(edge);
-                    }             
+                    }
                 }
 
                 it++;
@@ -258,7 +259,7 @@ namespace DialogueSystem.Editor
             return z;
 
         }
-        
+
         #endregion
     }
 }

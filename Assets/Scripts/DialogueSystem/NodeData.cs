@@ -15,7 +15,7 @@ namespace DialogueSystem
         /// <summary>
         /// Unique id of this Node
         /// </summary>
-        [SerializeField] [HideInInspector]
+        [SerializeField]
         private string guid;
 
         /// <summary>

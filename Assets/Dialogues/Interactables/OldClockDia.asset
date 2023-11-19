@@ -29,7 +29,7 @@ MonoBehaviour:
     events: []
     outPorts:
     - choiceText: Let's do some deducing shall we?
-      id: 
+      id: c26cd424-1791-4903-b805-77931c07fe60
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
@@ -53,7 +53,8 @@ MonoBehaviour:
       id: cee41fd4-db8a-49d3-9702-0ebbf5666eaa
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 1
-      _hideIDs: []
+      _hideIDs:
+      - 0bcd4dac281f8b143a0dd931ddc7481a
     - choiceText: Let's leave for now...
       id: b2cd69c4-212e-4260-b548-486610632d91
       <IsLocked>k__BackingField: 0

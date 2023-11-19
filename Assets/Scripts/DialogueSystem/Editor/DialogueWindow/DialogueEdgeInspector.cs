@@ -9,8 +9,8 @@ namespace DialogueSystem.Editor
     public class DialogueEdgeInspector : ScriptableObject
     {
         //Data related to the choice the edge is connected to
-        [SerializeField] [HideInInspector]
-        private ChoiceData _choiceData;
+        [SerializeField] 
+        public ChoiceData _choiceData;
 
         //The edge object
         [SerializeField]

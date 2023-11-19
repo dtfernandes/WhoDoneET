@@ -35,7 +35,7 @@ MonoBehaviour:
     - choiceText: 
       id: c1ecbad9-eb4f-40cd-97c8-fb76a70bf3d7
       <IsLocked>k__BackingField: 1
-      <IsHidden>k__BackingField: 0
+      <IsHidden>k__BackingField: 1
       _hideIDs:
       - 3eacbb8a0f6c81c4c96c6cf1e3c404ea
     <CustomFunctions>k__BackingField:
@@ -65,7 +65,7 @@ MonoBehaviour:
       x: 771
       y: 514
       width: 376
-      height: 168
+      height: 192
     isStart: 0
     events: []
     outPorts:
@@ -84,23 +84,65 @@ MonoBehaviour:
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
+    - choiceText: 
+      id: c1ecbad9-eb4f-40cd-97c8-fb76a70bf3d7
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 1
+      _hideIDs:
+      - 3eacbb8a0f6c81c4c96c6cf1e3c404ea
     <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   - presetName: 
     guid: c1ecbad9-eb4f-40cd-97c8-fb76a70bf3d7
-    dialogue: The pHone Unlocks
+    dialogue: The phone unlocks. You look at the small screen and see three unread
+      voice messages
     position:
       serializedVersion: 2
-      x: 839
-      y: 262
+      x: 848
+      y: 159
+      width: 475
+      height: 192
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: Message 1
+      id: 5146509a-4fb9-4429-9680-06955b97e3da
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Message 2
+      id: 5146509a-4fb9-4429-9680-06955b97e3da
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Message 3
+      id: 5146509a-4fb9-4429-9680-06955b97e3da
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    - choiceText: Drop the phone
+      id: 5146509a-4fb9-4429-9680-06955b97e3da
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField:
+    - rid: 7092180064849625088
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 5146509a-4fb9-4429-9680-06955b97e3da
+    dialogue: 
+    position:
+      serializedVersion: 2
+      x: 1343
+      y: 271
       width: 220
       height: 120
     isStart: 0
     events: []
     outPorts: []
-    <CustomFunctions>k__BackingField:
-    - rid: 7092180064849625088
+    <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   references:

@@ -20,6 +20,9 @@ namespace DialogueSystem.Editor
         {
             serializedObject.Update();
 
+            _inspector._choiceData.IsHidden = EditorGUILayout.Toggle("IsHidden",_inspector._choiceData.IsHidden);
+            EditorGUILayout.LabelField("ID",_inspector._choiceData.ID);
+
             EditorGUILayout.PropertyField(_hideIds);
 
             serializedObject.ApplyModifiedProperties();

@@ -20,7 +20,7 @@ namespace DialogueSystem
         /// </summary>
         [UnityEngine.SerializeField]
         private string choiceText;
-        
+
         /// <summary>
         /// Unique Id that represents the specific Choice
         /// </summary>
@@ -36,18 +36,18 @@ namespace DialogueSystem
         /// Property that defines the unique id of the specific Choice
         /// </summary>
         public string ID => id;
-         
+
         public string ChoicePortID { get; set; }
 
         [field: UnityEngine.SerializeField]
         public bool IsLocked { get; set; }
-        
+
         [field: UnityEngine.SerializeField]
         public bool IsHidden { get; set; }
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         public Port Port { get; private set; }
-        #endif
+#endif
 
         [UnityEngine.SerializeField]
         private string[] _hideIDs;
@@ -61,13 +61,13 @@ namespace DialogueSystem
         /// <param name="id">Unique id of the Choice</param>
         public ChoiceData(string text, string id)
         {
-            if(_hideIDs == null)
+            if (_hideIDs == null)
                 _hideIDs = new string[] { };
             this.choiceText = text;
             this.id = id;
         }
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         /// <summary>
         /// Constructor of this struct
         /// </summary>
@@ -75,14 +75,14 @@ namespace DialogueSystem
         /// <param name="id">Unique id of the Choice</param>
         public ChoiceData(string text, string id, Port port, string[] hideIDs)
         {
-            if(_hideIDs == null)
+            if (_hideIDs == null)
                 _hideIDs = new string[] { };
             this.choiceText = text;
             this.id = id;
             Port = port;
             _hideIDs = hideIDs;
         }
-        #endif
+#endif
 
         public void ChangeText(string text)
         {
@@ -97,34 +97,37 @@ namespace DialogueSystem
         public ChoiceData Clone()
         {
 
-            #if UNITY_EDITOR
-           
+#if UNITY_EDITOR
+
             ChoiceData clone = new ChoiceData(ChoiceText, ID, Port, _hideIDs);
-           //
-            #else
+            //
+#else
            
             ChoiceData clone = new ChoiceData(ChoiceText, ID);
             clone._hideIDs = _hideIDs;
            
-            #endif
-            
+#endif
+
             clone.IsHidden = IsHidden;
             clone.IsLocked = IsLocked;
-            
-            
+
+
             return clone;
         }
- 
+
         public bool CanUnhide(string guid)
         {
             foreach (string s in _hideIDs)
             {
+                UnityEngine.Debug.Log("Teste " + s + "   GUI " + guid);
+
+
                 if (s == guid)
                     return true;
             }
 
             return false;
         }
- 
+
     }
 }
