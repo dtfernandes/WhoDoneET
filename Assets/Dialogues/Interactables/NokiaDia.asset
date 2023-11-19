@@ -43,21 +43,6 @@ MonoBehaviour:
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   - presetName: 
-    guid: 0e18ecec-29cf-494c-8e8a-826f4458b035
-    dialogue: You drop the phone unamused.
-    position:
-      serializedVersion: 2
-      x: 1250
-      y: 472
-      width: 220
-      height: 120
-    isStart: 0
-    events: []
-    outPorts: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 0
-    <ExpressionId>k__BackingField: -1
-  - presetName: 
     guid: 0427cfbb-0b8f-4ba7-8189-21f8b206bef8
     dialogue: 'Unfortunately for you the phone requires a pin for it to be any use... '
     position:
@@ -107,17 +92,17 @@ MonoBehaviour:
     events: []
     outPorts:
     - choiceText: Message 1
-      id: 5146509a-4fb9-4429-9680-06955b97e3da
+      id: 3d55e84a-4c73-4605-99dd-98e36172faca
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
     - choiceText: Message 2
-      id: 5146509a-4fb9-4429-9680-06955b97e3da
+      id: f61974a2-2e77-4922-8aae-73c2a5cd2261
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
     - choiceText: Message 3
-      id: 5146509a-4fb9-4429-9680-06955b97e3da
+      id: b8f427b6-cd23-479c-903b-a33c949fb352
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
@@ -131,18 +116,385 @@ MonoBehaviour:
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   - presetName: 
-    guid: 5146509a-4fb9-4429-9680-06955b97e3da
-    dialogue: 
+    guid: 3d55e84a-4c73-4605-99dd-98e36172faca
+    dialogue: The voice message was recieved at 10:23
     position:
       serializedVersion: 2
-      x: 1343
-      y: 271
+      x: 1440
+      y: 79
+      width: 247
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 7c8645ab-e480-49a0-8b7e-f7b3d81ef633
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: f3a259d4-7085-4769-b115-bd860256e31b
+    dialogue: "C-Come on Z\xE9-"
+    position:
+      serializedVersion: 2
+      x: 2092
+      y: 61
+      width: 247
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: d8224b22-960a-42b8-b632-aab2e6aaf607
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: d8224b22-960a-42b8-b632-aab2e6aaf607
+    dialogue: You can't be ignoring y-you phone at a t-time like this
+    position:
+      serializedVersion: 2
+      x: 2377
+      y: 61
+      width: 302
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 8ef8fd67-29aa-42b2-a01b-9bd5225a09b0
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 8ef8fd67-29aa-42b2-a01b-9bd5225a09b0
+    dialogue: We are a-almost done with our plan.
+    position:
+      serializedVersion: 2
+      x: 2709
+      y: 61
+      width: 247
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: d09e10cf-e9a9-4f7c-9603-810878c0760b
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: f61974a2-2e77-4922-8aae-73c2a5cd2261
+    dialogue: The voice message was recieved at 12:10.
+    position:
+      serializedVersion: 2
+      x: 1440
+      y: 219
+      width: 247
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: f8d399e3-3911-45d1-90ae-e72a2fdc6131
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: f8d399e3-3911-45d1-90ae-e72a2fdc6131
+    dialogue: You hear a muffled female voice from the speakers
+    position:
+      serializedVersion: 2
+      x: 1734
+      y: 219
+      width: 288
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 3df6ce51-d7e7-4b4c-96ef-56057719553a
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 3df6ce51-d7e7-4b4c-96ef-56057719553a
+    dialogue: '........ umpf
+
+
+
+'
+    position:
+      serializedVersion: 2
+      x: 2079
+      y: 219
+      width: 247
+      height: 160
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: eefa59e6-0c1b-47c9-b432-49df7be2f2e1
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: eefa59e6-0c1b-47c9-b432-49df7be2f2e1
+    dialogue: .... w-what
+    position:
+      serializedVersion: 2
+      x: 2349
+      y: 259
+      width: 247
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: e5965d4d-84ac-4d97-aca9-b703ed2ee660
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: e5965d4d-84ac-4d97-aca9-b703ed2ee660
+    dialogue: T-this was c-calling the h-hole time?
+    position:
+      serializedVersion: 2
+      x: 2621
+      y: 259
+      width: 247
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 8c415d7f-54c1-4782-83ec-48c0d2cf3d0a
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 0e18ecec-29cf-494c-8e8a-826f4458b035
+    dialogue: You drop the phone unamused.
+    position:
+      serializedVersion: 2
+      x: 1196
+      y: 553
       width: 220
       height: 120
     isStart: 0
     events: []
     outPorts: []
     <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 5146509a-4fb9-4429-9680-06955b97e3da
+    dialogue: 
+    position:
+      serializedVersion: 2
+      x: 1147
+      y: 415
+      width: 220
+      height: 120
+    isStart: 0
+    events: []
+    outPorts: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: b8f427b6-cd23-479c-903b-a33c949fb352
+    dialogue: 'The voice message was recieved at 4:00
+
+
+
+'
+    position:
+      serializedVersion: 2
+      x: 1440
+      y: 351
+      width: 247
+      height: 160
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 11079345-fcd7-479c-9e3a-0801c754065a
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: ed43d57b-1425-4542-8028-b65133e9ac80
+    dialogue: Hi honey, how have you been
+    position:
+      serializedVersion: 2
+      x: 2092
+      y: 404
+      width: 247
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 9d138c80-8e09-4a6b-8b38-ff5dc39b6bce
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 9d138c80-8e09-4a6b-8b38-ff5dc39b6bce
+    dialogue: I know the business trip is taking longer than you thought , but I
+      miss you.
+    position:
+      serializedVersion: 2
+      x: 2401
+      y: 404
+      width: 405
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 071db154-9794-4ff4-93b7-e6a116427c9c
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 8c415d7f-54c1-4782-83ec-48c0d2cf3d0a
+    dialogue: Fu- *click*
+    position:
+      serializedVersion: 2
+      x: 3004
+      y: 271
+      width: 247
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: c1ecbad9-eb4f-40cd-97c8-fb76a70bf3d7
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 071db154-9794-4ff4-93b7-e6a116427c9c
+    dialogue: Call me when you can, ok? Love you * click*
+    position:
+      serializedVersion: 2
+      x: 2916
+      y: 418
+      width: 252
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: c1ecbad9-eb4f-40cd-97c8-fb76a70bf3d7
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 11079345-fcd7-479c-9e3a-0801c754065a
+    dialogue: You hear a low quality high pitch female voice from the speakers
+    position:
+      serializedVersion: 2
+      x: 1703
+      y: 391
+      width: 359
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: ed43d57b-1425-4542-8028-b65133e9ac80
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField:
+    - rid: 7092180293116493824
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 7c8645ab-e480-49a0-8b7e-f7b3d81ef633
+    dialogue: 'You hear a low quality female voice from the speakers '
+    position:
+      serializedVersion: 2
+      x: 1734
+      y: 61
+      width: 307
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: f3a259d4-7085-4769-b115-bd860256e31b
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField:
+    - rid: 7092180293116493825
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: d09e10cf-e9a9-4f7c-9603-810878c0760b
+    dialogue: W-Whatever, we're still up for tonight?*click*
+    position:
+      serializedVersion: 2
+      x: 3004
+      y: 61
+      width: 257
+      height: 120
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: c1ecbad9-eb4f-40cd-97c8-fb76a70bf3d7
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField:
+    - rid: 7092180293116493826
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   references:
@@ -160,3 +512,21 @@ MonoBehaviour:
         <GUID>k__BackingField: 9a2970dbe42ab63ed9eec25dbb809597
         _answerType: 2
         _text: Dispute Over Scam
+    - rid: 7092180293116493824
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 4649ebfa5b56c63dfb9bcedc0af21a01
+        _entitySelected: 0
+        _text: High pitch female voice
+    - rid: 7092180293116493825
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 186ea62001886fbb794174c96dab633f
+        _entitySelected: 0
+        _text: Stressed female voice
+    - rid: 7092180293116493826
+      type: {class: AddToLogEvent, ns: , asm: Assembly-CSharp}
+      data:
+        <GUID>k__BackingField: 0185b7e7c9db622bbba7666e97b100a3
+        _entitySelected: 0
+        _text: "Meating with Z\xE9"
