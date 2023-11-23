@@ -20,10 +20,10 @@ MonoBehaviour:
       for you it does...
     position:
       serializedVersion: 2
-      x: 303
+      x: 303.2
       y: 304
-      width: 448
-      height: 144
+      width: 448.8
+      height: 143.20001
     isStart: 1
     events: []
     outPorts:
@@ -47,10 +47,10 @@ MonoBehaviour:
     dialogue: 'Unfortunately for you the phone requires a pin for it to be any use... '
     position:
       serializedVersion: 2
-      x: 771
-      y: 514
-      width: 376
-      height: 192
+      x: 771.2
+      y: 514.4
+      width: 377.60004
+      height: 191.20001
     isStart: 0
     events: []
     outPorts:
@@ -85,9 +85,9 @@ MonoBehaviour:
     position:
       serializedVersion: 2
       x: 848
-      y: 159
-      width: 475
-      height: 192
+      y: 159.2
+      width: 476
+      height: 191.20001
     isStart: 0
     events: []
     outPorts:
@@ -121,9 +121,9 @@ MonoBehaviour:
     position:
       serializedVersion: 2
       x: 1440
-      y: 79
-      width: 247
-      height: 120
+      y: 79.2
+      width: 247.19995
+      height: 119.2
     isStart: 0
     events: []
     outPorts:
@@ -141,9 +141,9 @@ MonoBehaviour:
     position:
       serializedVersion: 2
       x: 2092
-      y: 61
-      width: 247
-      height: 120
+      y: 61.600002
+      width: 247.19995
+      height: 119.200005
     isStart: 0
     events: []
     outPorts:
@@ -160,10 +160,10 @@ MonoBehaviour:
     dialogue: You can't be ignoring y-you phone at a t-time like this
     position:
       serializedVersion: 2
-      x: 2377
-      y: 61
-      width: 302
-      height: 120
+      x: 2376.8
+      y: 61.600002
+      width: 303.19995
+      height: 119.200005
     isStart: 0
     events: []
     outPorts:
@@ -180,10 +180,10 @@ MonoBehaviour:
     dialogue: We are a-almost done with our plan.
     position:
       serializedVersion: 2
-      x: 2709
-      y: 61
-      width: 247
-      height: 120
+      x: 2708.8
+      y: 61.600002
+      width: 247.19995
+      height: 119.200005
     isStart: 0
     events: []
     outPorts:
@@ -201,9 +201,9 @@ MonoBehaviour:
     position:
       serializedVersion: 2
       x: 1440
-      y: 219
-      width: 247
-      height: 120
+      y: 219.2
+      width: 247.19995
+      height: 119.20001
     isStart: 0
     events: []
     outPorts:
@@ -220,10 +220,10 @@ MonoBehaviour:
     dialogue: You hear a muffled female voice from the speakers
     position:
       serializedVersion: 2
-      x: 1734
-      y: 219
-      width: 288
-      height: 120
+      x: 1734.4
+      y: 219.2
+      width: 288.79993
+      height: 119.20001
     isStart: 0
     events: []
     outPorts:
@@ -237,62 +237,22 @@ MonoBehaviour:
     <ExpressionId>k__BackingField: -1
   - presetName: 
     guid: 3df6ce51-d7e7-4b4c-96ef-56057719553a
-    dialogue: '........ umpf
+    dialogue: '........ *umpf* Agh! Ouch...
 
 
 
 '
     position:
       serializedVersion: 2
-      x: 2079
-      y: 219
-      width: 247
-      height: 160
+      x: 2079.2
+      y: 219.2
+      width: 247.19995
+      height: 159.20001
     isStart: 0
     events: []
     outPorts:
     - choiceText: 
-      id: eefa59e6-0c1b-47c9-b432-49df7be2f2e1
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-      _hideIDs: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 0
-    <ExpressionId>k__BackingField: -1
-  - presetName: 
-    guid: eefa59e6-0c1b-47c9-b432-49df7be2f2e1
-    dialogue: .... w-what
-    position:
-      serializedVersion: 2
-      x: 2349
-      y: 259
-      width: 247
-      height: 120
-    isStart: 0
-    events: []
-    outPorts:
-    - choiceText: 
-      id: e5965d4d-84ac-4d97-aca9-b703ed2ee660
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-      _hideIDs: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 0
-    <ExpressionId>k__BackingField: -1
-  - presetName: 
-    guid: e5965d4d-84ac-4d97-aca9-b703ed2ee660
-    dialogue: T-this was c-calling the h-hole time?
-    position:
-      serializedVersion: 2
-      x: 2621
-      y: 259
-      width: 247
-      height: 120
-    isStart: 0
-    events: []
-    outPorts:
-    - choiceText: 
-      id: 8c415d7f-54c1-4782-83ec-48c0d2cf3d0a
+      id: 49ddc10c-e11d-4cb6-81b1-8768eaa3d657
       <IsLocked>k__BackingField: 0
       <IsHidden>k__BackingField: 0
       _hideIDs: []
@@ -305,9 +265,9 @@ MonoBehaviour:
     position:
       serializedVersion: 2
       x: 1196
-      y: 553
+      y: 553.60004
       width: 220
-      height: 120
+      height: 119.19995
     isStart: 0
     events: []
     outPorts: []
@@ -319,10 +279,10 @@ MonoBehaviour:
     dialogue: 
     position:
       serializedVersion: 2
-      x: 1147
-      y: 415
+      x: 1147.2
+      y: 415.2
       width: 220
-      height: 120
+      height: 119.20001
     isStart: 0
     events: []
     outPorts: []
@@ -339,9 +299,9 @@ MonoBehaviour:
     position:
       serializedVersion: 2
       x: 1440
-      y: 351
-      width: 247
-      height: 160
+      y: 351.2
+      width: 247.19995
+      height: 159.20001
     isStart: 0
     events: []
     outPorts:
@@ -360,8 +320,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 2092
       y: 404
-      width: 247
-      height: 120
+      width: 247.19995
+      height: 119.20001
     isStart: 0
     events: []
     outPorts:
@@ -379,10 +339,10 @@ MonoBehaviour:
       miss you.
     position:
       serializedVersion: 2
-      x: 2401
+      x: 2400.8
       y: 404
-      width: 405
-      height: 120
+      width: 406.3999
+      height: 119.20001
     isStart: 0
     events: []
     outPorts:
@@ -395,34 +355,14 @@ MonoBehaviour:
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   - presetName: 
-    guid: 8c415d7f-54c1-4782-83ec-48c0d2cf3d0a
-    dialogue: Fu- *click*
-    position:
-      serializedVersion: 2
-      x: 3004
-      y: 271
-      width: 247
-      height: 120
-    isStart: 0
-    events: []
-    outPorts:
-    - choiceText: 
-      id: c1ecbad9-eb4f-40cd-97c8-fb76a70bf3d7
-      <IsLocked>k__BackingField: 0
-      <IsHidden>k__BackingField: 0
-      _hideIDs: []
-    <CustomFunctions>k__BackingField: []
-    <PresetName>k__BackingField: 0
-    <ExpressionId>k__BackingField: -1
-  - presetName: 
     guid: 071db154-9794-4ff4-93b7-e6a116427c9c
     dialogue: Call me when you can, ok? Love you * click*
     position:
       serializedVersion: 2
       x: 2916
-      y: 418
-      width: 252
-      height: 120
+      y: 418.40002
+      width: 252.80005
+      height: 119.20001
     isStart: 0
     events: []
     outPorts:
@@ -439,10 +379,10 @@ MonoBehaviour:
     dialogue: You hear a low quality high pitch female voice from the speakers
     position:
       serializedVersion: 2
-      x: 1703
-      y: 391
-      width: 359
-      height: 120
+      x: 1703.2
+      y: 391.2
+      width: 360
+      height: 119.20001
     isStart: 0
     events: []
     outPorts:
@@ -460,10 +400,10 @@ MonoBehaviour:
     dialogue: 'You hear a low quality female voice from the speakers '
     position:
       serializedVersion: 2
-      x: 1734
-      y: 61
-      width: 307
-      height: 120
+      x: 1734.4
+      y: 61.600002
+      width: 308
+      height: 119.200005
     isStart: 0
     events: []
     outPorts:
@@ -482,9 +422,9 @@ MonoBehaviour:
     position:
       serializedVersion: 2
       x: 3004
-      y: 61
-      width: 257
-      height: 120
+      y: 61.600002
+      width: 258.3999
+      height: 119.200005
     isStart: 0
     events: []
     outPorts:
@@ -495,6 +435,86 @@ MonoBehaviour:
       _hideIDs: []
     <CustomFunctions>k__BackingField:
     - rid: 7092180293116493826
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 8c415d7f-54c1-4782-83ec-48c0d2cf3d0a
+    dialogue: Fu- *click*
+    position:
+      serializedVersion: 2
+      x: 3244
+      y: 243.99998
+      width: 247.19995
+      height: 119.20001
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: c1ecbad9-eb4f-40cd-97c8-fb76a70bf3d7
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: eefa59e6-0c1b-47c9-b432-49df7be2f2e1
+    dialogue: .... w-what
+    position:
+      serializedVersion: 2
+      x: 2588.8
+      y: 232
+      width: 247.19995
+      height: 119.2
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: e5965d4d-84ac-4d97-aca9-b703ed2ee660
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: e5965d4d-84ac-4d97-aca9-b703ed2ee660
+    dialogue: T-this was c-calling the w-whole time?
+    position:
+      serializedVersion: 2
+      x: 2860.8
+      y: 232
+      width: 247.19995
+      height: 119.2
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: 8c415d7f-54c1-4782-83ec-48c0d2cf3d0a
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
+    <PresetName>k__BackingField: 0
+    <ExpressionId>k__BackingField: -1
+  - presetName: 
+    guid: 49ddc10c-e11d-4cb6-81b1-8768eaa3d657
+    dialogue: You feel like you heard someone tripping over themselves
+    position:
+      serializedVersion: 2
+      x: 2238.4
+      y: 232
+      width: 324.80005
+      height: 119.2
+    isStart: 0
+    events: []
+    outPorts:
+    - choiceText: 
+      id: eefa59e6-0c1b-47c9-b432-49df7be2f2e1
+      <IsLocked>k__BackingField: 0
+      <IsHidden>k__BackingField: 0
+      _hideIDs: []
+    <CustomFunctions>k__BackingField: []
     <PresetName>k__BackingField: 0
     <ExpressionId>k__BackingField: -1
   references:
