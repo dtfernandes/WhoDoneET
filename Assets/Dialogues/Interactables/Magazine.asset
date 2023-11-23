@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Magazine
   m_EditorClassIdentifier: 
   _dialogues:
-  - {fileID: 11400000, guid: 7be46da00c40f104989559f8cddf789a, type: 2}
+  - {fileID: 11400000, guid: c093d9e27a6e9aa7c831f956b15d5e56, type: 2}
   _defaultDialogue: 0

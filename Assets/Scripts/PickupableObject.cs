@@ -2,10 +2,6 @@ using DialogueSystem;
 using System;
 using UnityEngine;
 
-#if !UNITY_EDITOR_LINUX
-using FMODUnity;
-using FMOD.Studio;
-#endif
 
 [RequireComponent(typeof(DialogueController))]
 public class PickupableObject : Interactable
@@ -13,10 +9,6 @@ public class PickupableObject : Interactable
 
     private DialogueController _controller;
 
-#if !UNITY_EDITOR_LINUX
-    [SerializeField]
-    private EventReference _pickUpSound;
-#endif
 
     private Vector3 _originalPos;
     private Vector3 _originalRot;
@@ -77,11 +69,7 @@ public class PickupableObject : Interactable
     }
 
     public void Grab(Transform inspectPosition)
-    {
-        #if !UNITY_EDITOR_LINUX
-        RuntimeManager.PlayOneShot(_pickUpSound);
-        #endif
-        
+    {//
         onGrab?.Invoke();
         _isGrabbed = true;
         _inspectPosition = inspectPosition;

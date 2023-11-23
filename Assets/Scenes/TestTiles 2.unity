@@ -9122,6 +9122,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Office Lady
       objectReference: {fileID: 0}
+    - target: {fileID: 2084348770867906974, guid: 3c8b3d6e902a5e44ab6b56616eec1c83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4390889130692061724, guid: 3c8b3d6e902a5e44ab6b56616eec1c83, type: 3}
       propertyPath: m_Sprite
       value: 
